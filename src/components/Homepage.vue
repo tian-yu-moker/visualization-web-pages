@@ -89,11 +89,11 @@ export default {
         }
       });
       this.overview.on('click', this.overviewClick);
+      this.overview.getZr().on('click', this.returnTreemap)
       // option && overview.setOption(option);
     },
-    overviewClick(params)
+    returnTreemap(params)
     {
-      // alert(this.carsYearlyData.length);
       if(this.treeOrLine == 1)
       {
         this.curBrandOption = this.treeBrandOption;
@@ -107,7 +107,11 @@ export default {
           ]
         })
       }
-      else
+    },
+    overviewClick(params)
+    {
+      // alert(this.carsYearlyData.length);
+      if(this.treeOrLine == 0)
       {
         this.treeOrLine = 1;
         let brand = params.name;
