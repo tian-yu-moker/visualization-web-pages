@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="echarts.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<p>111</p>
+<div id="hover" style="width: 600px;height:400px;"></div>
+<script>
+    let chartDom = document.getElementById('main');
+    let myChart = echarts.init(chartDom);
+    let option;
+    let data;
+    let hoverData;
+
+    myChart.showLoading();
+    let carDataAll;
+    let url = "http://localhost:8090/cars/getAllCars"
+    $.get(url, function (diskData)
+    {
+        data = diskData;
+        myChart.hideLoading();
+        const formatUtil = echarts.format;
+        // function getLevelOption()
+        // {
+        //     return [
+        //         {
+        //             itemStyle: {
+        //                 borderWidth: 0,
+        //                 gapWidth: 5
+        //             }
+        //         },
+        //         {
+        //             itemStyle: {
+        //                 gapWidth: 1
+        //             }
+        //         },
+        //         {
+        //             colorSaturation: [0.35, 0.5],
+        //             itemStyle: {
+        //                 gapWidth: 1,
+        //                 borderColorSaturation: 0.6
+        //             }
+        //         }
+        //     ];
+        // }
+        myChart.setOption(
+            (option = {
+                title: {
+                    text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
+                    left: 'center'
+                },
+                selectedMode:false,
+                tooltip: {
+                    formatter: function (info)
+                    {
+                        let value = info.value;
+                        let name = info.name;
+                        return [
+                            '<div class="tooltip-title" id="tooltips">' +
+                            formatUtil.encodeHTML(name) +
+                            '</div>',
+                            'Total Accident Count: ' + value
+                        ].join('');
+                    }
+                },
+                series: [
+                    {
+                        name: 'Vehicle Brand',
+                        type: 'treemap',
+                        visibleMin: 2000,
+                        roam:'false',
+                        leafDepth: 1,
+                        label: {
+                            show: true,
+                            formatter: '{b}'
+                        },
+                        itemStyle: {
+                            borderColor: '#fff'
+                        },
+                        data: data[0]
+                    }
+                ]
+            })
+        );
+    });
+    option && myChart.setOption(option);
+    console.log(data)
+</script>
+
+<script>
+    let dom2 = document.getElementById('hover');
+    let chart = echarts.init(dom2);
+    let optionNext;
+    let dataNext;
+    let hoveredLabel;
+    let titleSecond;
+    myChart.on('click',function(params)
+    {
+        hoveredLabel = params.name;
+        titleSecond = hoveredLabel;
+        let newUrl = "http://localhost:8090/cars/getAllCars"
+        $.get(newUrl, function (diskData)
+        {
+            dataNext = diskData[0];
+            console.log(dataNext);
+            chart.hideLoading();
+            const formatUtil = echarts.format;
+            chart.setOption(
+                (optionNext = {
+                    title: {
+                        text: titleSecond + ' in 10 years)',
+                        left: 'center'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: [820, 932, 901, 934, 1290, 1330, 1320],
+                            type: 'line',
+                            smooth: true
+                        }
+                    ]
+                })
+            );
+        });
+        optionNext && chart.setOption(optionNext);
+
+
+    });
+
+
+    console.log(hoverData)
+    chart.showLoading();
+    let carDataAll2;
+</script>
+
+</body>
+</html>
