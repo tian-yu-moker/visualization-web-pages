@@ -9,6 +9,8 @@ import ManageAccount from '../components/ManageAccount'
 import Administer from '../components/Administer'
 import InvoiceRecord from '../components/InvoiceRecord'
 import FlowRecord from '../components/FlowRecord'
+import Homepage from '../components/Homepage'
+import tests from '../components/tests'
 
 Vue.use(Router)
 
@@ -17,9 +19,9 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: Login,
+      component: Homepage,
       meta:{
-        title: '登录',
+        title: 'Homepage',
         keepAlive: false
       }
     },
