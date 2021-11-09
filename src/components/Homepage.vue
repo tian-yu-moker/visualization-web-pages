@@ -9,6 +9,8 @@ import * as echarts from 'echarts';
 Vue.prototype.$echarts = echarts
 import axios from 'axios'
 import Vue from 'vue'
+import { UniversalTransition } from 'echarts/features';
+echarts.use([UniversalTransition]);
 
 
 export default {
@@ -30,45 +32,9 @@ export default {
 
       this.overview.hideLoading();
       const formatUtil = echarts.format;
-      this.treeBrandOption = {
-        title: {
-          text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
-          left: 'center'
-        },
-        tooltip: {
-          formatter: function (info)
-          {
-            let value = info.value;
-            let name = info.name;
-            return [
-              '<div class="tooltip-title" id="tooltips">' +
-              formatUtil.encodeHTML(name) +
-              '</div>',
-              'Total Accident Count: ' + value
-            ].join('');
-          }
-        },
-        series: [
-          {
-            name: 'Vehicle Brand',
-            type: 'treemap',
-            visibleMin: 2000,
-            roam: true,
-            leafDepth: 1,
-            nodeClick: false,
-            label: {
-                show: true,
-                formatter: '{b}'
-            },
-            itemStyle: {
-              borderColor: '#fff'
-            },
-            data: []
-          }]
-      };
       this.curBrandOption = this.treeBrandOption;
       this.treeOrLine = 0;
-      this.overview.setOption(this.curBrandOption);
+      // this.overview.setOption(this.curBrandOption);
       let urlAll = "http://localhost:8090/cars/getAllCars";
       axios.get(urlAll).then(response =>
       {
@@ -79,13 +45,44 @@ export default {
           this.carsBrandOverview = response.data[0];
           this.defaultAllYearData = response.data[0];
           this.carsYearlyData = response.data[1];
-          this.overview.setOption({
+          this.treeBrandOption = {
+            title: {
+              text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
+              left: 'center'
+            },
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                return [
+                  '<div class="tooltip-title" id="tooltips">' +
+                  formatUtil.encodeHTML(name) +
+                  '</div>',
+                  'Total Accident Count: ' + value
+                ].join('');
+              }
+            },
             series: [
               {
-                data: this.carsBrandOverview
+                type: 'treemap',
+                id: 'brands',
+                animationDurationUpdate: 1000,
+                roam: false,
+                nodeClick: undefined,
+                data: this.carsBrandOverview,
+                universalTransition: true,
+                visibleMin: 2000,
+                label: {
+                  show: true
+                },
+                breadcrumb: {
+                  show: false
+                }
               }
             ]
-          })
+          };
+          this.overview.setOption(this.treeBrandOption)
         }
       });
       this.overview.on('click', this.overviewClick);
@@ -142,11 +139,35 @@ export default {
             {
               data: lineData,
               type: 'line',
-              smooth: true
+              smooth: true,
+              id: 'brands',
+              universalTransition: true,
+              animationDurationUpdate: 1000
             }
           ]
         };
-        this.curBrandOption = lineOption;
+        let one = {
+          series: [
+            {
+              type: 'sunburst',
+              id: 'brands',
+              radius: ['20%', '90%'],
+              animationDurationUpdate: 1000,
+              nodeClick: undefined,
+              data: this.carsBrandOverview,
+              universalTransition: true,
+              visibleMin: 2000,
+              itemStyle: {
+                borderWidth: 1,
+                borderColor: 'rgba(255,255,255,.5)'
+              },
+              label: {
+                show: false
+              }
+            }
+          ]
+          };
+        this.curBrandOption = one;
         this.overview.setOption(this.curBrandOption);
       }
     }

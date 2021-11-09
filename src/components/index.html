@@ -19,117 +19,59 @@
     <div id="main" class="chart"></div>
 </div>
 <script type="text/javascript">
+  const dataset = {
+    dimensions: ['name', 'score'],
+    source: [
+      ['Hannah Krause', 314],
+      ['Zhao Qian', 351],
+      ['Jasmin Krause ', 287],
+      ['Li Lei', 219],
+      ['Karle Neumann', 253],
+      ['Mia Neumann', 165],
+      ['Böhm Fuchs', 318],
+      ['Han Meimei', 366]
+    ]
+  };
+  const pieOption = {
+    dataset: [dataset],
+    series: [
+      {
+        type: 'pie',
+        // 通过 id 关联需要过渡动画的系列
+        id: 'Score',
+        radius: [0, '50%'],
+        universalTransition: true,
+        animationDurationUpdate: 1000
+      }
+    ]
+  };
+  const barOption = {
+    dataset: [dataset],
+    xAxis: {
+      type: 'category'
+    },
+    yAxis: {},
+    series: [
+      {
+        type: 'bar',
+        // 通过 id 关联需要过渡动画的系列
+        id: 'Score',
+        // 每个数据都是用不同的颜色
+        colorBy: 'data',
+        encode: { x: 'name', y: 'score' },
+        universalTransition: true,
+        animationDurationUpdate: 1000
+      }
+    ]
+  };
 
-    init();
-    function init() {
+  option = barOption;
 
-        //每行最多显示4个图表，并自动计算高度
-        var num = getRound(3, 50);
-        var rowNumber = Math.ceil(Math.sqrt(num));
-        if (rowNumber > 4) {
-            rowNumber = 4;
-        }
-        //根据列数计算行数
-        var colummNumber = Math.ceil(num / rowNumber);
-
-        //上下图表间隔
-        var topNum = 30;
-        //固定单个图表高度
-        var heightNum = 250;
-        //计算所需要的高度
-        document.getElementById("main").style.height = colummNumber * (heightNum + topNum) + "px";
-
-
-
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById("main"));
-        var grids = [];
-        var xAxis = [];
-        var yAxis = [];
-        var series = [];
-        var titles = [];
-
-        var xdata = ["第1次", "第2次", "第3次", "第4次", "第5次", "第6次"];
-
-        //通过配置xAxi和yAxis的gridIndex  series的xAxisIndex和yAxisIndex 来配套格子
-        for (var i = 0; i < num; i++) {
-            xAxis.push({
-                type: "category",
-                data: xdata,
-                gridIndex: i
-            });
-            yAxis.push({
-                type: "value",
-                gridIndex: i,
-                inverse: true,
-                splitLine: {
-                    show: false
-                }
-            });
-            series.push({
-                name: "名次",
-                type: "line",
-                data: getData(6),
-                xAxisIndex: i,
-                yAxisIndex: i,
-
-                label: {
-                    show: true
-                }
-            });
-
-            grids.push({
-                show: true
-            });
-
-            titles.push({
-                textAlign: "center",
-                text: "mark" + i,
-                textStyle: {
-                    fontSize: 16,
-                    fontWeight: "normal"
-                }
-            });
-        }
-
-        //通过计算配置各个grid  title的位置
-        grids.forEach((grid, idx) => {
-            grid.left = ((idx % rowNumber) / rowNumber) * 100 + 3 + "%";
-            grid.top = (Math.floor(idx / rowNumber) * (heightNum + topNum)) + top;
-
-            grid.width = (1 / rowNumber) * 100 - 6 + "%";
-            grid.height = heightNum - 6;
-
-            titles[idx].left = parseFloat(grid.left) + parseFloat(grid.width) / 2 + "%";
-            titles[idx].top = parseFloat(grid.top);
-        });
-
-        // 指定图表的配置项和数据
-        var option = {
-            title: titles,
-            xAxis: xAxis,
-            yAxis: yAxis,
-            series: series,
-            grid: grids
-        };
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    }
-
-
-    function getRound(min, max) {
-        return parseInt(Math.random() * (max - min + 1) + min);
-    }
-
-    //获取min-max范围内的随机整数
-    function getData(num) {
-        var list = [];
-        for (var i = 0; i < num; i++) {
-            list.push(getRound(1, 100));
-        }
-        return list;
-    }
+  setInterval(() => {
+    option = option === pieOption ? barOption : pieOption;
+    // 使用 notMerge 的形式可以移除坐标轴
+    myChart.setOption(option, true);
+  }, 2000);
 </script>
 </body>
 

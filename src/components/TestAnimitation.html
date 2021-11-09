@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="echarts.js"></script>
+  <script src="jquery-3.6.0.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<script>
+
+  var ROOT_PATH =
+    'http://localhost:8090/cars/getAllCars';
+
+  var chartDom = document.getElementById('main');
+  var myChart = echarts.init(chartDom);
+  var option;
+
+  $.getJSON(
+    ROOT_PATH,
+    function (data) {
+      const treemapOption = {
+        series: [
+          {
+            type: 'treemap',
+            id: 'echarts-package-size',
+            animationDurationUpdate: 1000,
+            roam: false,
+            nodeClick: undefined,
+            data: data[0],
+            universalTransition: true,
+            visibleMin: 2000,
+            label: {
+              show: true
+            },
+            breadcrumb: {
+              show: false
+            }
+          }
+        ]
+      };
+      const sunburstOption = {
+        series: [
+          {
+            type: 'sunburst',
+            id: 'echarts-package-size',
+            radius: ['20%', '90%'],
+            animationDurationUpdate: 1000,
+            nodeClick: undefined,
+            data: data[0],
+            universalTransition: true,
+            visibleMin: 2000,
+            itemStyle: {
+              borderWidth: 1,
+              borderColor: 'rgba(255,255,255,.5)'
+            },
+            label: {
+              show: true
+            }
+          }
+        ]
+      };
+      let currentOption = treemapOption;
+      myChart.setOption(currentOption);
+      setInterval(function () {
+        currentOption =
+          currentOption === treemapOption ? sunburstOption : treemapOption;
+        myChart.setOption(currentOption);
+      }, 1000);
+    }
+  );
+
+  option && myChart.setOption(option);
+</script>
+</body>
+</html>
