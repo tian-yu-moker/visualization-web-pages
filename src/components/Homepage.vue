@@ -1,5 +1,9 @@
 <template>
   <div class="homepage">
+    <el-radio-group v-model="radio" @change="treeOrSun">
+      <el-radio v-model="radio" label="Treemap" border>Treemap</el-radio>
+      <el-radio v-model="radio" label="Sunburst" border>Sunburst</el-radio>
+    </el-radio-group>
     <div id="main" style="width: 600px;height:400px;"></div>
   </div>
 </template>
@@ -23,7 +27,9 @@ export default {
       overview: "",
       curBrandOption: "",
       treeOrLine: 0,
-      treeBrandOption: ""
+      treeBrandOption: "",
+      sunBrandOption: "",
+      radio: 'Treemap'
     };
   },
   methods:{
@@ -82,6 +88,44 @@ export default {
               }
             ]
           };
+          this.sunBrandOption = {
+            title: {
+              text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
+              left: 'center'
+            },
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                return [
+                  '<div class="tooltip-title" id="tooltips">' +
+                  formatUtil.encodeHTML(name) +
+                  '</div>',
+                  'Total Accident Count: ' + value
+                ].join('');
+              }
+            },
+            series: [
+              {
+                type: 'sunburst',
+                id: 'brands',
+                radius: ['20%', '90%'],
+                animationDurationUpdate: 1000,
+                nodeClick: undefined,
+                data: this.carsBrandOverview,
+                universalTransition: true,
+                visibleMin: 2000,
+                itemStyle: {
+                  borderWidth: 1,
+                  borderColor: 'rgba(255,255,255,.5)'
+                },
+                label: {
+                  show: false
+                }
+              }
+            ]};
+
           this.overview.setOption(this.treeBrandOption)
         }
       });
@@ -89,12 +133,25 @@ export default {
       this.overview.getZr().on('click', this.returnTreemap)
       // option && overview.setOption(option);
     },
+    treeOrSun()
+    {
+      this.overview.clear();
+      if(this.radio == "Treemap")
+      {
+        this.overview.setOption(this.treeBrandOption);
+      }
+      else if(this.radio == "Sunburst")
+      {
+        this.overview.setOption(this.sunBrandOption);
+      }
+    },
     returnTreemap(params)
     {
       if(this.treeOrLine == 1)
       {
         this.curBrandOption = this.treeBrandOption;
         this.treeOrLine = 0;
+        this.overview.clear();
         this.overview.setOption(this.curBrandOption);
         this.overview.setOption({
           series: [
@@ -146,28 +203,7 @@ export default {
             }
           ]
         };
-        let one = {
-          series: [
-            {
-              type: 'sunburst',
-              id: 'brands',
-              radius: ['20%', '90%'],
-              animationDurationUpdate: 1000,
-              nodeClick: undefined,
-              data: this.carsBrandOverview,
-              universalTransition: true,
-              visibleMin: 2000,
-              itemStyle: {
-                borderWidth: 1,
-                borderColor: 'rgba(255,255,255,.5)'
-              },
-              label: {
-                show: false
-              }
-            }
-          ]
-          };
-        this.curBrandOption = one;
+        this.curBrandOption = lineOption;
         this.overview.setOption(this.curBrandOption);
       }
     }
