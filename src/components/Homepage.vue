@@ -1,9 +1,24 @@
 <template>
   <div class="homepage">
-    <el-radio-group v-model="radio" @change="treeOrSun">
-      <el-radio v-model="radio" label="Treemap" border>Treemap</el-radio>
-      <el-radio v-model="radio" label="Sunburst" border>Sunburst</el-radio>
-    </el-radio-group>
+    <el-row :gutter="20">
+      <el-col :span="3">
+        <el-select v-model="value" placeholder="Select a year">
+          <el-option
+            v-for="item in yearList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </el-col>
+      <el-col :span="6">
+        <el-radio-group v-model="radio" @change="treeOrSun">
+          <el-radio v-model="radio" label="Treemap" border>Treemap</el-radio>
+          <el-radio v-model="radio" label="Sunburst" border>Sunburst</el-radio>
+        </el-radio-group>
+      </el-col>
+    </el-row>
     <div id="main" style="width: 600px;height:400px;"></div>
   </div>
 </template>
@@ -29,7 +44,53 @@ export default {
       treeOrLine: 0,
       treeBrandOption: "",
       sunBrandOption: "",
-      radio: 'Treemap'
+      radio: 'Treemap',
+      yearList: [
+        {
+          value: "2005",
+          label: "2005"
+        },
+        {
+          value: "2006",
+          label: "2006"
+        },
+        {
+          value: "2007",
+          label: "2007"
+        },
+        {
+          value: "2008",
+          label: "2008"
+        },
+        {
+          value: "2009",
+          label: "2009"
+        },
+        {
+          value: "2010",
+          label: "2010"
+        },
+        {
+          value: "2011",
+          label: "2011"
+        },
+        {
+          value: "2012",
+          label: "2012"
+        },
+        {
+          value: "2013",
+          label: "2013"
+        },
+        {
+          value: "2014",
+          label: "2014"
+        },
+        {
+          value: "2015",
+          label: "2015"
+        }
+      ]
     };
   },
   methods:{
