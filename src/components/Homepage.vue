@@ -2,13 +2,12 @@
   <div class="homepage">
     <el-row :gutter="20">
       <el-col :span="3">
-        <el-select v-model="value" placeholder="Select a year">
+        <el-select v-model="selectedYear" placeholder="Select a year" @change="selectionYearChange">
           <el-option
             v-for="item in yearList"
             :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
+            :label="item.value"
+            :value="item.value">
           </el-option>
         </el-select>
       </el-col>
@@ -19,7 +18,7 @@
         </el-radio-group>
       </el-col>
     </el-row>
-    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main" style="width: 800px;height:400px;"></div>
   </div>
 </template>
 
@@ -44,59 +43,49 @@ export default {
       treeOrLine: 0,
       treeBrandOption: "",
       sunBrandOption: "",
+      barBrandOption: "",
       radio: 'Treemap',
       yearList: [
         {
-          value: "2005",
-          label: "2005"
+          value: 2005
         },
         {
-          value: "2006",
-          label: "2006"
+          value: 2006
         },
         {
-          value: "2007",
-          label: "2007"
+          value: 2007
         },
         {
-          value: "2008",
-          label: "2008"
+          value: 2008
         },
         {
-          value: "2009",
-          label: "2009"
+          value: 2009
         },
         {
-          value: "2010",
-          label: "2010"
+          value: 2010
         },
         {
-          value: "2011",
-          label: "2011"
+          value: 2011
         },
         {
-          value: "2012",
-          label: "2012"
+          value: 2012
         },
         {
-          value: "2013",
-          label: "2013"
+          value: 2013
         },
         {
-          value: "2014",
-          label: "2014"
+          value: 2014
         },
         {
-          value: "2015",
-          label: "2015"
+          value: 2015
         }
-      ]
+      ],
+      selectedYear: "",
     };
   },
   methods:{
     drawVehicleTreemap() {
       this.overview = this.$echarts.init(document.getElementById("main"));
-
       this.overview.hideLoading();
       const formatUtil = echarts.format;
       this.curBrandOption = this.treeBrandOption;
@@ -264,9 +253,98 @@ export default {
             }
           ]
         };
+        this.overview.clear();
         this.curBrandOption = lineOption;
         this.overview.setOption(this.curBrandOption);
       }
+    },
+    selectionYearChange(val)
+    {
+      let selected = [];
+      let curVal = 0;
+      for(let i = 0; i < this.carsYearlyData.length; i++)
+      {
+
+        if(parseInt(this.selectedYear) == parseInt(this.carsYearlyData[i].year))
+        {
+          let one = {
+            "label": this.carsYearlyData[i].name,
+            "value": this.carsYearlyData[i].value
+          }
+          selected.push(one);
+        }
+      }
+      selected.sort(function (a,b)
+      {
+        return b.value - a.value;
+      });
+      let labels = [];
+      let values = [];
+      let count = 0;
+      let others = 0
+      for(let i = 0; i < selected.length; i++)
+      {
+        count += 1;
+        if(count <= 10)
+        {
+          labels.push(selected[i].label.toString());
+          values.push(selected[i].value);
+        }
+      }
+      const formatUtil = echarts.format;
+      this.barBrandOption = {
+        title: {
+          text: 'The top 10 crash car brand in ' + this.selectedYear,
+          left: 'center'
+        },
+        xAxis: {
+          type: 'category',
+          data: labels
+        },
+        yAxis: {
+          type: 'value'
+        },
+        tooltip: {
+          formatter: function (info)
+          {
+            let value = info.value;
+            let name = info.name;
+            return [
+              '<div class="tooltip-title" id="tooltips">' +
+               formatUtil.encodeHTML('Brand: ' + name) +
+              '</div>',
+              'Accident Count in the year: ' + value
+            ].join('');
+          }
+        },
+        series: [
+          {
+            data: values,
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            },
+            itemStyle: {
+              normal:{
+                color: function(param)
+                {
+                  let colorArray = [
+                    '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de',
+                    '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
+                    '#9BCA63'
+                  ];
+                  return colorArray[param.dataIndex];
+                }
+              }
+            }
+          }
+        ]
+      }
+      this.overview.clear();
+      this.curBrandOption = this.barBrandOption;
+      this.overview.setOption(this.curBrandOption);
+      console.log(values);
     }
   },
   created () {
