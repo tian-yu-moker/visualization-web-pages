@@ -1,7 +1,7 @@
 <template>
 <div class="GaoShiweiTest">
 
-<div id="main" style="width: 600px;height:600px;"></div>
+<div id="main" style="width: 800px;height:800px;"></div>
 </div>
 </template>
 
@@ -79,6 +79,8 @@ export default {
           data: days,
           axisLabel:{
               fontSize:12,
+            fontFamily:'Microsoft YaHei',
+            fontWeight:'bold'
           },
           splitArea: {
             show: true,
@@ -90,6 +92,8 @@ export default {
           data: hours,
           axisLabel:{
             fontSize:12,
+            fontFamily:'Microsoft YaHei',
+            fontWeight:'bold'
           },
           splitArea: {
             show: true
@@ -103,7 +107,9 @@ export default {
           left: 'center',
           bottom: '27%',
           textStyle:{
-            fontSize:12
+            fontSize:12,
+            fontFamily:'Microsoft YaHei',
+            fontWeight:'bold'
           }
         },
         series: [
@@ -113,7 +119,9 @@ export default {
             data: data,
             label: {
               show: true,
-              fontSize:12
+              fontSize:12,
+              fontFamily:'Microsoft YaHei',
+              fontWeight:'bold'
             },
             emphasis: {
               itemStyle: {

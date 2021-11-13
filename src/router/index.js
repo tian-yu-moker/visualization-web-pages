@@ -20,7 +20,7 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: Homepage,
+      component: gaoShiweiTest,
       meta:{
         title: 'Homepage',
         keepAlive: false
