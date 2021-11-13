@@ -94,7 +94,7 @@ export default {
       let urlAll = "http://localhost:8090/cars/getAllCars";
       axios.get(urlAll).then(response =>
       {
-        //If query is success
+        // If query is success
         if (response.status == 200)
         {
           console.log(response.data[0])
