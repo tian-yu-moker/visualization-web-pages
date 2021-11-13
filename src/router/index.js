@@ -10,9 +10,9 @@ import Administer from '../components/Administer'
 import InvoiceRecord from '../components/InvoiceRecord'
 import FlowRecord from '../components/FlowRecord'
 import Homepage from '../components/Homepage'
-import gaoShiweiTest from '../components/gaoShiweiTest'
-import tests from '../components/tests'
+import Calendar from '../components/Calendar'
 
+import tests from '../components/tests'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +22,7 @@ export default new Router({
       name: 'Root',
       component: Homepage,
       meta:{
-        title: 'Homepage',
+        title: 'Calendar',
         keepAlive: false
       }
     },

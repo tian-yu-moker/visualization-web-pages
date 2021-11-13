@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script src="echarts.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 800px;height:600px;"></div>
+<div id="html">
+
+</div>
+<script type="text/javascript">
+
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('main'));
+  var cellSize = [100, 100];//每一小格大小
+  var pieRadius = 30; //大小
+  //此处应该是从数据库默认读取当天的数据格式
+  var json = [
+    {"data":[{"name": "已完成","value": 2},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 3},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 4},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 5},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 6},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 7},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 8},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 9},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 10},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 11},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 12},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 13},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 14},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 15},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 16},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 17},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 18},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 19},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 20},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 21},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 22},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 23},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 24},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 25},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 26},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 27},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 28},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 29},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+    {"data":[{"name": "已完成","value": 30},{"name": "未完成","value": 103},{"name": "未巡查","value": 56}]},
+  ]
+  var startDate = '2017-06';
+  var endDate = '2017-07';
+  var data_name = ['已完成', '未完成', '未巡查'];//该出应该是从数据库中读取
+  var options = calendar(cellSize,pieRadius,startDate,endDate,json,data_name);
+  myChart.setOption(options);
+  //添加点击事件
+  myChart.on('click', function (params) {
+    // 控制台打印数据的名称
+
+    var  year_month = params.event.event.path[8].startDate;
+    var day = params.seriesIndex;
+    if(day<10){
+      day = "0"+day;
+    }
+    var year_month_day = year_month+"-"+day;//获取当前点击的年月日
+    var status = params.name;//获取当前点击状态名称
+    get_this_click_data({"datetime":year_month_day,"status":status});
+  });
+  //cellSize-----日历整体宽高
+  //pieRadius----日历饼图大小
+  //startDate----开始月份
+  //endDate------结束月份
+  //data---------数据集
+  //data_name----数据描述名称
+  function calendar(cellSize,pieRadius,startDate,endDate,json,data_name)
+  {
+    var data_arr = [];
+
+    for(var i = 0; i < json.length; i++) {
+      data_arr.push(json[i].data);
+
+    }
+    console.log(data_arr)
+
+    function getVirtulData() {
+      var date = +echarts.number.parseDate(startDate);
+      var end = +echarts.number.parseDate(endDate);
+      var dayTime = 3600 * 24 * 1000;
+      var data = [];
+      for(var time = date; time < end; time += dayTime) {
+        data.push([
+          echarts.format.formatTime('yyyy-MM-dd', time),
+          Math.floor(Math.random() * 10000)
+        ]);
+      }
+      return data;
+    }
+    console.log(data_arr[1])
+    function getPieSeries(scatterData, chart) {
+      return echarts.util.map(scatterData, function(item, index)
+      {
+
+        var center = chart.convertToPixel('calendar', item);
+        return {
+          id: index + 'pie',
+          type: 'pie',
+          center: center,
+          label: {
+            normal: {
+              formatter: '{c}',
+              position: 'inside'
+            }
+          },
+          radius: pieRadius,
+          data: data_arr[index]
+        };
+      });
+    }
+
+
+
+    // 使用刚指定的配置项和数据显示图表。
+
+    function getPieSeriesUpdate(scatterData, chart) {
+      return echarts.util.map(scatterData, function(item, index) {
+        var center = chart.convertToPixel('calendar', item);
+        return {
+          id: index + 'pie',
+          center: center
+        };
+      });
+    }
+
+    var scatterData = getVirtulData();
+
+    var option = {
+      tooltip: {},
+      legend: {
+        data: data_name,
+        bottom: 20
+      },
+      calendar: {
+        top: 'middle',
+        left: 'center',
+        orient: 'vertical',
+        cellSize: cellSize,
+        yearLabel: {
+          show: false,
+          textStyle: {
+            fontSize: 30
+          }
+        },
+        dayLabel: {
+          margin: 20,
+          firstDay: 1,
+          nameMap: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        },
+        monthLabel: {
+          show: false
+        },
+        range: [startDate]
+      },
+      series: [{
+        id: 'label',
+        type: 'scatter',
+        coordinateSystem: 'calendar',
+        symbolSize: 1,
+        label: {
+          normal: {
+            show: true,
+            formatter: function(params) {
+              return echarts.format.formatTime('dd', params.value[0]);
+            },
+            offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+            textStyle: {
+              color: '#000',
+              fontSize: 14
+            }
+          }
+        },
+        data: scatterData
+      }]
+    };
+
+    if(!myChart.inNode) {
+      var pieInitialized;
+      setTimeout(function() {
+        pieInitialized = true;
+        myChart.setOption({
+          series: getPieSeries(scatterData, myChart)
+        });
+      }, 10);
+
+      myChart.onresize = function() {
+        if(pieInitialized) {
+          myChart.setOption({
+            series: getPieSeriesUpdate(scatterData, myChart)
+          });
+        }
+      };
+    }
+    return option;
+  }
+  //点击事件方法
+
+  //根据点击事件获取相应数据
+  function get_this_click_data(data){
+    $("#html").html('<p>传入后台数据格式：{"datetime":'+data.datetime+',"status":'+data.status+'}<p>向后台请求当前点击的数据get_this_click_data</p>');
+//              $.getJSON("__URL__/get_this_click_data",data,function(res){
+//                  if(res){
+//                      console.log("这是处理返回数据的逻辑");
+//                  }
+//              })
+  }
+</script>
+</body>
+
+</html>
