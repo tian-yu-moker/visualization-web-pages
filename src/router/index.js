@@ -11,8 +11,10 @@ import InvoiceRecord from '../components/InvoiceRecord'
 import FlowRecord from '../components/FlowRecord'
 import Homepage from '../components/Homepage'
 import Calendar from '../components/Calendar'
+import Maps from '../components/Maps'
 
 import tests from '../components/tests'
+import Dashboard from '../components/Dashboard'
 Vue.use(Router)
 
 export default new Router({
@@ -20,7 +22,7 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: Homepage,
+      component: Maps,
       meta:{
         title: 'Calendar',
         keepAlive: false

@@ -1,25 +1,33 @@
 <template>
   <div class="calendar">
+
+    <p></p>
     <el-row :gutter="20">
-      <el-col :span="5">
-        <el-date-picker v-model="curMon" type="month"
-                        placeholder="Select a month" size="medium"
-                        @change="monChange" value-format="yyyy-MM">
-        </el-date-picker>
+      <el-col :span="12">
+        <el-row :gutter="20">
+          <el-col :span="8">
+            <el-date-picker v-model="curMon" type="month"
+                            placeholder="Select a month" size="medium"
+                            @change="monChange" value-format="yyyy-MM">
+            </el-date-picker>
+          </el-col>
+          <el-col :span="8">
+            <el-select v-model="selectedMode" placeholder="Select a mode" size="medium" @change="modeChange">
+              <el-option
+                v-for="item in allModes"
+                :key="item.value"
+                :label="item.value"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-col>
+        </el-row>
+        <div id="calendarAll" style="width: 800px;height:600px;"></div>
       </el-col>
-      <el-col :span="5">
-        <el-select v-model="selectedMode" placeholder="Select a mode" @change="modeChange">
-          <el-option
-            v-for="item in allModes"
-            :key="item.value"
-            :label="item.value"
-            :value="item.value">
-          </el-option>
-        </el-select>
+      <el-col :span="12">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       </el-col>
     </el-row>
-    <p></p>
-    <div id="calendarAll" style="width: 800px;height:600px;"></div>
   </div>
 </template>
 <script>
