@@ -1,7 +1,58 @@
 <template>
-  <div>
-    <div style="width: 100%;height:50px;background-color:#3333FF">标题</div>
-    <div style="height:200px;background-color:#b2e2fa">图片</div>
+
+  <div style="
+overflow-y:hidden;">
+    <div style="width: 100%">
+
+      <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
+        <el-tab-pane label="UK Traffic Visualization" name="first">
+          <template #label>
+            <span>
+              <el-image
+                style="width: 160px; height: 40px"
+                :src="require('../assets/VisualizationImages/Logo.png')"
+              ></el-image>
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="用户管理" name="first"></el-tab-pane>
+        <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+        <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+      </el-tabs>
+
+    </div>
+
+    <div id="headerImage" style="height:750px;">
+      <br><br>
+      <br><br>
+      <br><br>
+      <h1 style="font-size: 50px; color: sandybrown">VISUALIZATION OF UK</h1>
+      <br>
+      <h1 style="font-size: 50px; color: sandybrown">TRAFFIC ACCIDENTS</h1>
+      <br>
+      <h2 style="font-size: 35px; color: sandybrown"><a href="https://echarts.apache.org/en/" style="font-size: 35px; color: sandybrown">Build with Apache ECharts.js v5.2</a></h2>
+      <div style="height:30px"></div>
+      <el-row :gutter="15">
+        <el-col :span="2">
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </el-col>
+        <el-col :span="20">
+          <el-row :gutter="12">
+            <el-col :span="8">
+              <el-card shadow="hover">这里放项目介绍</el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card shadow="hover">这里放项目介绍</el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card shadow="hover">这里放项目介绍</el-card>
+            </el-col>
+          </el-row>
+        </el-col>
+        <el-col :span="2"><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></el-col>
+      </el-row>
+    </div>
     <div style="height:30px;background-color:#c2c2c2">空白</div>
     <h1>Build with Vue.js 3.0</h1>
     <div style="height:30px;background-color:#c2c2c2">空白</div>
@@ -115,4 +166,13 @@ export default {
   margin:0px;
   border:0px;
 }
+#headerImage{
+  background: url("../assets/VisualizationImages/HeaderBackground.jpg") no-repeat;
+
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+
+}
+a{text-decoration:none}
 </style>

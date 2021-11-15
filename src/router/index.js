@@ -22,7 +22,7 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: Maps,
+      component: Dashboard,
       meta:{
         title: 'Calendar',
         keepAlive: false

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="$route.meta.keepAlive">
-      <div>
+      <!--<div>
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
@@ -39,7 +39,7 @@
           </el-menu-item>
         </el-menu>
         <router-view></router-view>
-      </div>
+      </div>-->
     </div>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
