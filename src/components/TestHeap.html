@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="echarts.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="main" style="width: 1000px;height:1000px;"></div>
+<script>
+  var chartDom = document.getElementById('main');
+  var myChart = echarts.init(chartDom);
+  var option;
+
+  option = {
+    color: ['#FFE434', '#FF917C', '#56A3F1', '#FF917C'],
+    title: {
+      text: 'Customized Radar Chart'
+    },
+    legend: {},
+    radar: [
+      {
+        indicator: [
+          {text: 'Daylight', min: 120, max: 800},
+          {text: 'Light lit', min: 90, max: 600},
+          {text: 'Light unlit', min: 90, max: 600},
+          {text: 'No light', min: 90, max: 600},
+        ],
+        center: ['25%', '50%'],
+        radius: 120,
+        startAngle: 90,
+        splitNumber: 4,
+        shape: 'circle',
+        axisName: {
+          formatter: '【{value}】',
+          color: '#428BD4'
+        },
+        splitArea: {
+          areaStyle: {
+            color: ['#77EADF', '#26C3BE', '#64AFE9', '#428BD4'],
+            shadowColor: 'rgba(0, 0, 0, 0.2)',
+            shadowBlur: 10
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(211, 253, 250, 0.8)'
+          }
+        },
+        splitLine: {
+          lineStyle: {
+            color: 'rgba(211, 253, 250, 0.8)'
+          }
+        }
+      },
+    ],
+    series: [
+      {
+        type: 'radar',
+        emphasis: {
+          lineStyle: {
+            width: 4
+          }
+        },
+        data: [
+          {
+            value: [335, 351, 340, 557],
+            name: 'Ave Casualty Number(Pre 1000)',
+          },
+          {
+            value: [138, 162, 171, 230],
+            name: 'Ave',
+            areaStyle: {
+              color: 'rgba(100, 3, 250, 0.8)'
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  option && myChart.setOption(option);
+</script>
+</body>
+</html>

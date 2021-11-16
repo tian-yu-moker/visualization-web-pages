@@ -10,9 +10,11 @@ import Administer from '../components/Administer'
 import InvoiceRecord from '../components/InvoiceRecord'
 import FlowRecord from '../components/FlowRecord'
 import Homepage from '../components/Homepage'
-import gaoShiweiTest from '../components/gaoShiweiTest'
-import tests from '../components/tests'
+import Calendar from '../components/Calendar'
+import Maps from '../components/Maps'
 
+import tests from '../components/tests'
+import Dashboard from '../components/Dashboard'
 Vue.use(Router)
 
 export default new Router({
@@ -20,9 +22,9 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: gaoShiweiTest,
+      component: Dashboard,
       meta:{
-        title: 'Homepage',
+        title: 'Calendar',
         keepAlive: false
       }
     },
