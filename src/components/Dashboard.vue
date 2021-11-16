@@ -40,13 +40,16 @@ overflow-y:hidden;">
         <el-col :span="20">
           <el-row :gutter="12">
             <el-col :span="8">
-              <el-card shadow="hover">这里放项目介绍</el-card>
+              <el-card shadow="hover">
+                <h2><i class="el-icon-s-platform"> Interaction</i></h2>
+                <p>Based on Echarts & JavaScript, users can interact with the charts as they want</p>
+              </el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover">这里放项目介绍</el-card>
+              <el-card shadow="hover"><h2><i class="el-icon-view"> Exploration</i> </h2></el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover">这里放项目介绍</el-card>
+              <el-card shadow="hover"><h2><i class="el-icon-finished"> Completion</i> </h2></el-card>
             </el-col>
           </el-row>
         </el-col>
@@ -167,7 +170,7 @@ export default {
   border:0px;
 }
 #headerImage{
-  background: url("../assets/VisualizationImages/HeaderBackground.jpg") no-repeat;
+  background: url("../assets/VisualizationImages/HeaderBackground.png") no-repeat;
 
   height: 100%;
   width: 100%;
