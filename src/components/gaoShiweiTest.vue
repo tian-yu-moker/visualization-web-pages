@@ -1,7 +1,7 @@
 <template>
 <div class="GSWTest">
 
-<div id="GSWFirstImage" style="width: 800px;height:800px;"></div>
+<div id="GSWFirstImage" style="width: 750px;height:900px;"></div>
 </div>
 </template>
 
@@ -24,13 +24,13 @@ export default {
 
 // prettier-ignore
       const GSWHours = [
-        '22:00-24:00', '20:00-22:00', '18:00-20:00', '16:00-18:00', '14:00-16:00', '12:00-14:00', '10:00-12:00',
-        '08:00-10:00', '06:00-08:00', '04:00-06:00', '02:00-04:00', '00:00-02:00'
+        '22-24 p.m.', '20-22 p.m.', '18-20 p.m.', '16-18 p.m.', '14-16 p.m.', '12-14 p.m.', '10-12 a.m.',
+        '8-10 a.m.', '6-8 a.m.', '4-6 a.m.', '2-4 a.m.', '0-2 a.m.'
       ];
 // prettier-ignore
       const GSWdays = [
-        'Monday', 'Tuesday', 'Wednesday',
-        'Thursday', 'Friday', 'Saturday', 'Sunday'
+        'Mon.', 'Tues.', 'Wed.',
+        'Thur.', 'Fri.', 'Sat.', 'Sun.'
       ];
 // prettier-ignore
       let GSWintvalue=[];

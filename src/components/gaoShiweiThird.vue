@@ -14,7 +14,6 @@ export default {
   name: 'GSWThird',
   methods:{
     GSWdrawGDPandPopulation(){
-
       let GSWThirdChart = document.getElementById('GSWThirdImage');
       let GSWThirdmyChart = echarts.init(GSWThirdChart);
       let GSWThirdOption;
