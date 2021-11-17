@@ -1,9 +1,7 @@
 <template>
 
-  <div style="
-overflow-y:hidden;">
-    <div style="width: 100%">
-
+  <div style="overflow-y:hidden;">
+    <!--<div style="width: 100%">
       <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
         <el-tab-pane label="UK Traffic Visualization" name="first">
           <template #label>
@@ -21,7 +19,7 @@ overflow-y:hidden;">
         <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
       </el-tabs>
 
-    </div>
+    </div>-->
 
     <div id="headerImage" style="height:750px;">
       <br><br>
@@ -173,8 +171,8 @@ overflow-y:hidden;">
         </el-card>
         <div style="height:10px"></div>
         <el-card>
-          <div align="left"><i class="el-icon-s-marketing"><strong> Overview of traffic accidents over 11 years</strong></i></div>
-          <div id="totalLineChartOverviewHeaderDIVXK" style="margin-top: 10px;width: 100%;height:370px;"></div>
+          <div align="left"><i class="el-icon-s-marketing" style="font-size: 25px"><strong> Overview of traffic accidents over 11 years</strong></i></div>
+          <div id="totalLineChartOverviewHeaderDIVXK" style="margin-top: 5px;width: 100%;height:370px;"></div>
         </el-card>
       </el-col>
     </el-row>
@@ -224,59 +222,73 @@ overflow-y:hidden;">
     <el-divider></el-divider>
     <div style="height: 5px"></div>
     <!--Calendar Visualization-->
-    <el-row :gutter="15">
-      <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
-      <el-col :span="12" style="height: 700px">
-        <el-card class="calendar">
-          <el-row :gutter="20">
-            <el-col :span="10" align="left">
-              <el-date-picker v-model="curMonCalendarTY" type="month"
-                              placeholder="Select a month" size="medium"
-                              @change="monChangeCalendarTY" value-format="yyyy-MM">
-              </el-date-picker>
-            </el-col>
-            <el-col :span="4">&nbsp;&nbsp;&nbsp;</el-col>
-            <el-col :span="10" align="right">
-              <el-select v-model="selectModeInCalendarsTY" placeholder="Select a mode" size="medium" @change="modeChangeCalendarTY">
-                <el-option
-                  v-for="item in allModesInCalendarTY"
-                  :key="item.value"
-                  :label="item.value"
-                  :value="item.value">
-                </el-option>
-              </el-select>
-            </el-col>
-          </el-row>
-          <div id="calendarAllTY" style="width: 800px;height: 600px; margin-top: 5px"></div>
-        </el-card>
-        <br><br><br><br><br>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="always" style="height: 680px">
-          <div style="height: 200px">
-            <el-row :gutter="3">
-              <el-col :span="8">
-                <el-image style="width: 180px; height: 180px; margin-top: 2px"
-                          :src="require('../assets/VisualizationImages/' +
-                          calendarRightDescriptionLogoUrl + '.png')">
-                </el-image>
+
+    <div class="calendars" align="left">
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="20">
+          <i class="el-icon-data-board" style="font-size: 20px; font-weight: bolder">
+            <span> Calendar Coordinate System Visualization</span>
+          </i>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="12" style="height: 700px">
+          <el-card class="calendar">
+            <el-row :gutter="10">
+              <el-col :span="10" align="left">
+                <el-date-picker v-model="curMonCalendarTY" type="month"
+                                placeholder="Select a month" size="medium"
+                                @change="monChangeCalendarTY" value-format="yyyy-MM">
+                </el-date-picker>
               </el-col>
               <el-col :span="4">&nbsp;&nbsp;&nbsp;</el-col>
-              <el-col :span="12">
-                <div id="calendarRightPanelDescriptionTY" align="left"></div>
+              <el-col :span="10" align="right">
+                <el-select v-model="selectModeInCalendarsTY" placeholder="Select a mode" size="medium" @change="modeChangeCalendarTY">
+                  <el-option
+                    v-for="item in allModesInCalendarTY"
+                    :key="item.value"
+                    :label="item.value"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
               </el-col>
             </el-row>
-          </div>
-          <el-divider></el-divider>
-          <div style="height: 480px;">
-            <div id="calendarRadar_line" style="width: 100%; height: 240px;"></div>
+            <div id="calendarAllTY" style="width: 800px;height: 600px; margin-top: 5px"></div>
+          </el-card>
+          <br><br><br><br><br>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="always" style="height: 680px">
+            <div style="height: 200px">
+              <el-row :gutter="3">
+                <el-col :span="8">
+                  <el-image style="width: 180px; height: 180px; margin-top: 2px"
+                            :src="require('../assets/VisualizationImages/' +
+                          calendarRightDescriptionLogoUrl + '.png')">
+                  </el-image>
+                </el-col>
+                <el-col :span="4">&nbsp;&nbsp;&nbsp;</el-col>
+                <el-col :span="12">
+                  <div id="calendarRightPanelDescriptionTY" align="left"></div>
+                </el-col>
+              </el-row>
+            </div>
             <el-divider></el-divider>
-            <div id="calendarRadar_bar" style="width: 100%; height: 240px;"></div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
-    </el-row>
+            <div style="height: 480px;">
+              <div id="calendarRadar_line" style="width: 100%; height: 240px;"></div>
+              <el-divider></el-divider>
+              <div id="calendarRadar_bar" style="width: 100%; height: 240px;"></div>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+      <div></div>
+    </div>
+
     <div style="height:20px;background-color:#ff8936">空白</div>
     <el-row :gutter="15">
       <el-col :span="2" style="background-color:#b2e2fa">Placeholder</el-col>
@@ -2174,12 +2186,13 @@ export default {
               formatter(params){
                 return  '<span style="display:inline-block; border-radius:20px;width:12px;height:12px;background-color:#3699F1 ">'+'</span>'+'   '+ '<span style="color:#1d5dc9; fontSize: 26;">'+ params[0].axisValue+'</span>'+'<br>'+
                   " Total Num of Accident: "+
-                  '<span style="color:red;">'+params[0].data.value+'</span>'+'<br>'+
-                  "Total Num of Casualties: "+'<span style="color:red;">'+params[0].data.num+'</span>'+'<br>'+
+                  '<span style="color:darkred;">'+params[0].data.value+'</span>'+'<br>'+
+                  "Total Num of Casualties: "+'<span style="color:darkred;">'+params[0].data.num+'</span>'+'<br>'+
                   "Three Accident Injury Level-- "+'<br>'+
-                  "Fatal: "+'<span style="color:red;">'+params[0].data.fatal+'</span>'+'<br>'+
-                  "Slight: "+'<span style="color:red;">'+params[0].data.slight+'</span>'+'<br>'+
-                  "Fatal: "+'<span style="color:red;">'+params[0].data.serious+'</span>';
+                  "Fatal: "+'<span style="color:darkred;">'+params[0].data.fatal+'</span>'+'<br>'+
+                  "Serious: "+'<span style="color:darkred;">'+params[0].data.serious+'</span><br>' +
+                  "Slight: "+'<span style="color:darkred;">'+params[0].data.slight+'</span>'+'<br>';
+
 
               }
             },
