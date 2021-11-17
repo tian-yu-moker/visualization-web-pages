@@ -7,7 +7,7 @@
   <script src="jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<div id="main" style="width: 1000px;height:1000px;"></div>
+<div id="main" style="width: 200px;height:200px;"></div>
 <script>
   var chartDom = document.getElementById('main');
   var myChart = echarts.init(chartDom);
@@ -27,8 +27,8 @@
           {text: 'Light unlit', min: 90, max: 600},
           {text: 'No light', min: 90, max: 600},
         ],
-        center: ['25%', '50%'],
-        radius: 120,
+        center: ['50%', '50%'],
+        radius: 50,
         startAngle: 90,
         splitNumber: 4,
         shape: 'circle',

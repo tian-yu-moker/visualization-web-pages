@@ -10,20 +10,21 @@ import Administer from '../components/Administer'
 import InvoiceRecord from '../components/InvoiceRecord'
 import FlowRecord from '../components/FlowRecord'
 import Homepage from '../components/Homepage'
-import gaoShiweiTest from '../components/gaoShiweiTest'
-import gaoShiweiThird from '../components/gaoShiweiThird'
-import tests from '../components/tests'
+import Calendar from '../components/Calendar'
+import Maps from '../components/Maps'
 
+import tests from '../components/tests'
+import Dashboard from '../components/Dashboard'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'gaoShiweiTest',
-      component: gaoShiweiThird,
+      name: 'Root',
+      component: Dashboard,
       meta:{
-        title: 'Homepage',
+        title: 'Calendar',
         keepAlive: false
       }
     },

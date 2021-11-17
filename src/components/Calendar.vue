@@ -1,33 +1,24 @@
 <template>
   <div class="calendar">
-
-    <p></p>
     <el-row :gutter="20">
-      <el-col :span="12">
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <el-date-picker v-model="curMon" type="month"
-                            placeholder="Select a month" size="medium"
-                            @change="monChange" value-format="yyyy-MM">
-            </el-date-picker>
-          </el-col>
-          <el-col :span="8">
-            <el-select v-model="selectedMode" placeholder="Select a mode" size="medium" @change="modeChange">
-              <el-option
-                v-for="item in allModes"
-                :key="item.value"
-                :label="item.value"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-col>
-        </el-row>
-        <div id="calendarAll" style="width: 800px;height:600px;"></div>
+      <el-col :span="8">
+        <el-date-picker v-model="curMonCalendarTY" type="month"
+                        placeholder="Select a month" size="medium"
+                        @change="monChangeCalendarTY" value-format="yyyy-MM">
+        </el-date-picker>
       </el-col>
-      <el-col :span="12">
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      <el-col :span="8">
+        <el-select v-model="selectModeInCalendarsTY" placeholder="Select a mode" size="medium" @change="modeChangeCalendarTY">
+          <el-option
+            v-for="item in allModesInCalendarTY"
+            :key="item.value"
+            :label="item.value"
+            :value="item.value">
+          </el-option>
+        </el-select>
       </el-col>
     </el-row>
+    <div id="calendarAllTY" style="width: 800px;height:600px;"></div>
   </div>
 </template>
 <script>
@@ -43,26 +34,26 @@ export default {
   data() {
     return {
       // Default start and end date
-      calendar: "",
-      startDate: "2005-01",
-      endDate: "2005-02",
+      calendarTY: "",
+      calendarStartDateTY: "2005-01",
+      calendarEndDateTY: "2005-02",
       // Options
-      option: "",
-      curOption: "",
+      optionCalendarsTY: "",
+      curOptionCalendarTY: "",
       // Total accidents options
-      dailyTotalAccidents: "",
+      dailyTotalAccidentsCalendarTY: "",
 
-      allData: [],
+      allDataCalendarTY: [],
       // Selected month
-      curMonthData: [],
+      curMonthDataCalendarTY: [],
       // Pie chart data name (weather, road .etc)
-      dataName: [],
-      curYear: 2005,
+      dataNameCalendarTY: [],
+      curYearCalendarTY: 2005,
       // Default month is 2005-01
-      curMon: '2005-01',
-      curNonDataHeatMap: [],
-      selectedMode: "Daily Accident",
-      allModes: [
+      curMonCalendarTY: '2005-01',
+      curMonDataHeatMapCalendarTY: [],
+      selectModeInCalendarsTY: "Daily Accident",
+      allModesInCalendarTY: [
         {
           value: "Daily Accident"
         },
@@ -77,19 +68,18 @@ export default {
         }
       ],
       // First calendar
-      scatterData: [],
+      scatterDataCalendarTY: [],
       // Light condition
-      lightCondition: "",
-      roadCondition: "",
-      weatherCondition: "",
-      app: {}
+      lightConditionCalendarTY: "",
+      roadConditionCalendarTY: "",
+      weatherConditionCalendarTY: "",
     }
   },
   methods: {
-    drawDefault()
+    drawDefaultCalendarTY()
     {
-      this.calendar = this.$echarts.init(document.getElementById("calendarAll"));
-      this.calendar.showLoading();
+      this.calendarTY = this.$echarts.init(document.getElementById("calendarAllTY"));
+      this.calendarTY.showLoading();
       let urlAll = "http://localhost:8090/calendarData";
       axios.get(urlAll).then(response =>
       {
@@ -97,14 +87,14 @@ export default {
         if (response.status == 200)
         {
           // console.log(response.data[1][0])
-          this.allData = response.data;
-          this.curMonthData = response.data[0][0][0];
-          this.scatterData = this.curMonthData;
-          console.log(this.allData)
-          this.lightCondition = this.allData[1];
-          this.roadCondition = this.allData[2];
-          this.weatherCondition = this.allData[3];
-          this.curOption = {
+          this.allDataCalendarTY = response.data;
+          this.curMonthDataCalendarTY = response.data[0][0][0];
+          this.scatterDataCalendarTY = this.curMonthDataCalendarTY;
+          console.log(this.allDataCalendarTY)
+          this.lightConditionCalendarTY = this.allDataCalendarTY[1];
+          this.roadConditionCalendarTY = this.allDataCalendarTY[2];
+          this.weatherConditionCalendarTY = this.allDataCalendarTY[3];
+          this.curOptionCalendarTY = {
             tooltip: {
               position: 'top'
             },
@@ -131,7 +121,7 @@ export default {
               }
             ],
             calendar: {
-                left: "20%",
+                left: "10%",
                 orient: 'vertical',
                 yearLabel: {
                   show: false
@@ -159,14 +149,14 @@ export default {
                 symbolSize: function (val) {
                   return val[1] / 30;
                 },
-                data: this.curMonthData
+                data: this.curMonthDataCalendarTY
               }
             ]
           };
-          this.dailyTotalAccidents = this.curOption;
-          this.calendar.hideLoading();
-          this.option = this.curOption;
-          this.calendar.setOption(this.option);
+          this.dailyTotalAccidentsCalendarTY = this.curOptionCalendarTY;
+          this.calendarTY.hideLoading();
+          this.optionCalendarsTY = this.curOptionCalendarTY;
+          this.calendarTY.setOption(this.optionCalendarsTY);
         }
 
 
@@ -175,33 +165,33 @@ export default {
 
       });
     },
-    getPieSeries(scatterData, chart)
+    getPieSeriesCalendarTY(scatterData, chart)
     {
-      let year = parseInt(this.curMon.split("-")[0])
-      let mon = parseInt(this.curMon.split("-")[1])
+      let year = parseInt(this.curMonCalendarTY.split("-")[0])
+      let mon = parseInt(this.curMonCalendarTY.split("-")[1])
       let yearDiffer = year - 2005;
       let monDiffer = mon - 1;
       let data_attr = [];
       let colorList = [];
-      if(this.selectedMode == "Light Condition")
+      if(this.selectModeInCalendarsTY == "Light Condition")
       {
-        for(let i = 0; i < this.lightCondition[yearDiffer][monDiffer].length; i++)
-          data_attr.push(this.lightCondition[yearDiffer][monDiffer][i].data)
+        for(let i = 0; i < this.lightConditionCalendarTY[yearDiffer][monDiffer].length; i++)
+          data_attr.push(this.lightConditionCalendarTY[yearDiffer][monDiffer][i].data)
         colorList = ['#ff8936', '#c89b40', '#003472'];
       }
-      else if(this.selectedMode == "Road Surface")
+      else if(this.selectModeInCalendarsTY == "Road Surface")
       {
-        for(let i = 0; i < this.roadCondition[yearDiffer][monDiffer].length; i++)
-          data_attr.push(this.roadCondition[yearDiffer][monDiffer][i].data)
+        for(let i = 0; i < this.roadConditionCalendarTY[yearDiffer][monDiffer].length; i++)
+          data_attr.push(this.roadConditionCalendarTY[yearDiffer][monDiffer][i].data)
         colorList = ['#eacd76', '#87CEEB', '#21a675', '#2e4e7e', '#9D2933'];
       }
-      else if(this.selectedMode == "Weather Condition")
+      else if(this.selectModeInCalendarsTY == "Weather Condition")
       {
-        for(let i = 0; i < this.weatherCondition[yearDiffer][monDiffer].length; i++)
-          data_attr.push(this.weatherCondition[yearDiffer][monDiffer][i].data)
+        for(let i = 0; i < this.weatherConditionCalendarTY[yearDiffer][monDiffer].length; i++)
+          data_attr.push(this.weatherConditionCalendarTY[yearDiffer][monDiffer][i].data)
         colorList = ['#fac858', '#91cc75', '#3eede7', '#2e4e7e', '#8b4bbb', '#9d2933', '#56004f'];
       }
-      chart = this.calendar
+      chart = this.calendarTY
       return this.$echarts.util.map(scatterData, function(item, index)
       {
         let center = chart.convertToPixel('calendar', item);
@@ -220,9 +210,9 @@ export default {
         };
       });
     },
-    getPieSeriesUpdate(scatterData, chart)
+    getPieSeriesUpdateCalendarTY(scatterData, chart)
     {
-      chart = this.calendar
+      chart = this.calendarTY
       return this.$echarts.util.map(scatterData, function (item, index)
         {
           let center = chart.convertToPixel('calendar', item);
@@ -232,23 +222,17 @@ export default {
           };
         });
     },
-    calendarMaps(item, index)
+    modeChangeCalendarTY()
     {
-      let center = this.calendar.convertToPixel('calendar', item);
-      console.log(index)
-      return [center, index]
-    },
-    modeChange()
-    {
-      let year = parseInt(this.curMon.split("-")[0])
-      let mon = parseInt(this.curMon.split("-")[1])
+      let year = parseInt(this.curMonCalendarTY.split("-")[0])
+      let mon = parseInt(this.curMonCalendarTY.split("-")[1])
       let yearDiffer = year - 2005;
       let monDiffer = mon - 1;
-      this.curMonthData = this.allData[0][yearDiffer][monDiffer];
-      if(this.selectedMode == "Daily Accident")
+      this.curMonthDataCalendarTY = this.allDataCalendarTY[0][yearDiffer][monDiffer];
+      if(this.selectModeInCalendarsTY == "Daily Accident")
       {
-        this.calendar.showLoading();
-        this.calendar.clear();
+        this.calendarTY.showLoading();
+        this.calendarTY.clear();
         let optionTotal = {
           tooltip: {
             position: 'top'
@@ -296,7 +280,7 @@ export default {
                 ]
               },
               cellSize: [70, 70],
-              range: [this.curMon]
+              range: [this.curMonCalendarTY]
             },
           series: [
             {
@@ -305,16 +289,16 @@ export default {
               symbolSize: function (val) {
                 return val[1] / 30;
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
-        this.option = optionTotal;
-        this.curOption = optionTotal;
-        this.calendar.setOption(this.option)
-        this.calendar.hideLoading();
+        this.optionCalendarsTY = optionTotal;
+        this.curOptionCalendarTY = optionTotal;
+        this.calendarTY.setOption(this.optionCalendarsTY)
+        this.calendarTY.hideLoading();
       }
-      else if(this.selectedMode == "Light Condition")
+      else if(this.selectModeInCalendarsTY == "Light Condition")
       {
         let data_name= ['Daylight', 'Weak light', 'No light'];
         let cellSize = [70, 70];
@@ -346,7 +330,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -362,31 +346,31 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
       }
-      else if(this.selectedMode == "Road Surface")
+      else if(this.selectModeInCalendarsTY == "Road Surface")
       {
         let data_name= ['Dry', 'Damp', 'Frost',
           'Snow', "Flood"];
@@ -419,7 +403,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -435,31 +419,31 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
       }
-      else if(this.selectedMode == "Weather Condition")
+      else if(this.selectModeInCalendarsTY == "Weather Condition")
       {
         let data_name1 = ['Fine', 'Rain', 'Snow', 'High winds']
         let data_name2 = ['High winds', "Rain & high winds", "Fog", 'Snow & high winds'];
@@ -498,7 +482,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -514,43 +498,43 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
       }
 
     },
-    monChange()
+    monChangeCalendarTY()
     {
-      let year = parseInt(this.curMon.split("-")[0])
-      let mon = parseInt(this.curMon.split("-")[1])
+      let year = parseInt(this.curMonCalendarTY.split("-")[0])
+      let mon = parseInt(this.curMonCalendarTY.split("-")[1])
       let yearDiffer = year - 2005;
       let monDiffer = mon - 1;
-      this.curMonthData = this.allData[0][yearDiffer][monDiffer];
-      if(this.selectedMode == "Daily Accident")
+      this.curMonthDataCalendarTY = this.allDataCalendarTY[0][yearDiffer][monDiffer];
+      if(this.selectModeInCalendarsTY == "Daily Accident")
       {
-        this.calendar.showLoading();
-        this.calendar.clear();
+        this.calendarTY.showLoading();
+        this.calendarTY.clear();
         let optionTotal = {
           tooltip: {
             position: 'top'
@@ -598,7 +582,7 @@ export default {
               ]
             },
             cellSize: [70, 70],
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -607,16 +591,16 @@ export default {
               symbolSize: function (val) {
                 return val[1] / 30;
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
-        this.option = optionTotal;
-        this.curOption = optionTotal;
-        this.calendar.setOption(this.option)
-        this.calendar.hideLoading();
+        this.optionCalendarsTY = optionTotal;
+        this.curOptionCalendarTY = optionTotal;
+        this.calendarTY.setOption(this.optionCalendarsTY)
+        this.calendarTY.hideLoading();
       }
-      else if(this.selectedMode == "Light Condition")
+      else if(this.selectModeInCalendarsTY == "Light Condition")
       {
         let data_name= ['Daylight', 'Weak light', 'No light'];
         let cellSize = [70, 70];
@@ -648,7 +632,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -664,31 +648,31 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
       }
-      else if(this.selectedMode == "Road Surface")
+      else if(this.selectModeInCalendarsTY == "Road Surface")
       {
         let data_name= ['Dry', 'Damp', 'Frost',
           'Snow', "Flood"];
@@ -721,7 +705,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -737,31 +721,31 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
       }
-      else if(this.selectedMode == "Weather Condition")
+      else if(this.selectModeInCalendarsTY == "Weather Condition")
       {
         let data_name1 = ['Fine', 'Rain', 'Snow', 'High winds']
         let data_name2 = ['High winds', "Rain & high winds", "Fog", 'Snow & high winds'];
@@ -800,7 +784,7 @@ export default {
               ]
             },
             cellSize: 70,
-            range: [this.curMon]
+            range: [this.curMonCalendarTY]
           },
           series: [
             {
@@ -816,26 +800,26 @@ export default {
                 offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
                 fontSize: 12
               },
-              data: this.curMonthData
+              data: this.curMonthDataCalendarTY
             }
           ]
         };
 
-        this.calendar.clear();
-        this.calendar.setOption(option)
+        this.calendarTY.clear();
+        this.calendarTY.setOption(option)
         let pieInitialized = true;
-        let pieSeries = this.getPieSeries(this.curMonthData, this.calendar);
+        let pieSeries = this.getPieSeriesCalendarTY(this.curMonthDataCalendarTY, this.calendarTY);
         console.log(pieSeries)
-        if(!this.calendar.inNode)
+        if(!this.calendarTY.inNode)
         {
-          this.calendar.setOption({
+          this.calendarTY.setOption({
             series: pieSeries
           });
         }
-        this.calendar.onresize = function () {
+        this.calendarTY.onresize = function () {
           if (pieInitialized) {
             this.calendar.setOption({
-              series: this.getPieSeriesUpdate(this.curMonthData, this.calendar)
+              series: this.getPieSeriesUpdateCalendarTY(this.curMonthDataCalendarTY, this.calendar)
             });
           }
         };
@@ -848,8 +832,8 @@ export default {
   },
   mounted ()
   {
-    console.log(this.curMonthData + " AAA")
-    this.drawDefault();
+    console.log(this.curMonthDataCalendarTY + " AAA")
+    this.drawDefaultCalendarTY();
   }
 }
 </script>

@@ -86,7 +86,8 @@ export default {
     }
   },
   mounted () {
-    // document.body.style.backgroundColor="#EAEAEA";
+    document.body.style.backgroundColor="#F5F5F5";
+    // EAEAEA
   }
 }
 </script>

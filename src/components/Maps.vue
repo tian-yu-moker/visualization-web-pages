@@ -26,14 +26,6 @@
         </el-col>
       </el-row>
     </div>
-    <el-tooltip
-      id="mapHover"
-      effect="dark"
-      content="Bottom Right 提示文字"
-      placement="bottom-end"
-      :disabled="mapUKHoverDisabled"
-      v-model="mapUKHoverShow"
-    ></el-tooltip>
   </div>
 </template>
 
