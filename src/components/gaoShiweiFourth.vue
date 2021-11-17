@@ -14,20 +14,16 @@ export default {
   name: 'gaoShiweiForth',
   methods:{
     GSWDrawGDP(){
-      var ROOT_PATH =
-        'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
 
-      var chartDom = document.getElementById('GSWFourthImage');
-      var myChart = echarts.init(chartDom);
-      var option;
-      var url=ROOT_PATH+'/data/asset/data/life-expectancy-table.json'
+      var GSWFourthChart = document.getElementById('GSWFourthImage');
+      var GSWFourthMychart = echarts.init(GSWFourthChart);
+      var GSWFourthOption;
 
       axios.get("http://localhost:8090/GDP").then(response=>
       {
         let _rawData=response.data;
 
-        // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
-        const countries = [
+        let countries = [
           'Manchester',
           'Glasgow City',
           'Bradford',
@@ -92,7 +88,7 @@ export default {
             }
           });
         });
-        option = {
+        GSWFourthOption = {
           animationDuration: 10000,
           dataset: [
             {
@@ -132,10 +128,10 @@ export default {
           },
           series: seriesList
         };
-        myChart.setOption(option);
+        GSWFourthMychart.setOption(GSWFourthOption);
       });
 
-      option && myChart.setOption(option);
+      GSWFourthOption && GSWFourthMychart.setOption(GSWFourthOption);
 
     }
   },

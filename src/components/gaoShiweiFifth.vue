@@ -14,11 +14,11 @@ export default {
   name: 'gaoShiweiFifth',
   methods:{
     GSWDrawPopulation(){
-      var chartDom = document.getElementById('GSWFifthImage');
-      var myChart = echarts.init(chartDom);
-      var option;
+      let GSWFifthChart = document.getElementById('GSWFifthImage');
+      let GSWFifthMychart = echarts.init(GSWFifthChart);
+      let GSWFifthOption;
 
-      const data = [
+      let GSWFifthdata = [
         [569250, 606340, 585856.36],
         [525721, 569177, 545650.81],
         [497218, 519347, 509380],
@@ -41,9 +41,10 @@ export default {
         [111340, 116900, 114950.90],
       ];
 // prettier-ignore
-      const cities = ['Glasgow', 'Sheffield', 'County Durham', 'Bradford', 'Manchester', 'Liverpool', 'City of Edinburgh', 'Bristol, City of', 'Kirklees', 'Barnet', 'Ealing', 'Coventry', 'Doncaster', 'Lambeth', 'Brent', 'Barnsley', 'Bexley', 'Oldham', 'Bath and North East Somerset','Angus'];
-      const barHeight = 500;
-      option = {
+      let cities = ['Glasgow', 'Sheffield', 'County Durham', 'Bradford', 'Manchester', 'Liverpool', 'City of Edinburgh', 'Bristol, City of', 'Kirklees', 'Barnet', 'Ealing', 'Coventry', 'Doncaster', 'Lambeth', 'Brent', 'Barnsley', 'Bexley', 'Oldham', 'Bath and North East Somerset','Angus'];
+      let barHeight = 500;
+      GSWFifthOption = {
+        color:["#00BFFF", "#191970"],
         /*title: {
           text: 'How expensive is it to rent an apartment in China?',
           subtext: 'Data from https://www.numbeo.com'
@@ -65,6 +66,7 @@ export default {
         angleAxis: {
           type: 'category',
           data: cities,
+          show:false,
           axisLabel:{
             fontSize:8,
             fontFamily:'Microsoft YaHei',
@@ -78,11 +80,11 @@ export default {
             return (
               cities[id] +
               '<br>2005 population：' +
-              data[id][0] +
+              GSWFifthdata[id][0] +
               '<br>2015 population：' +
-              data[id][1] +
+              GSWFifthdata[id][1] +
               '<br>Average：' +
-              data[id][2]
+              GSWFifthdata[id][2]
             );
           }
         },
@@ -102,7 +104,7 @@ export default {
             itemStyle: {
               color: 'transparent'
             },
-            data: data.map(function (d) {
+            data: GSWFifthdata.map(function (d) {
               return d[0];
             }),
             coordinateSystem: 'polar',
@@ -111,7 +113,7 @@ export default {
           },
           {
             type: 'bar',
-            data: data.map(function (d) {
+            data: GSWFifthdata.map(function (d) {
               return d[1] - d[0];
             }),
             coordinateSystem: 'polar',
@@ -123,7 +125,7 @@ export default {
             itemStyle: {
               color: 'transparent'
             },
-            data: data.map(function (d) {
+            data: GSWFifthdata.map(function (d) {
               return d[2] - barHeight;
             }),
             coordinateSystem: 'polar',
@@ -133,7 +135,7 @@ export default {
           },
           {
             type: 'bar',
-            data: data.map(function (d) {
+            data: GSWFifthdata.map(function (d) {
               return barHeight * 2;
             }),
             coordinateSystem: 'polar',
@@ -145,7 +147,7 @@ export default {
         ]
       };
 
-      option && myChart.setOption(option);
+      GSWFifthOption && GSWFifthMychart.setOption(GSWFifthOption);
     }
   },
   mounted(){
