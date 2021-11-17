@@ -20,7 +20,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Root',
+      name: 'gaoShiweiTest',
       component: gaoShiweiThird,
       meta:{
         title: 'Homepage',

@@ -1,7 +1,7 @@
 <template>
   <div class="GSWSecond">
 
-    <div id="GSWThirdImage" style="width: 600px;height:600px;"></div>
+    <div id="GSWThirdImage" style="width: 850px;height:500px;"></div>
   </div>
 </template>
 
@@ -74,7 +74,7 @@ export default {
                 text: GSWThirdData.timeline[0],
                 textAlign: 'center',
                 left: '63%',
-                top: '68%',
+                top: '65%',
                 textStyle: {
                   fontSize: 70,
                   fontFamily:'Microsoft YaHei',
