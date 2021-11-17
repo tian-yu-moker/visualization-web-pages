@@ -15,6 +15,7 @@ import gaoShiweiThird from '../components/gaoShiweiThird'
 import tests from '../components/tests'
 import Dashboard from '../components/Dashboard'
 import gaoShiweiFourth from '../components/gaoShiweiFourth'
+import gaoShiweiFifth from '../components/gaoShiweiFifth'
 
 Vue.use(Router)
 
@@ -23,7 +24,7 @@ export default new Router({
     {
       path: '/',
       name: 'gaoShiweiTest',
-      component: gaoShiweiFourth,
+      component: gaoShiweiFifth,
       meta:{
         title: 'Homepage',
         keepAlive: false
