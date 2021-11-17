@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="main" style="width: 1000px;height:400px;"></div>
-    <div id="main-pie" style="width: 1000px;height:400px;"></div>
+    <div id="vehicleTypeSunbrustContainer" style="width: 500px;height:400px;"></div>
+    <div id="vehicleTypleContainer" style="width: 1000px;height:400px;"></div>
   </div>
 </template>
 
@@ -18,18 +18,18 @@ export default {
   data() {
     return {
       vehicleTypeSunbrustData: [],
-      vehicleTypeSunGraph: "",
-      vehicleTypeSunGraphOption: "",
-      vehicleTypeCurData: [],
-      vehicleTypePieGraph: "",
-      vehicleTypePieGraphOption: ""
+      vehicleTypeSunGraphTY: "",
+      vehicleTypeSunGraphOptionTY: "",
+      vehicleTypeCurDataTY: [],
+      vehicleTypePieGraphTY: "",
+      vehicleTypePieGraphOptionTY: ""
 
 
     }
   },
   methods:
   {
-    drawVehicleTypeSunbrustGraph()
+    drawVehicleTypeSunbrustGraphTY()
     {
       let url = "http://localhost:8090/vehicle/types";
       axios.get(url, {}).then(response =>
@@ -37,10 +37,10 @@ export default {
         if (response.status == 200)
         {
           console.log(response.data)
-          this.vehicleTypeSunGraph = this.$echarts.init(document.getElementById("main"));
-          this.vehicleTypePieGraph = this.$echarts.init(document.getElementById("main-pie"));
+          this.vehicleTypeSunGraphTY = this.$echarts.init(document.getElementById("vehicleTypeSunbrustContainer"));
+          this.vehicleTypePieGraphTY = this.$echarts.init(document.getElementById("vehicleTypleContainer"));
           this.vehicleTypeSunbrustData = response.data;
-          this.vehicleTypeCurData = response.data[0];
+          this.vehicleTypeCurDataTY = response.data[0];
           let optionSun = {
             visualMap: {
               type: 'continuous',
@@ -53,7 +53,7 @@ export default {
             series:
             {
                 type: 'sunburst',
-                data: this.vehicleTypeCurData,
+                data: this.vehicleTypeCurDataTY,
                 radius: [0, '70%'],
                 datasetIndex: 1,
                 label: {
@@ -92,10 +92,10 @@ export default {
               }
             }
           }
-          this.vehicleTypeSunGraphOption = optionSun;
-          this.vehicleTypePieGraphOption = optionPie;
-          this.vehicleTypeSunGraph.setOption(this.vehicleTypeSunGraphOption);
-          this.vehicleTypePieGraph.setOption(this.vehicleTypePieGraphOption);
+          this.vehicleTypeSunGraphOptionTY = optionSun;
+          this.vehicleTypePieGraphOptionTY = optionPie;
+          this.vehicleTypeSunGraphTY.setOption(this.vehicleTypeSunGraphOptionTY);
+          this.vehicleTypePieGraphTY.setOption(this.vehicleTypePieGraphOptionTY);
         }
       });
     }
@@ -106,7 +106,7 @@ export default {
   },
   mounted ()
   {
-    this.drawVehicleTypeSunbrustGraph()
+    this.drawVehicleTypeSunbrustGraphTY()
   }
 }
 </script>

@@ -288,24 +288,165 @@
       </el-row>
       <div></div>
     </div>
+    <div align="left">
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="20">
+          <i class="el-icon-help" style="font-size: 20px; font-weight: bolder">
+            <span> Radar Visualization</span>
+          </i>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="20">
+          <el-card style="height: 250px">雷达放这里</el-card>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+    </div>
+    <div style="height:5px"></div>
+    <el-divider></el-divider>
+    <div style="height:5px"></div>
+    <div align="left">
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="20">
+          <i class="el-icon-stopwatch" style="font-size: 20px; font-weight: bolder">
+            <span> Dynamic Relations between GDP, Population & Accidents</span>
+          </i>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="6">
+          <el-card shadow="always" style="height: 560px">
+            AAA
+          </el-card>
+        </el-col>
+        <el-col :span="14">
+          <el-card shadow="always">
+            <div align="left"><i class="el-icon-s-finance" style="font-size: 20px"><span style="font-weight: bold"> Relationship between GDP, Population & Accidents</span></i></div>
+            <div id="GSWThirdImage" style="width: 800px;height:500px;"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
+    </div>
 
-    <div style="height:20px;background-color:#ff8936">空白</div>
-    <el-row :gutter="15">
-      <el-col :span="2" style="background-color:#b2e2fa">Placeholder</el-col>
-      <el-col :span="10" style="background-color:#3333FF; height: 300px">
-        <div>开姐的图</div>
-        <div style="height:20px;background-color:#ff8936">空白</div>
-        <div>时间图-高士玮</div>
-      </el-col>
-      <el-col :span="10" style="background-color:#ff8936; height: 300px">
-        <div>男女</div>
-        <div style="height:20px;background-color:#3333FF">空白</div>
-        <div>品牌图-田宇</div>
-      </el-col>
-      <el-col :span="2" style="background-color:#b2e2fa">Placeholder</el-col>
-    </el-row>
+    <div style="height:5px"></div>
+    <el-divider></el-divider>
+    <div style="height:5px"></div>
+    <div align="left">
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;</el-col>
+        <el-col :span="20"><i class="el-icon-s-data" style="font-size: 20px; font-weight: bolder"><span> Explosive Information</span></i></el-col>
+        <el-col :span="2">&nbsp;</el-col>
+      </el-row>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;</el-col>
+        <el-col :span="10">
+          <el-card shadow="always">
+            <div id="GSWFirstImage" style="width: 110%; height:800px;"></div>
+          </el-card>
+        </el-col>
+        <el-col :span="10">
+          <el-card shadow="always">
+            <el-row :gutter="20">
+              <el-col :span="8">
+                <el-select v-model="LineSelectedYearXK" multiple=2 placeholder="Select two years" @change="LineHandleSelectYearXK" @visible-change="$forceUpdate()">
+                  <el-option
+                    v-for="item in yearListXK"
+                    :key="item.value"
+                    :label="item.value"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="16" style="margin-top: 2px">
+                <span style="font-weight: bold">DAILY TRAVEL PATTERNS BY MONTH</span><br>
+                <span style="font-style: italic; margin-top: 1px">Two years comparision</span>
+              </el-col>
+            </el-row>
+            <div id="LineOptionXK1" style="width: 120%;height:310px; top:3px;"></div>
+            <div id="LineOptionXK2" style="width: 120%;height:310px; top:3px;"></div>
+            <div id="LineOptionXK3" style="width: 120%;height:310px; top:3px;"></div>
+            <div>
+              图片说明
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="2">&nbsp;</el-col>
+      </el-row>
+    </div>
 
 
+    <div style="height:5px"></div>
+    <el-divider></el-divider>
+    <div style="height:5px"></div>
+    <div align="left">
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;</el-col>
+        <el-col :span="20"><i class="el-icon-truck" style="font-size: 20px; font-weight: bolder"><span> Vehicle Information</span></i></el-col>
+        <el-col :span="2">&nbsp;</el-col>
+      </el-row>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;</el-col>
+        <el-col :span="12">
+          <el-card shadow="always">
+            <el-row :gutter="20">
+              <el-col :span="10">
+                <el-select v-model="selectedYearCarBrandsTY" placeholder="Select a year" @change="selectionYearChangeCarBrandsTY">
+                  <el-option
+                    v-for="item in yearListCarBrandsTY"
+                    :key="item.value"
+                    :label="item.value"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="14">
+                <el-radio-group v-model="radioCarBrands" @change="treeOrSunDeciderCarBrandsTY">
+                  <el-radio v-model="radioCarBrands" label="Treemap" border>Treemap</el-radio>
+                  <el-radio v-model="radioCarBrands" label="Sunburst" border>Sunburst</el-radio>
+                </el-radio-group>
+              </el-col>
+            </el-row>
+            <div id="carBrandsTreemapContainer" style="width: 100%;height:400px; margin-top: 5px"></div>
+          </el-card>
+          <div style="height: 5px"></div>
+          <el-divider></el-divider>
+          <div style="height: 5px"></div>
+          <i class="el-icon-rank" style="font-size: 20px; font-weight: bolder"><span> Top 5 Regions Statistics</span></i>
+          <el-card>
+            <i class="el-icon-data-line" style="font-size: 20px; font-weight: bolder"><span> Top 5 Regions Traffic Accidents over the Decade</span></i>
+            <div id="TopLineOptionXK" style="width: 100%;height: 383px; "></div>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="always">
+            <i class="el-icon-odometer" style="font-weight: bold; font-size: 20px"><span> Sun Map of Vehicle Types</span></i>
+            <div id="vehicleTypeSunbrustContainer" style="width: 100%; height:400px;"></div>
+            <el-divider></el-divider>
+            <i class="el-icon-pie-chart" style="font-weight: bold; font-size: 20px; margin-top: 5px"><span> Percentage of Each Vehicle Category</span></i>
+            <div id="vehicleTypleContainer" style="width: 100%; height: 400px;"></div>
+            <el-divider></el-divider>
+            <div style="height: 5px"></div>
+            <div>
+              <i class="el-icon-warning" style="font-style: italic">
+                <span> Among all categories, the "Car" takes up the highest rate.</span>
+              </i>
+              <i class="el-icon-warning" style="font-style: italic">
+                <span> Among all brands, the "VAUXHALL" and "FORD" are more likely to meet a traffic accidents.</span>
+              </i>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="2">&nbsp;</el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -372,7 +513,98 @@ export default {
       weatherConditionCalendarTY: "",
       calendarRightLineTY: "",
       calendarRightBarTY: "",
-      calendarRightDescriptionLogoUrl: "statis logo"
+      calendarRightDescriptionLogoUrl: "statis logo",
+      carsBrandOverviewTY: [],
+      carsYearlyDataTY: [],
+      defaultAllYearDataCarsTY: [],
+      overviewCarsBrandsTY: "",
+      curCarBrandOptionTY: "",
+      treeOrLineCarBrandsTY: 0,
+      treeCarsBrandOptionTY: "",
+      sunCarBrandOptionTY: "",
+      barCarBrandOptionTY: "",
+      radioCarBrands: 'Treemap',
+      yearListCarBrandsTY: [
+        {
+          value: 2005
+        },
+        {
+          value: 2006
+        },
+        {
+          value: 2007
+        },
+        {
+          value: 2008
+        },
+        {
+          value: 2009
+        },
+        {
+          value: 2010
+        },
+        {
+          value: 2011
+        },
+        {
+          value: 2012
+        },
+        {
+          value: 2013
+        },
+        {
+          value: 2014
+        },
+        {
+          value: 2015
+        }
+      ],
+      selectedYearCarBrandsTY: "",
+      overviewLineChartGroupXK: "",
+      yearListXK: [
+        {
+          value: 2005
+        },
+        {
+          value: 2006
+        },
+        {
+          value: 2007
+        },
+        {
+          value: 2008
+        },
+        {
+          value: 2009
+        },
+        {
+          value: 2010
+        },
+        {
+          value: 2011
+        },
+        {
+          value: 2012
+        },
+        {
+          value: 2013
+        },
+        {
+          value: 2014
+        },
+        {
+          value: 2015
+        }
+      ],
+      LineSelectedYearXK: [],
+      selectLimitedLineGroupsXK: 0,
+      allYearTimesDataXK: [],
+      vehicleTypeSunbrustData: [],
+      vehicleTypeSunGraphTY: "",
+      vehicleTypeSunGraphOptionTY: "",
+      vehicleTypeCurDataTY: [],
+      vehicleTypePieGraphTY: "",
+      vehicleTypePieGraphOptionTY: ""
     }
   },
   methods:{
@@ -2271,6 +2503,2440 @@ export default {
 
       // option && overview.setOption(option);
     },
+    GSWdrawGDPandPopulation() {
+      let GSWThirdChart = document.getElementById('GSWThirdImage');
+      let GSWThirdmyChart = echarts.init(GSWThirdChart);
+      let GSWThirdOption;
+      let GSWThirdUrl="http://localhost:8090/gdpAccident"
+
+      GSWThirdmyChart.showLoading();
+      axios.get(GSWThirdUrl).then(response=>
+      {
+        let GSWThirdData=response.data;
+        // console.log(GSWThirdData);
+        GSWThirdmyChart.hideLoading();
+        let itemStyle = {
+          opacity: 0.8
+        };
+        let sizeFunction = function (x) {
+          let y = Math.sqrt(x / 1.5e6) + 0.03;
+          return y * 80;
+        };
+        // Schema:
+        var schema = [
+          { name: 'Income', index: 0, text: 'GDP', unit: ' pounds million' },
+          { name: 'LifeExpectancy', index: 1, text: 'Accident', unit: ' times' },
+          { name: 'Population', index: 2, text: 'Population', unit: '' },
+          { name: 'Country', index: 3, text: 'Area', unit: '' }
+        ];
+        GSWThirdOption = {
+          baseOption: {
+            timeline: {
+              axisType: 'category',
+              orient: 'vertical',
+              autoPlay: true,
+              inverse: true,
+              playInterval: 1000,
+              left: null,
+              right: 0,
+              top: 20,
+              bottom: 20,
+              width: 55,
+              height: null,
+              symbol: 'none',
+              checkpointStyle: {
+                borderWidth: 2
+              },
+              controlStyle: {
+                showNextBtn: false,
+                showPrevBtn: false
+              },
+              textStyle: {
+                fontSize: 70,
+                fontFamily:'Microsoft YaHei',
+                fontWeight:'bold'
+              },
+              data: []
+            },
+            title: [
+              {
+                text: GSWThirdData.timeline[0],
+                textAlign: 'center',
+                left: '63%',
+                top: '65%',
+                textStyle: {
+                  fontSize: 70,
+                  fontFamily:'Microsoft YaHei',
+                  fontWeight:'bold'
+                }
+              }
+            ],
+            tooltip: {
+              padding: 5,
+              borderWidth: 1,
+              formatter: function (obj) {
+                let value = obj.value;
+                // prettier-ignore
+                return schema[3].text + '：' + value[3] + '<br>'
+                  + schema[1].text + '：' + value[1] + schema[1].unit + '<br>'
+                  + schema[0].text + '：' + value[0] + schema[0].unit + '<br>'
+                  + schema[2].text + '：' + value[2] + '<br>';
+              }
+            },
+            grid: {
+              top: 100,
+              containLabel: true,
+              left: 30,
+              right: '110'
+            },
+            xAxis: {
+              type: 'value',
+              name: 'GDP (pounds million)',
+              max: 25000,
+              min: 500,
+              nameGap: 25,
+              nameLocation: 'middle',
+              nameTextStyle: {
+                fontSize: 18
+              },
+              splitLine: {
+                show: false
+              },
+              axisLabel: {
+                formatter: '{value} £',
+                fontFamily:'Microsoft YaHei',
+                fontWeight:'bold'
+              }
+            },
+            yAxis: {
+              type: 'value',
+              name: 'Accident',
+              max: 2500,
+              min:0,
+              nameTextStyle: {
+                fontSize: 18
+              },
+              splitLine: {
+                show: false
+              },
+              axisLabel: {
+                formatter: '{value} times',
+                fontFamily:'Microsoft YaHei',
+                fontWeight:'bold'
+              }
+            },
+            visualMap: [
+              {
+                show: false,
+                dimension: 3,
+                categories: GSWThirdData.counties,
+                inRange: {
+                  color: (function () {
+                    // prettier-ignore
+                    let colors = ['#51689b', '#ce5c5c', '#fbc357', '#8fbf8f', '#659d84',
+                      '#fb8e6a', '#c77288', '#786090', '#91c4c5',
+                      '#6890ba','#DB7093','#00BFFF','#F4A460',
+                      '#2E8B57','#90EE90','#F0E68C','#FF6347'];
+                    return colors.concat(colors);
+                  })()
+                }
+              }
+            ],
+            series: [
+              {
+                type: 'scatter',
+                itemStyle: itemStyle,
+                data: GSWThirdData.series[0],
+                symbolSize: function (val) {
+                  return sizeFunction(val[2]);
+                }
+              }
+            ],
+            animationDurationUpdate: 1000,
+            animationEasingUpdate: 'quinticInOut'
+          },
+          options: []
+        };
+        for (let n = 0; n < GSWThirdData.timeline.length; n++) {
+          GSWThirdOption.baseOption.timeline.data.push(GSWThirdData.timeline[n]);
+          GSWThirdOption.options.push({
+            title: {
+              show: true,
+              text: GSWThirdData.timeline[n] + ''
+            },
+            series: {
+              name: GSWThirdData.timeline[n],
+              type: 'scatter',
+              itemStyle: itemStyle,
+              data: GSWThirdData.series[n],
+              symbolSize: function (val) {
+                return sizeFunction(val[2]);
+              }
+            }
+          });
+        }
+        GSWThirdmyChart.setOption(GSWThirdOption);
+      });
+
+      GSWThirdOption && GSWThirdmyChart.setOption(GSWThirdOption);
+    },
+    drawVehicleBrandsTreemapTY() {
+      this.overviewCarsBrandsTY = this.$echarts.init(document.getElementById("carBrandsTreemapContainer"));
+      this.overviewCarsBrandsTY.hideLoading();
+      const formatUtil = echarts.format;
+      this.curCarBrandOptionTY = this.treeCarsBrandOptionTY;
+      this.treeOrLineCarBrandsTY = 0;
+      // this.overview.setOption(this.curBrandOption);
+      let urlAll = "http://localhost:8090/cars/getAllCars";
+      axios.get(urlAll).then(response =>
+      {
+        // If query is success
+        if (response.status == 200)
+        {
+          console.log(response.data[0])
+          this.carsBrandOverviewTY = response.data[0];
+          this.defaultAllYearDataCarsTY = response.data[0];
+          this.carsYearlyDataTY = response.data[1];
+          this.treeCarsBrandOptionTY = {
+            title: {
+              text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
+              left: '10%',
+              top: '3%'
+            },
+            grid: {
+              left: '2%'
+            },
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                return [
+                  '<div class="tooltip-title" id="tooltips">' +
+                  formatUtil.encodeHTML(name) +
+                  '</div>',
+                  'Total Accident Count: ' + value
+                ].join('');
+              }
+            },
+            series: [
+              {
+                type: 'treemap',
+                id: 'brands',
+                animationDurationUpdate: 1000,
+                roam: false,
+                nodeClick: undefined,
+                data: this.carsBrandOverviewTY,
+                universalTransition: true,
+                visibleMin: 2000,
+                label: {
+                  show: true
+                },
+                breadcrumb: {
+                  show: false
+                }
+              }
+            ]
+          };
+          this.sunCarBrandOptionTY = {
+            title: {
+              text: 'Vehicle Brand (Accident number > 3000 in 10 years)',
+              left: 'center',
+              top: '3%'
+            },
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                return [
+                  '<div class="tooltip-title" id="tooltips">' +
+                  formatUtil.encodeHTML(name) +
+                  '</div>',
+                  'Total Accident Count: ' + value
+                ].join('');
+              }
+            },
+            series: [
+              {
+                type: 'sunburst',
+                id: 'brands',
+                radius: ['20%', '70%'],
+                animationDurationUpdate: 1000,
+                nodeClick: undefined,
+                data: this.carsBrandOverviewTY,
+                universalTransition: true,
+                visibleMin: 2000,
+                itemStyle: {
+                  borderWidth: 1,
+                  borderColor: 'rgba(255,255,255,.5)'
+                },
+                label: {
+                  show: false
+                }
+              }
+            ]};
+
+          this.overviewCarsBrandsTY.setOption(this.treeCarsBrandOptionTY)
+        }
+      });
+      this.overviewCarsBrandsTY.on('click', this.overviewClickCarBrandsTY);
+      this.overviewCarsBrandsTY.getZr().on('click', this.returnTreemapCarBrandsTY)
+      // option && overview.setOption(option);
+    },
+    treeOrSunDeciderCarBrandsTY()
+    {
+      this.overviewCarsBrandsTY.clear();
+      if(this.radioCarBrands == "Treemap")
+      {
+        this.overviewCarsBrandsTY.setOption(this.treeCarsBrandOptionTY);
+      }
+      else if(this.radioCarBrands == "Sunburst")
+      {
+        this.overviewCarsBrandsTY.setOption(this.sunCarBrandOptionTY);
+      }
+    },
+    returnTreemapCarBrandsTY(params)
+    {
+      if(this.treeOrLineCarBrandsTY == 1)
+      {
+        this.curCarBrandOptionTY = this.treeCarsBrandOptionTY;
+        this.treeOrLineCarBrandsTY = 0;
+        this.overviewCarsBrandsTY.clear();
+        this.overviewCarsBrandsTY.setOption(this.curCarBrandOptionTY);
+        this.overviewCarsBrandsTY.setOption({
+          series: [
+            {
+              data: this.carsBrandOverviewTY
+            }
+          ]
+        })
+      }
+    },
+    overviewClickCarBrandsTY(params)
+    {
+      // alert(this.carsYearlyData.length);
+      if(this.treeOrLineCarBrandsTY == 0)
+      {
+        this.treeOrLineCarBrandsTY = 1;
+        let brand = params.name;
+        let curYear = 0;
+        let lineData = [];
+        for(let i = 0; i < this.carsYearlyDataTY.length; i++)
+        {
+          if(this.carsYearlyDataTY[i].name == brand)
+          {
+            lineData.push(this.carsYearlyDataTY[i].value);
+            if(this.carsYearlyDataTY[i].year == 2016)
+              break;
+          }
+        }
+        let lineOption = {
+          title: {
+            text: 'The statistics of the ' + brand + ' cars accidents in the decade.',
+            left: 'center'
+          },
+          xAxis: {
+            type: 'category',
+            data: ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          tooltip: {},
+          series: [
+            {
+              data: lineData,
+              type: 'line',
+              smooth: true,
+              id: 'brands',
+              universalTransition: true,
+              animationDurationUpdate: 1000
+            }
+          ]
+        };
+        this.overviewCarsBrandsTY.clear();
+        this.curCarBrandOptionTY = lineOption;
+        this.overviewCarsBrandsTY.setOption(this.curCarBrandOptionTY);
+      }
+    },
+    selectionYearChangeCarBrandsTY(val)
+    {
+      let selected = [];
+      let curVal = 0;
+      for(let i = 0; i < this.carsYearlyDataTY.length; i++)
+      {
+
+        if(parseInt(this.selectedYearCarBrandsTY) == parseInt(this.carsYearlyDataTY[i].year))
+        {
+          let one = {
+            "label": this.carsYearlyDataTY[i].name,
+            "value": this.carsYearlyDataTY[i].value
+          }
+          selected.push(one);
+        }
+      }
+      selected.sort(function (a,b)
+      {
+        return b.value - a.value;
+      });
+      let labels = [];
+      let values = [];
+      let count = 0;
+      let others = 0
+      for(let i = 0; i < selected.length; i++)
+      {
+        count += 1;
+        if(count <= 10)
+        {
+          labels.push(selected[i].label.toString());
+          values.push(selected[i].value);
+        }
+      }
+      const formatUtil = echarts.format;
+      this.barCarBrandOptionTY = {
+        title: {
+          text: 'The top 10 crash car brand in ' + this.selectedYearCarBrandsTY,
+          left: '10%',
+          top: '3%'
+        },
+        xAxis: {
+          type: 'category',
+          data: labels
+        },
+        yAxis: {
+          type: 'value'
+        },
+        tooltip: {
+          formatter: function (info)
+          {
+            let value = info.value;
+            let name = info.name;
+            return [
+              '<div class="tooltip-title" id="tooltips">' +
+              formatUtil.encodeHTML('Brand: ' + name) +
+              '</div>',
+              'Accident Count in the year: ' + value
+            ].join('');
+          }
+        },
+        series: [
+          {
+            data: values,
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            },
+            itemStyle: {
+              normal:{
+                color: function(param)
+                {
+                  let colorArray = [
+                    '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de',
+                    '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc',
+                    '#9BCA63'
+                  ];
+                  return colorArray[param.dataIndex];
+                }
+              }
+            }
+          }
+        ]
+      }
+      this.overviewCarsBrandsTY.clear();
+      this.curCarBrandOptionTY = this.barCarBrandOptionTY;
+      this.overviewCarsBrandsTY.setOption(this.curCarBrandOptionTY);
+      console.log(values);
+    },
+    GSWDrawCalendar(){
+
+      let GSWFirstChart = document.getElementById('GSWFirstImage');
+      let GSWFirstMyChart = echarts.init(GSWFirstChart);
+      let GSWFirstOption;
+
+// prettier-ignore
+      const GSWHours = [
+        '22-24 p.m.', '20-22 p.m.', '18-20 p.m.', '16-18 p.m.', '14-16 p.m.', '12-14 p.m.', '10-12 a.m.',
+        '8-10 a.m.', '6-8 a.m.', '4-6 a.m.', '2-4 a.m.', '0-2 a.m.'
+      ];
+// prettier-ignore
+      const GSWdays = [
+        'Mon.', 'Tues.', 'Wed.',
+        'Thur.', 'Fri.', 'Sat.', 'Sun.'
+      ];
+// prettier-ignore
+      let GSWintvalue=[];
+      let GSWFirstUrl="http://localhost:8090/dayandtime";
+      axios.get(GSWFirstUrl).then(response=>
+      {
+        var x=0,y=11;
+        for(var i=0;i<response.data.length;i++)
+        {
+          GSWintvalue.push([parseInt(y),parseInt(x),parseInt(response.data[i].value)]);
+          y--;
+          if(y==-1){
+            y=11;
+            x++;
+          }
+        }
+
+        let values=[];
+        for(let i=0;i<GSWintvalue.length;i++){
+          values.push(GSWintvalue[i])
+        };
+        const GSWFirstdata =
+          GSWintvalue
+            .map(function (item) {
+              return [item[1], item[0], item[2] || '-'];
+            });
+        GSWFirstOption = {
+          tooltip: {
+            position: 'top'
+          },
+          grid: {
+            height: '60%',
+            top: '1.5%',
+
+            left:"12%",
+          },
+          xAxis: {
+            type: 'category',
+            data: GSWdays,
+            axisLabel:{
+              fontSize:12,
+              fontFamily:'Microsoft YaHei',
+              fontWeight:'bold'
+            },
+            splitArea: {
+              show: true,
+              fontSize:35,
+            }
+          },
+          yAxis: {
+            type: 'category',
+            data: GSWHours,
+            axisLabel:{
+              fontSize:12,
+              fontFamily:'Microsoft YaHei',
+              fontWeight:'bold'
+            },
+            splitArea: {
+              show: true
+            }
+          },
+          visualMap: {
+            min: 2000,
+            max: 58000,
+            calculable: true,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: '27%',
+            textStyle:{
+              fontSize:12,
+              fontFamily:'Microsoft YaHei',
+              fontWeight:'bold'
+            }
+          },
+          series: [
+            {
+              name: 'Punch Card',
+              type: 'heatmap',
+              data: GSWFirstdata,
+              label: {
+                show: true,
+                fontSize:12,
+                fontFamily:'Microsoft YaHei',
+                fontWeight:'bold'
+              },
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)',
+                  fontSize:10,
+                }
+              }
+
+            }
+          ]
+        };
+
+        GSWFirstOption && GSWFirstMyChart.setOption(GSWFirstOption);
+
+      });
+    },
+    LineOptionXK1() {
+      this.LineOverviewXK = this.$echarts.init(document.getElementById("LineOptionXK1"));
+      this.LineOverviewXK.hideLoading();
+      const formatUtil = echarts.format;
+
+      // this.overview.setOption(this.curBrandOption);
+      let urlAll = "http://localhost:8090/Acc/getDailyAcc";
+      axios.get(urlAll).then(response =>
+      {
+        //If query is success
+        if (response.status == 200)
+        {
+          console.log(response.data[0])
+          this.allYearTimesDataXK = response.data;
+          this.accident_daily_XK = response.data[0];
+          const formatUtil = echarts.format;
+          this.LineOptionXK_1 = {
+            title: [
+              {
+                text: 'January of 2005',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'February of 2005',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'March of 2005',
+                top: '50%',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'April of 2005',
+                top: '50%',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+            ],
+            grid: [
+              {
+                left: '6%', top: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', top: '11%', width:'34%', height: '29%'
+              },
+              {
+                left: '6%', bottom: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', bottom: '11%', width: '34%', height: '29%'
+              }
+
+            ],
+
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                if(name=="zero_to_two"){
+                  return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="two_to_four"){
+                  return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name== "four_to_six"){
+                  return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="six_to_eight"){
+                  return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eight_to_ten"){
+                  return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="ten_to_twelve"){
+                  return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twelve_to_fourteen"){
+                  return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="fourteen_to_sixteen"){
+                  return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="sixteen_to_eighteen"){
+                  return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eighteen_to_twenty"){
+                  return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twenty_to_twentytwo"){
+                  return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twentytwo_to_twentyfour"){
+                  return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+
+              }
+            },
+            xAxis: [
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 0,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 1,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 2,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 3,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+            ],
+            yAxis: [
+              {
+                type:'value',
+                gridIndex:0,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:1,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:2,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:3,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+            ],
+            series: [
+              {
+                name: 'I-5',
+                type: 'line',
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                data: this.accident_daily_XK[0],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#A8CD74'
+
+              },
+
+              {
+                name: 'II',
+                type: 'line',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: this.accident_daily_XK[1],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#A8CD74'
+
+              },
+              {
+                name: 'III',
+                type: 'line',
+                xAxisIndex: 2,
+                yAxisIndex: 2,
+                data: this.accident_daily_XK[2],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#A8CD74'
+              },
+              {
+                name: 'IV',
+                type: 'line',
+                xAxisIndex: 3,
+                yAxisIndex: 3,
+                data: this.accident_daily_XK[3],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#A8CD74'
+              },
+
+            ]
+          };
+
+          this.LineOverviewXK.clear();
+          this.LineOverviewXK.setOption(this.LineOptionXK_1);
+          // console.log(values);
+
+        }
+      });
+
+    },
+
+    LineOptionXK2() {
+      this.LineOverviewXK2= this.$echarts.init(document.getElementById("LineOptionXK2"));
+      this.LineOverviewXK2.hideLoading();
+      const formatUtil = echarts.format;
+      // this.overview.setOption(this.curBrandOption);
+      let urlAll = "http://localhost:8090/Acc/getDailyAcc";
+      axios.get(urlAll).then(response =>
+      {
+        //If query is success
+        if (response.status == 200)
+        {
+          console.log(response.data[0])
+          this.allYearTimesDataXK = response.data;
+          this.accident_daily_XK=response.data[0];
+
+          const formatUtil = echarts.format;
+          this.LineOptionXK_2 = {
+            title: [
+              {
+                text: 'May of 2005',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'June of 2005',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'July of 2005',
+                top: '50%',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'August of 2005',
+                top: '50%',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+            ],
+            grid: [
+              {
+                left: '6%', top: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', top: '11%', width:'34%', height: '29%'
+              },
+              {
+                left: '6%', bottom: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', bottom: '11%', width: '34%', height: '29%'
+              }
+
+            ],
+
+
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                if(name=="zero_to_two"){
+                  return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="two_to_four"){
+                  return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name== "four_to_six"){
+                  return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="six_to_eight"){
+                  return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eight_to_ten"){
+                  return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="ten_to_twelve"){
+                  return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twelve_to_fourteen"){
+                  return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="fourteen_to_sixteen"){
+                  return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="sixteen_to_eighteen"){
+                  return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eighteen_to_twenty"){
+                  return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twenty_to_twentytwo"){
+                  return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twentytwo_to_twentyfour"){
+                  return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+
+              }
+            },
+            xAxis: [
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 0,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 1,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 2,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 3,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+            ],
+            yAxis: [
+              {
+                type:'value',
+                gridIndex:0,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:1,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:2,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:3,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+            ],
+            series: [
+              {
+                name: 'I-5',
+                type: 'line',
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                data: this.accident_daily_XK[4],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#FFD047'
+              },
+
+              {
+                name: 'II',
+                type: 'line',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: this.accident_daily_XK[5],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#FFD047'
+              },
+              {
+                name: 'III',
+                type: 'line',
+                xAxisIndex: 2,
+                yAxisIndex: 2,
+                data: this.accident_daily_XK[6],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#FFD047'
+              },
+              {
+                name: 'IV',
+                type: 'line',
+                xAxisIndex: 3,
+                yAxisIndex: 3,
+                data: this.accident_daily_XK[7],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#FFD047'
+              },
+
+            ]
+          };
+          this.LineOverviewXK2.clear();
+          this.LineOverviewXK2.setOption(this.LineOptionXK_2);
+          // console.log(values);
+
+        }
+      });
+
+      // option && overview.setOption(option);
+    },
+
+    LineOptionXK3() {
+      this.LineOverviewXK3 = this.$echarts.init(document.getElementById("LineOptionXK3"));
+      this.LineOverviewXK3.hideLoading();
+      const formatUtil = echarts.format;
+
+      // this.overview.setOption(this.curBrandOption);
+      let urlAll = "http://localhost:8090/Acc/getDailyAcc";
+      axios.get(urlAll).then(response =>
+      {
+        //If query is success
+        if (response.status == 200)
+        {
+          console.log(response.data[0])
+          this.allYearTimesDataXK = response.data;
+
+          this.accident_daily_XK=response.data[0];
+
+          const formatUtil = echarts.format;
+          this.LineOptionXK_3 = {
+            title: [
+              {
+                text: 'September of 2005',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'October of 2005',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'November of 2005',
+                top: '50%',
+                left:'1%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+              {
+                text: 'December of 2005',
+                top: '50%',
+                left: '44%',
+                textStyle: {
+                  fontSize: 15,
+                }
+              },
+            ],
+            grid: [
+              {
+                left: '6%', top: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', top: '11%', width:'34%', height: '29%'
+              },
+              {
+                left: '6%', bottom: '11%', width: '34%', height: '29%'
+              },
+              {
+                right: '16%', bottom: '11%', width: '34%', height: '29%'
+              }
+
+            ],
+
+            tooltip: {
+              formatter: function (info)
+              {
+                let value = info.value;
+                let name = info.name;
+                if(name=="zero_to_two"){
+                  return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="two_to_four"){
+                  return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name== "four_to_six"){
+                  return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="six_to_eight"){
+                  return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eight_to_ten"){
+                  return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="ten_to_twelve"){
+                  return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twelve_to_fourteen"){
+                  return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="fourteen_to_sixteen"){
+                  return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="sixteen_to_eighteen"){
+                  return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="eighteen_to_twenty"){
+                  return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twenty_to_twentytwo"){
+                  return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+                if(name=="twentytwo_to_twentyfour"){
+                  return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+                }
+
+              }
+            },
+            xAxis: [
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 0,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 1,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 2,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+              {
+                data:[2,4,6,8,10,12,14,16,18,20,22,24],
+                gridIndex: 3,
+                boundaryGap: true,
+                splitLine: {
+                  show: true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+                  }
+                },
+              },
+            ],
+            yAxis: [
+              {
+                type:'value',
+                gridIndex:0,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:1,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:2,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+              {
+                type:'value',
+                gridIndex:3,
+                splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color: ['#DDDDDD'],
+                    width: 1,
+
+                  }
+                }
+              },
+            ],
+            series: [
+              {
+                name: 'I-5',
+                type: 'line',
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                data: this.accident_daily_XK[8],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#65CBFF'
+              },
+
+              {
+                name: 'II',
+                type: 'line',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: this.accident_daily_XK[9],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#65CBFF'
+              },
+              {
+                name: 'III',
+                type: 'line',
+                xAxisIndex: 2,
+                yAxisIndex: 2,
+                data: this.accident_daily_XK[10],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#65CBFF'
+              },
+              {
+                name: 'IV',
+                type: 'line',
+                xAxisIndex: 3,
+                yAxisIndex: 3,
+                data: this.accident_daily_XK[11],
+                smooth: true,
+                stack: 'Total',
+                symbol: 'circle',
+                color : '#65CBFF'
+              },
+
+            ]
+          };
+          this.LineOverviewXK3.clear();
+          this.LineOverviewXK3.setOption(this.LineOptionXK_3);
+          // console.log(values);
+
+        }
+      });
+      this.LineOverviewXK3.on('click', this.overviewClick);
+      this.LineOverviewXK3.getZr().on('click', this.returnTreemap)
+      // option && overview.setOption(option);
+    },
+
+    LineHandleSelectYearXK(val)
+    {
+      this.selectLimitedXK++;
+      if(this.selectLimitedXK == 2)
+      {
+        console.log(this.LineSelectedYearXK[0])
+        let selectYear1 = parseInt(this.LineSelectedYearXK[0]);
+        let selectYear2 = parseInt(this.LineSelectedYearXK[1]);
+
+        let differ1 = selectYear1 - 2005;
+        let differ2 = selectYear2 - 2005;
+
+        console.log(this.allYearTimesDataXK[differ1][0])
+        console.log(this.allYearTimesDataXK[differ2][0])
+
+        const formatUtil = echarts.format;
+        this.LineOptionXK_1 = {
+          title: [
+            {
+              text: 'January of '+ this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'February of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'March of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'April of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+          ],
+          grid: [
+            {
+              left: '6%', top: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', top: '11%', width:'34%', height: '29%'
+            },
+            {
+              left: '6%', bottom: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', bottom: '11%', width: '34%', height: '29%'
+            }
+
+          ],
+
+
+          tooltip: {
+            formatter: function (info)
+            {
+              let value = info.value;
+              let name = info.name;
+              if(name=="zero_to_two"){
+                return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="two_to_four"){
+                return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name== "four_to_six"){
+                return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="six_to_eight"){
+                return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eight_to_ten"){
+                return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="ten_to_twelve"){
+                return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twelve_to_fourteen"){
+                return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="fourteen_to_sixteen"){
+                return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="sixteen_to_eighteen"){
+                return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eighteen_to_twenty"){
+                return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twenty_to_twentytwo"){
+                return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twentytwo_to_twentyfour"){
+                return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+
+            }
+          },
+          xAxis: [
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 0,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 1,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 2,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 3,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+          ],
+          yAxis: [
+            {
+              type:'value',
+              gridIndex:0,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:1,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:2,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:3,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+          ],
+
+          series: [
+            {
+              name: '0:00am - 2:00am',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ1][0],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#A8CD74'
+
+            },
+            {
+              name: '2:00am - 4:00am',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ2][0],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#42680F'
+            },
+
+
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ1][1],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#A8CD74'
+
+
+            },
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ2][1],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#42680F'
+
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ1][2],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#A8CD74'
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ2][2],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#42680F'
+
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ1][3],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#A8CD74'
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ2][3],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#42680F'
+            },
+
+          ]
+        };
+
+
+        this.LineOptionXK_2 = {
+          title: [
+            {
+              text: 'May of '+ this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'June of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'July of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'August of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+          ],
+          grid: [
+            {
+              left: '6%', top: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', top: '11%', width:'34%', height: '29%'
+            },
+            {
+              left: '6%', bottom: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', bottom: '11%', width: '34%', height: '29%'
+            }
+
+          ],
+
+          tooltip: {
+            formatter: function (info)
+            {
+              let value = info.value;
+              let name = info.name;
+              if(name=="zero_to_two"){
+                return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="two_to_four"){
+                return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name== "four_to_six"){
+                return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="six_to_eight"){
+                return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eight_to_ten"){
+                return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="ten_to_twelve"){
+                return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twelve_to_fourteen"){
+                return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="fourteen_to_sixteen"){
+                return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="sixteen_to_eighteen"){
+                return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eighteen_to_twenty"){
+                return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twenty_to_twentytwo"){
+                return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twentytwo_to_twentyfour"){
+                return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+
+            }
+          },
+          xAxis: [
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 0,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 1,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 2,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 3,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+          ],
+          yAxis: [
+            {
+              type:'value',
+              gridIndex:0,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:1,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:2,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:3,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+          ],
+
+          series: [
+            {
+              name: 'I-5',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ1][4],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FFD047'
+
+            },
+            {
+              name: 'I-5',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ2][4],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FF7E00'
+            },
+
+
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ1][5],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FFD047'
+
+
+            },
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ2][5],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FF7E00'
+
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ1][6],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FFD047'
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ2][6],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FF7E00'
+
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ1][7],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FFD047'
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ2][7],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#FF7E00'
+            },
+
+          ]
+        };
+
+        this.LineOptionXK_3 = {
+          title: [
+            {
+              text: 'September of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'October of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'November of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left:'1%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+            {
+              text: 'December of '+  this.LineSelectedYearXK[0]+', '+ this.LineSelectedYearXK[1],
+              top: '50%',
+              left: '44%',
+              textStyle: {
+                fontSize: 15,
+              }
+            },
+          ],
+          grid: [
+            {
+              left: '6%', top: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', top: '11%', width:'34%', height: '29%'
+            },
+            {
+              left: '6%', bottom: '11%', width: '34%', height: '29%'
+            },
+            {
+              right: '16%', bottom: '11%', width: '34%', height: '29%'
+            }
+
+          ],
+
+          tooltip: {
+            formatter: function (info)
+            {
+              let value = info.value;
+              let name = info.name;
+              if(name=="zero_to_two"){
+                return '0:00 - 2:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="two_to_four"){
+                return '2:00 - 4:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name== "four_to_six"){
+                return '4:00 - 6:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="six_to_eight"){
+                return '6:00 - 8:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eight_to_ten"){
+                return '8:00 - 10:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="ten_to_twelve"){
+                return '10:00 - 12:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twelve_to_fourteen"){
+                return '12:00 - 14:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="fourteen_to_sixteen"){
+                return '14:00 - 16:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="sixteen_to_eighteen"){
+                return '16:00 - 18:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="eighteen_to_twenty"){
+                return '18:00 - 20:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twenty_to_twentytwo"){
+                return '20:00 - 22:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+              if(name=="twentytwo_to_twentyfour"){
+                return '22:00 - 24:00'+'<br>'+ 'Daily Accident number: ' + value
+              }
+
+            }
+          },
+          xAxis: [
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 0,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 1,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 2,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+            {
+              data:[2,4,6,8,10,12,14,16,18,20,22,24],
+              gridIndex: 3,
+              boundaryGap: true,
+              splitLine: {
+                show: true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+                }
+              },
+            },
+          ],
+          yAxis: [
+            {
+              type:'value',
+              gridIndex:0,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:1,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:2,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+            {
+              type:'value',
+              gridIndex:3,
+              splitLine:{
+                show:true,
+                lineStyle:{
+                  color: ['#DDDDDD'],
+                  width: 1,
+
+                }
+              }
+            },
+          ],
+
+          series: [
+            {
+              name: 'I-5',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ1][8],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#65CBFF'
+
+            },
+            {
+              name: 'I-5',
+              type: 'line',
+              xAxisIndex: 0,
+              yAxisIndex: 0,
+              data: this.allYearTimesDataXK[differ2][8],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#0056E6'
+            },
+
+
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ1][9],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#65CBFF'
+
+
+            },
+            {
+              name: 'II',
+              type: 'line',
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+              data: this.allYearTimesDataXK[differ2][9],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#0056E6'
+
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ1][10],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#65CBFF'
+            },
+            {
+              name: 'III',
+              type: 'line',
+              xAxisIndex: 2,
+              yAxisIndex: 2,
+              data: this.allYearTimesDataXK[differ2][10],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#0056E6'
+
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ1][11],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#65CBFF'
+            },
+            {
+              name: 'IV',
+              type: 'line',
+              xAxisIndex: 3,
+              yAxisIndex: 3,
+              data: this.allYearTimesDataXK[differ2][11],
+              smooth: true,
+              stack: 'Total',
+              symbol: 'circle',
+              color : '#0056E6'
+            },
+
+          ]
+        };
+
+        this.LineSelectedYearXK=0;
+        this.selectLimitedXK=0;
+        this.LineOverviewXK.clear();
+        this.LineOverviewXK.setOption(this.LineOptionXK_1);
+
+        this.LineOverviewXK2.clear();
+        this.LineOverviewXK2.setOption(this.LineOptionXK_2);
+
+        this.LineOverviewXK3.clear();
+        this.LineOverviewXK3.setOption(this.LineOptionXK_3);
+
+      }
+
+    },
+    drawVehicleTypeSunbrustGraphTY()
+    {
+      let url = "http://localhost:8090/vehicle/types";
+      axios.get(url, {}).then(response =>
+      {
+        if (response.status == 200)
+        {
+          this.vehicleTypeSunGraphTY = this.$echarts.init(document.getElementById("vehicleTypeSunbrustContainer"));
+          this.vehicleTypePieGraphTY = this.$echarts.init(document.getElementById("vehicleTypleContainer"));
+          this.vehicleTypeSunbrustData = response.data;
+          this.vehicleTypeCurDataTY = response.data[0];
+          let optionSun = {
+            visualMap: {
+              type: 'continuous',
+              min: 0,
+              max: 20000,
+              inRange: {
+                color: ['#2F93C8', '#AEC48F', '#FFDB5C', '#F98862']
+              },
+              bottom: '20%',
+              text: ['High', 'Low'],
+            },
+            series:
+              {
+                type: 'sunburst',
+                data: this.vehicleTypeCurDataTY,
+                radius: [0, '70%'],
+                datasetIndex: 1,
+                label: {
+                  rotate: 'radial'
+                }
+              }
+          };
+
+          let optionPie = {
+            tooltip: {
+              trigger: 'item',
+              formatter: '{b} : {c} ({d}%)'
+            },
+            legend: {
+              bottom: 10,
+              left: 'center',
+              data: ['Motorcycle', 'Car', 'Bus', 'Truck', 'Scooter']
+            },
+            series: {
+              type: 'pie',
+              radius: '70%',
+              center: ['50%', '50%'],
+              selectedMode: 'single',
+              data: this.vehicleTypeSunbrustData[1]
+            },
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+          this.vehicleTypeSunGraphOptionTY = optionSun;
+          this.vehicleTypePieGraphOptionTY = optionPie;
+          this.vehicleTypeSunGraphTY.setOption(this.vehicleTypeSunGraphOptionTY);
+          this.vehicleTypePieGraphTY.setOption(this.vehicleTypePieGraphOptionTY);
+        }
+      });
+    },
+    TopLineOptionXK() {
+      this.TopOverviewXK = this.$echarts.init(document.getElementById("TopLineOptionXK"));
+      this.TopOverviewXK.hideLoading();
+      const formatUtil = echarts.format;
+
+      // this.overview.setOption(this.curBrandOption);
+      let urlAll = "http://localhost:8090/Acc/getDailyAcc";
+      axios.get(urlAll).then(response =>
+      {
+        //If query is success
+        if (response.status == 200)
+        {
+          console.log(response.data[0])
+
+          const formatUtil = echarts.format;
+          this.TopLineOptionXK = {
+            legend: {
+              data: ['Kent', 'Surrey', 'Lancashire', 'Essex', 'Hampshire'],
+              top:'7%',
+            },
+            grid: {
+              left: '0%',
+              right: '3%',
+              bottom: '3%',
+              containLabel: true
+            },
+
+            tooltip: {
+              trigger: 'axis'
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: ['2005','2006', '2007', '2008', '2009','2010', '2011','2012','2013','2014','2015', ]
+            },
+            yAxis: {
+              type: 'value',
+              min:2500,
+            },
+            series: [
+              {
+                name:'Kent',
+                type: 'line',
+
+                data: [4852,	4752,	4779,	4596,	4486,	4278,	4211,	4163,	4252,	4618,	4222]
+              },
+              {
+                name: 'Surrey',
+                type: 'line',
+
+                data: [4826,	4684,	4272,	4150,	4094,	3803,	4023,	3967,	3793,	3962,	3858]
+              },
+              {
+                name: 'Lancashire',
+                type: 'line',
+
+                data: [4516,	4297,	4265,	3972,	3705,	3530,	3234,	3047,	2911,	3078,	2940]
+              },
+              {
+                name: 'Essex',
+                type: 'line',
+
+                data: [4471,	4292,	4070,	3557,	3342,	3152,	3189,	3133,	3071,	3273,	3009]
+              },
+              {
+                name: 'Hampshire',
+                type: 'line',
+
+                data: [3866,	3708,	3768,	3233,	3103,	3177,	3253,	3074,	2927,	2976,	2865]
+              }
+            ]
+          };
+
+          this.TopOverviewXK.clear();
+          this.TopOverviewXK.setOption(this.TopLineOptionXK);
+          // console.log(values);
+
+        }
+      });
+
+      // option && overview.setOption(option);
+    },
   },
   created()
   {
@@ -2282,6 +4948,14 @@ export default {
     this.loadGeoMapData();
     this.drawDefaultCalendarTY();
     // this.loadRadarTY();
+    this.GSWdrawGDPandPopulation();
+    this.GSWDrawCalendar();
+    this.LineOptionXK1();
+    this.LineOptionXK2();
+    this.LineOptionXK3();
+    this.drawVehicleBrandsTreemapTY();
+    this.drawVehicleTypeSunbrustGraphTY();
+    this.TopLineOptionXK();
   },
   beforeRouteEnter(to, from, next) {
     document.querySelector('body').setAttribute('style','margin:0;padding:0')
