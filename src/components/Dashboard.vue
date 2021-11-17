@@ -29,6 +29,14 @@
       <br>
       <h1 style="font-size: 50px; color: sandybrown">TRAFFIC ACCIDENTS</h1>
       <br>
+
+      <el-row :gutter="20" align="center">
+        <el-col :span="7">&nbsp;</el-col>
+        <el-col :span="5"><el-card type="warning" style="border: #ffc028">Visualization</el-card></el-col>
+        <el-col :span="5"><el-card type="warning" style="border: #ffc028">警告按钮</el-card></el-col>
+        <el-col :span="7">&nbsp;</el-col>
+      </el-row>
+
       <h2 style="font-size: 35px; color: sandybrown"><a href="https://echarts.apache.org/en/" style="font-size: 35px; color: sandybrown">Build with Apache ECharts.js v5.2</a></h2>
       <div style="height:30px"></div>
       <el-row :gutter="15">
@@ -39,19 +47,33 @@
           <el-row :gutter="12">
             <el-col :span="8">
               <el-card shadow="hover">
-                <h2><i class="el-icon-s-platform"> Interaction</i></h2>
-                <p>Mainly based on Echarts & JavaScript, users can interact with the charts as they want.
-                  Hover the mouse on graphs, the related elements will be displayed on a tooltip.</p>
+                <div style="font-weight: bold; font-size: 50px"><i class="el-icon-s-platform"></i></div>
+                <div style="font-weight: bold; font-size: 30px; color: #696969">Interaction</div>
+                <p style="text-align:justify; margin-top: 10px">Mainly based on Echarts & JavaScript,
+                  users can interact with the charts as they want.
+                  Users can explore the situation of traffic accidents each time period of each day of UK from 2005 to 2015.
+                  Users can gradually explore more specific information and solve the doubts in the website.</p>
               </el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover"><h2><i class="el-icon-view"> Exploration</i> </h2>
-                <p>Based on Echarts & JavaScript, users can interact with the charts as they want</p>
+              <el-card shadow="hover">
+                <div style="font-weight: bold; font-size: 50px"><i class="el-icon-view"></i></div>
+                <div style="font-weight: bold; font-size: 30px; color: #696969">Exploration</div>
+                <p style="text-align:justify; margin-top: 10px">Some interesting slights are explored.
+                  Combines different datasets with the traffic accidents, such as weather, light conditions, GDP, population and vehicle brands.
+                  From data to pattern then to knowledge. Deep understanding on the dataset, useful information filtered.
+                </p>
               </el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover"><h2><i class="el-icon-finished"> Completion</i> </h2>
-                <p>Based on Echarts & JavaScript, users can interact with the charts as they want</p>
+              <el-card shadow="hover">
+                <div style="font-weight: bold; font-size: 50px"><i class="el-icon-finished"></i></div>
+                <div style="font-weight: bold; font-size: 30px; color: #696969">Completion</div>
+                <p style="text-align:justify; margin-top: 10px">
+                  Multi-category charts, such as map, pie, line, sun burst .etc.
+                  Achieve data visualization with selected dataset, and show the multiple interesting insights.
+                  Use abundant color, shape, type to label and to quantify different elements in various methods.
+                </p>
               </el-card>
             </el-col>
           </el-row>
@@ -98,9 +120,18 @@
               <div style="height: 10px;"></div>
               <i class="el-icon-s-data">
                 <strong style="font-size: 16px;">
-                  <a href="https://www.gov.uk/" style="color: black"> Data from UK.GOV</a>
+                  <a href="https://www.gov.uk/" style="color: black"> Origin data from UK.GOV</a>
                 </strong>
               </i>
+              <div style="height: 3px"></div>
+              <strong style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Capture from dataworlds</strong>
+              <div style="height: 10px;"></div>
+              <i class="el-icon-s-data">
+                <strong style="font-size: 16px;">
+                  <a href="https://www.gov.uk/" style="color: black"> Dataset statistic</a>
+                </strong>
+              </i>
+              <div id="datasetoverview" style="width: 100%; height: 250px"></div>
             </div>
           </el-card>
 
@@ -152,17 +183,17 @@
                   <i class="el-icon-coordinate" style="margin-top: 5px; font-size: 13px; font-weight: bold">
                     Multiple coordinates: map, calendars & 2D
                   </i>
-                  <i class="el-icon-coordinate" style="margin-top: 5px; font-size: 13px; font-weight: bold">
-                    Multiple coordinates: map, calendars & 2D
+                  <i class="el-icon-pie-chart" style="margin-top: 5px; font-size: 13px; font-weight: bold">
+                    Pie: multi-element comparison under calendar
                   </i>
-                  <i class="el-icon-coordinate" style="margin-top: 5px; font-size: 13px; font-weight: bold">
-                    Multiple coordinates: map, calendars & 2D
+                  <i class="el-icon-data-board" style="margin-top: 5px; font-size: 13px; font-weight: bold">
+                    Rectangular Tree map: based on sorted data
                   </i>
-                  <i class="el-icon-coordinate" style="margin-top: 5px; font-size: 13px; font-weight: bold">
-                    Multiple coordinates: map, calendars & 2D
+                  <i class="el-icon-data-line" style="margin-top: 5px; font-size: 13px; font-weight: bold">
+                    Line graphs matrices: changed in value over time
                   </i>
-                  <i class="el-icon-coordinate" style="margin-top: 5px; font-size: 13px; font-weight: bold">
-                    Multiple coordinates: map, calendars & 2D
+                  <i class="el-icon-timer" style="margin-top: 5px; font-size: 13px; font-weight: bold">
+                    Dynamic charts: auto changing over time
                   </i>
                 </el-col>
               </el-row>
@@ -446,6 +477,152 @@
         </el-col>
         <el-col :span="2">&nbsp;</el-col>
       </el-row>
+
+      <div align="center" id="bottomPage" style="height: 800px; color: whitesmoke">
+        <div style="height: 10px"></div>
+        <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Project Report & Repository</p>
+        <el-card align="center" shadow="always" style="height: 220px; width: 60%; margin-top: 5px; background-color:rgba(255, 255, 255, 0.8);">
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <h2><i class="el-icon-coin"></i> GitHub</h2>
+              <el-divider></el-divider>
+              <h3 align="left"><i class="el-icon-link"></i> Web Client</h3>
+              <div style="height: 3px"></div>
+              <a href="https://github.com/tian-yu-moker/visualization-web-pages">Click here to visit our web client.</a>
+              <h3 align="left"><i class="el-icon-link"></i> API Server</h3>
+              <div style="height: 3px"></div>
+              <a href="https://github.com/shituweian/visualization_back_end">Click here to visit our API server.</a>
+              <el-row>
+                <el-col :span="12">
+                  <el-image style="width: 80px; height: 80px;"
+                    :src="require('../assets/VisualizationImages/spring.png')">
+                  </el-image>
+                </el-col>
+                <el-col :span="12">
+                  <el-col :span="12">
+                    <el-image style="width: 80px; height: 80px;"
+                      :src="require('../assets/VisualizationImages/vue.png')"></el-image>
+                  </el-col>
+                </el-col>
+              </el-row>
+            </el-col>
+            <el-col :span="8">
+              <h2><i class="el-icon-document-copy"></i> Demo</h2>
+              <el-divider></el-divider>
+              <div style="height: 5px"></div>
+              <el-button type="primary" round size="small">View Report</el-button>
+            </el-col>
+            <el-col :span="8">
+              <h2><i class="el-icon-message"></i> Contact Us</h2>
+              <h3 align="left"><i class="el-icon-trophy"></i> Tian, Yu</h3>
+              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">tianyu98@connect.hku.hk</a>
+              <div style="height: 7px"></div>
+              <h3 align="left"><i class="el-icon-trophy"></i> Gao, Shiwei</h3>
+              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">gshiwei@connect.hku.hk</a>
+              <div style="height: 7px"></div>
+              <h3 align="left"><i class="el-icon-trophy"></i> Xing, Ke</h3>
+              <a align="left" style="font-size: 17px;  color: black" href="mailto:tianyu98@connect.hku.hk">u3591499connect.hku.hk</a>
+            </el-col>
+          </el-row>
+
+
+          <p align="center" style="font-size: 35px; font-weight: bolder; color: black">Presented by Group 7</p>
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Tian, Yu</p>
+                    <p style="font-weight: bold">UID: 3035905089</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Gao, Shiwei</p>
+                    <p style="font-weight: bold">UID: 3035905986</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/XK.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Xing, Ke</p>
+                    <p style="font-weight: bold">UID: 3035914999</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+
+        </el-card>
+
+        <div align="center" style="width: 60%">
+          <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Presented by Group 7</p>
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Tian, Yu</p>
+                    <p style="font-weight: bold">UID: 3035905089</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Gao, Shiwei</p>
+                    <p style="font-weight: bold">UID: 3035905986</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Xing, Ke</p>
+                    <p style="font-weight: bold">UID: 3035914999</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -2383,6 +2560,60 @@ export default {
       }
 
 
+    },
+    datasetOverview()
+    {
+      let overviewData = this.$echarts.init(document.getElementById("datasetoverview"));
+
+      let data = [2047256, 3262270, 46200, 3850];
+      let bar = {
+        tooltip: {
+          trigger: 'item'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Accidents', 'Cars', 'GDP', 'Pop'],
+          axisLabel: {
+            fontSize: 9,
+            fontFamily:'Microsoft YaHei',
+            fontWeight:'bold'
+          },
+        },
+        grid: {
+          top: '5%'
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            show: false
+          }
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'bar',
+            radius: '50%',
+            data: data,
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: function(params)
+                {
+                  let colorList = ['#eacd76', '#87CEEB', '#21a675', '#2e4e7e'];
+                  return colorList[params.dataIndex]
+                }
+              }
+            }
+          }
+        ]
+      };
+      overviewData.setOption(bar);
     },
     TotalLineHeaderOptionXK() {
       this.overview = this.$echarts.init(document.getElementById("totalLineChartOverviewHeaderDIVXK"));
@@ -4944,6 +5175,7 @@ export default {
     //this.loadGeoMapData();
   },
   mounted () {
+    this.datasetOverview();
     this.TotalLineHeaderOptionXK()
     this.loadGeoMapData();
     this.drawDefaultCalendarTY();
@@ -4982,11 +5214,15 @@ export default {
 }
 #headerImage{
   background: url("../assets/VisualizationImages/HeaderBackground.png") no-repeat;
-
   height: 100%;
   width: 100%;
   background-size: 100% 100%;
-
+}
+#bottomPage{
+  background: url("../assets/43.jpg") no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
 }
 a{text-decoration:none}
 </style>

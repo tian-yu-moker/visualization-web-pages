@@ -24,7 +24,7 @@ export default new Router({
     {
       path: '/',
       name: 'gaoShiweiTest',
-      component: gaoShiweiFifth,
+      component: Dashboard,
       meta:{
         title: 'Homepage',
         keepAlive: false
