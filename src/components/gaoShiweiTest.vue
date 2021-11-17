@@ -1,7 +1,7 @@
 <template>
-<div class="GaoShiweiTest">
+<div class="GSWTest">
 
-<div id="main" style="width: 800px;height:800px;"></div>
+<div id="GSWFirstImage" style="width: 800px;height:800px;"></div>
 </div>
 </template>
 
@@ -13,40 +13,34 @@ Vue.prototype.$echarts = echarts
 
 
 export default {
-  name: 'gaoShiweiTest',
-  data() {
-    return {
-      day: [],
-    time:[],
-      value:[]
-  };
-  },
-  methods:{
-    drawCalendar(){
+  name: 'GSWTest',
 
-      var chartDom = document.getElementById('main');
-      var myChart = echarts.init(chartDom);
-      var option;
+  methods:{
+    GSWDrawCalendar(){
+
+      let GSWFirstChart = document.getElementById('GSWFirstImage');
+      let GSWFirstMyChart = echarts.init(GSWFirstChart);
+      let GSWFirstOption;
 
 // prettier-ignore
-      const hours = [
+      const GSWHours = [
         '22:00-24:00', '20:00-22:00', '18:00-20:00', '16:00-18:00', '14:00-16:00', '12:00-14:00', '10:00-12:00',
         '08:00-10:00', '06:00-08:00', '04:00-06:00', '02:00-04:00', '00:00-02:00'
       ];
 // prettier-ignore
-      const days = [
+      const GSWdays = [
         'Monday', 'Tuesday', 'Wednesday',
         'Thursday', 'Friday', 'Saturday', 'Sunday'
       ];
 // prettier-ignore
-      var intvalue=[];
-      var url="http://localhost:8090/dayandtime";
-      axios.get(url).then(response=>
+      let GSWintvalue=[];
+      let GSWFirstUrl="http://localhost:8090/dayandtime";
+      axios.get(GSWFirstUrl).then(response=>
       {
           var x=0,y=11;
           for(var i=0;i<response.data.length;i++)
           {
-            intvalue.push([parseInt(y),parseInt(x),parseInt(response.data[i].value)]);
+            GSWintvalue.push([parseInt(y),parseInt(x),parseInt(response.data[i].value)]);
             y--;
             if(y==-1){
               y=11;
@@ -54,19 +48,16 @@ export default {
             }
           }
 
-      var values=[];
-      for(var i=0;i<intvalue.length;i++){
-        values.push(intvalue[i])
+      let values=[];
+      for(let i=0;i<GSWintvalue.length;i++){
+        values.push(GSWintvalue[i])
       };
-      console.log(intvalue);
-      console.log(typeof(intvalue[1][0]));
-      const data =
-        intvalue
+      const GSWFirstdata =
+        GSWintvalue
         .map(function (item) {
           return [item[1], item[0], item[2] || '-'];
         });
-      console.log(data)
-      option = {
+      GSWFirstOption = {
         tooltip: {
           position: 'top'
         },
@@ -76,7 +67,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: days,
+          data: GSWdays,
           axisLabel:{
               fontSize:12,
             fontFamily:'Microsoft YaHei',
@@ -89,7 +80,7 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: hours,
+          data: GSWHours,
           axisLabel:{
             fontSize:12,
             fontFamily:'Microsoft YaHei',
@@ -116,7 +107,7 @@ export default {
           {
             name: 'Punch Card',
             type: 'heatmap',
-            data: data,
+            data: GSWFirstdata,
             label: {
               show: true,
               fontSize:12,
@@ -135,14 +126,14 @@ export default {
         ]
       };
 
-      option && myChart.setOption(option);
+      GSWFirstOption && GSWFirstMyChart.setOption(GSWFirstOption);
 
       });
     }
 
   },
   mounted(){
-    this.drawCalendar();
+    this.GSWDrawCalendar();
   }
 }
 </script>
