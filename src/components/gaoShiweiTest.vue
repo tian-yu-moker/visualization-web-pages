@@ -1,7 +1,7 @@
 <template>
 <div class="GSWTest">
 
-<div id="GSWFirstImage" style="width: 750px;height:900px;"></div>
+<div id="GSWFirstImage" style="width: 650px;height:800px;"></div>
 </div>
 </template>
 
@@ -62,8 +62,10 @@ export default {
           position: 'top'
         },
         grid: {
-          height: '50%',
-          top: '10%'
+          height: '60%',
+          top: '1.5%',
+
+          left:"12%",
         },
         xAxis: {
           type: 'category',
