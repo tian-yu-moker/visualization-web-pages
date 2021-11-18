@@ -336,7 +336,26 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
-          <el-card style="height: 250px">雷达放这里</el-card>
+          <el-card style="height: 600px">
+            <el-row :gutter="3">
+              <el-col :span="8" align="center">
+                <div id="radarLightCasualtyTY" style="width: 100%; height: 300px"></div>
+              </el-col>
+              <el-col :span="8">
+                <div id="roadCasualtyTY" style="width: 100%; height: 300px"></div>
+              </el-col>
+              <el-col :span="8">
+                <div id="weatherCasualtyTY" style="width: 100%; height: 300px"></div>
+              </el-col>
+            </el-row>
+            <el-row :gutter="3">
+              <el-col :span="8" align="center">
+                <div id="" style="width: 100%; height: 240px"></div>
+              </el-col>
+              <el-col :span="8">2</el-col>
+              <el-col :span="8">4</el-col>
+            </el-row>
+          </el-card>
         </el-col>
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
       </el-row>
@@ -358,7 +377,8 @@
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="6">
           <el-card shadow="always" style="height: 560px">
-            AAA
+            <div style="height: 280px">GSW图1</div>
+            <div style="height: 280px">GSW图2</div>
           </el-card>
         </el-col>
         <el-col :span="14">
@@ -2619,6 +2639,351 @@ export default {
       };
       overviewData.setOption(bar);
     },
+
+    drawRadarTY()
+    {
+      let lightCasualtyChart = echarts.init(document.getElementById('radarLightCasualtyTY'));
+      let lightOptionCasualty;
+      const lightCasualty = [
+        {
+          value: 1235,
+          name: 'Daylight',
+          title: {
+            offsetCenter: ['0%', '-40%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '-25%']
+          }
+        },
+        {
+          value: 1351,
+          name: 'Weak light',
+          title: {
+            offsetCenter: ['0%', '-10%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '5%']
+          }
+        },
+        {
+          value: 1537,
+          name: 'No light',
+          title: {
+            offsetCenter: ['0%', '20%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '35%']
+          }
+        }
+      ];
+      lightOptionCasualty = {
+        series: [
+          {
+            type: 'gauge',
+            startAngle: 90,
+            min: 1100,
+            max: 1800,
+            endAngle: -270,
+            pointer: {
+              show: false
+            },
+            progress: {
+              show: true,
+              overlap: false,
+              roundCap: true,
+              clip: false,
+              itemStyle: {
+                borderWidth: 1,
+                borderColor: '#464646'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                width: 40
+              }
+            },
+            splitLine: {
+              show: false,
+              distance: 0,
+              length: 10
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              show: false,
+              distance: 50
+            },
+            data: lightCasualty,
+            title: {
+              fontSize: 10
+            },
+            detail: {
+              width: 30,
+              height: 10,
+              fontSize: 10,
+              color: 'auto',
+              borderColor: 'auto',
+              borderRadius: 30,
+              borderWidth: 1,
+              formatter: '{value}'
+            }
+          }
+        ]
+      };
+
+      let roadCasualtyChart = echarts.init(document.getElementById('roadCasualtyTY'));
+      let roadOptionCasualty;
+      const roadCasualty = [
+        {
+          value: 1329,
+          name: 'Dry',
+          title: {
+            offsetCenter: ['-30%', '-35%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['-30%', '-20%']
+          }
+        },
+        {
+          value: 1345,
+          name: 'Damp',
+          title: {
+            offsetCenter: ['30%', '-35%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '-20%']
+          }
+        },
+        {
+          value: 1401,
+          name: 'Frost',
+          title: {
+            offsetCenter: ['-30%', '-5%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['-30%', '10%']
+          }
+        },
+        {
+          value: 1358,
+          name: 'Snow',
+          title: {
+            offsetCenter: ['30%', '-5%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '10%']
+          }
+        },
+        {
+          value: 1467,
+          name: 'Flood',
+          title: {
+            offsetCenter: ['0%', '25%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '40%']
+          }
+        },
+      ];
+      roadOptionCasualty = {
+        color: ['#eacd76', '#87CEEB', '#21a675', '#2e4e7e', '#9D2933'],
+        series: [
+          {
+            type: 'gauge',
+            startAngle: 90,
+            min: 1100,
+            max: 1800,
+            endAngle: -270,
+            pointer: {
+              show: false
+            },
+            progress: {
+              show: true,
+              overlap: false,
+              roundCap: true,
+              clip: false,
+              itemStyle: {
+                borderWidth: 1,
+                borderColor: '#464646'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                width: 40
+              }
+            },
+            splitLine: {
+              show: false,
+              distance: 0,
+              length: 10
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              show: false,
+              distance: 50
+            },
+            data: roadCasualty,
+            title: {
+              fontSize: 10
+            },
+            detail: {
+              width: 30,
+              height: 8,
+              fontSize: 10,
+              color: 'auto',
+              borderColor: 'auto',
+              borderRadius: 35,
+              borderWidth: 1,
+              formatter: '{value}'
+            }
+          }
+        ]
+      };
+
+      let weatherCasualtyChart = echarts.init(document.getElementById('weatherCasualtyTY'));
+      let weatherOptionCasualty;
+      const weatherCasualty = [
+        {
+          value: 1329,
+          name: 'Fine',
+          title: {
+            offsetCenter: ['0%', '-55%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '-43%']
+          }
+        },
+        {
+          value: 1392,
+          name: 'Rain',
+          title: {
+            offsetCenter: ['30%', '-32%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '-20%']
+          }
+        },
+        {
+          value: 1392,
+          name: 'Rain',
+          title: {
+            offsetCenter: ['30%', '-32%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '-20%']
+          }
+        },
+        {
+          value: 1401,
+          name: 'Frost',
+          title: {
+            offsetCenter: ['-30%', '-5%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['-30%', '10%']
+          }
+        },
+        {
+          value: 1358,
+          name: 'Snow',
+          title: {
+            offsetCenter: ['30%', '-5%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '10%']
+          }
+        },
+        {
+          value: 1467,
+          name: 'Flood',
+          title: {
+            offsetCenter: ['0%', '25%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['0%', '40%']
+          }
+        },
+      ];
+      weatherOptionCasualty = {
+        color: ['#fac858', '#91cc75', '#3eede7', '#2e4e7e', '#8b4bbb', '#9d2933', '#56004f'],
+        series: [
+          {
+            type: 'gauge',
+            startAngle: 90,
+            min: 1100,
+            max: 1800,
+            endAngle: -270,
+            pointer: {
+              show: false
+            },
+            progress: {
+              show: true,
+              overlap: false,
+              roundCap: true,
+              clip: false,
+              itemStyle: {
+                borderWidth: 1,
+                borderColor: '#464646'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                width: 40
+              }
+            },
+            splitLine: {
+              show: false,
+              distance: 0,
+              length: 10
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              show: false,
+              distance: 50
+            },
+            data: weatherCasualty,
+            title: {
+              fontSize: 8
+            },
+            detail: {
+              width: 30,
+              height: 8,
+              fontSize: 8,
+              color: 'auto',
+              borderColor: 'auto',
+              borderRadius: 35,
+              borderWidth: 1,
+              formatter: '{value}'
+            }
+          }
+        ]
+      };
+
+      lightOptionCasualty && lightCasualtyChart.setOption(lightOptionCasualty);
+      roadOptionCasualty && roadCasualtyChart.setOption(roadOptionCasualty);
+      weatherOptionCasualty && weatherCasualtyChart.setOption(weatherOptionCasualty);
+
+    },
+
     TotalLineHeaderOptionXK() {
       this.overview = this.$echarts.init(document.getElementById("totalLineChartOverviewHeaderDIVXK"));
       this.overview.hideLoading();
@@ -5183,7 +5548,7 @@ export default {
     this.TotalLineHeaderOptionXK()
     this.loadGeoMapData();
     this.drawDefaultCalendarTY();
-    // this.loadRadarTY();
+    this.drawRadarTY();
     this.GSWdrawGDPandPopulation();
     this.GSWDrawCalendar();
     this.LineOptionXK1();
