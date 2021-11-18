@@ -13,12 +13,12 @@
       <div style="height:100px"></div>
       <el-row :gutter="15">
         <el-col :span="2">
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div>&nbsp;</div>
         </el-col>
         <el-col :span="20">
           <el-row :gutter="12">
             <el-col :span="8">
-              <el-card shadow="hover">
+              <el-card shadow="hover" style="height: 320px">
                 <div style="font-weight: bold; font-size: 50px"><i class="el-icon-s-platform"></i></div>
                 <div style="font-weight: bold; font-size: 30px; color: #696969">Interaction</div>
                 <p style="text-align:justify; margin-top: 10px">Mainly based on Echarts & JavaScript,
@@ -28,7 +28,7 @@
               </el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover">
+              <el-card shadow="hover" style="height: 320px">
                 <div style="font-weight: bold; font-size: 50px"><i class="el-icon-view"></i></div>
                 <div style="font-weight: bold; font-size: 30px; color: #696969">Exploration</div>
                 <p style="text-align:justify; margin-top: 10px">Some interesting slights are explored.
@@ -38,7 +38,7 @@
               </el-card>
             </el-col>
             <el-col :span="8">
-              <el-card shadow="hover">
+              <el-card shadow="hover" style="height: 320px">
                 <div style="font-weight: bold; font-size: 50px"><i class="el-icon-finished"></i></div>
                 <div style="font-weight: bold; font-size: 30px; color: #696969">Completion</div>
                 <p style="text-align:justify; margin-top: 10px">
@@ -527,7 +527,7 @@
         <el-row :gutter="10">
           <el-col :span="2">&nbsp;</el-col>
           <el-col :span="8">
-            <el-card align="left">
+            <el-card align="left" style="height: 270px">
               <i class="el-icon-coin" style="font-size: 20px; font-weight: bold">
                 <span> GitHub Repository<br></span>
               </i>
@@ -579,7 +579,7 @@
             </el-card>
           </el-col>
           <el-col :span="6">
-            <el-card>
+            <el-card style="height: 270px">
               <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
                 <span> Demo & Report<br></span>
               </i>
@@ -610,7 +610,7 @@
             </el-card>
           </el-col>
           <el-col :span="6">
-            <el-card>
+            <el-card style="height: 270px">
               <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
                 <span> Presented by Group 7<br></span>
               </i>

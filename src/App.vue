@@ -47,10 +47,6 @@
 
 <script>
 
-import Login from './components/Login'
-import HelloWorld from './components/HelloWorld'
-import Manage from './components/ManageAccount'
-
 export default {
   name: 'App',
   methods: {
