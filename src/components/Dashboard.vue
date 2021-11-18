@@ -422,7 +422,17 @@
             <div id="LineOptionXK2" style="width: 120%;height:310px; top:3px;"></div>
             <div id="LineOptionXK3" style="width: 120%;height:310px; top:3px;"></div>
             <div>
-              图片说明
+              <el-row>
+                <el-col :span="2">&nbsp;</el-col>
+                <el-col :span="12">
+                  <i class="el-icon-question" style="font-weight: bold; font-size: 17px"><span> How to read these charts?</span></i><br>
+                  <span style="font-style: italic; font-size: 15px; margin-top: 5px"> Different direction cells refer to different meanings</span>
+                </el-col>
+                <el-col :span="8">
+                  <el-image style="width: 250px; height: 100px" :src="require('../assets/VisualizationImages/Number&time.png')"></el-image>
+                </el-col>
+                <el-col :span="2">&nbsp;</el-col>
+              </el-row>
             </div>
           </el-card>
         </el-col>
@@ -2543,7 +2553,7 @@ export default {
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Daylight: in daytime</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Weaklight: darkness time</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Nolight: without light</span></i>' +
-          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Show the visualization of different light conditions, normally, people trends to go out in daytime, </span><span style="color: darkred"> so the number of daylight is larger.' +
+          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Normally, people trends to go out in daytime, </span><span style="color: darkred"> so the number of daylight is larger.' +
           '</span></i>'
 
         ;
@@ -3005,7 +3015,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          //console.log(response.data[0])
 
           const formatUtil = echarts.format;
           this.TotalLineOptionXK = {
@@ -3302,7 +3312,7 @@ export default {
         // If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          //console.log(response.data[0])
           this.carsBrandOverviewTY = response.data[0];
           this.defaultAllYearDataCarsTY = response.data[0];
           this.carsYearlyDataTY = response.data[1];
@@ -3556,7 +3566,7 @@ export default {
       this.overviewCarsBrandsTY.clear();
       this.curCarBrandOptionTY = this.barCarBrandOptionTY;
       this.overviewCarsBrandsTY.setOption(this.curCarBrandOptionTY);
-      console.log(values);
+      //console.log(values);
     },
     GSWDrawCalendar(){
 
@@ -3686,7 +3696,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          //console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
           this.accident_daily_XK = response.data[0];
           const formatUtil = echarts.format;
@@ -3955,7 +3965,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          //console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
           this.accident_daily_XK=response.data[0];
 
@@ -4225,7 +4235,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          //console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
 
           this.accident_daily_XK=response.data[0];
@@ -4488,18 +4498,18 @@ export default {
     {
       this.selectLimitedXK == this.LineSelectedYearXK.length;
 
-      console.log(this.LineSelectedYearXK.length)
+      // console.log(this.LineSelectedYearXK.length)
       if(this.LineSelectedYearXK.length == 2)
       {
-        console.log(this.LineSelectedYearXK[0])
+        //console.log(this.LineSelectedYearXK[0])
         let selectYear1 = parseInt(this.LineSelectedYearXK[0]);
         let selectYear2 = parseInt(this.LineSelectedYearXK[1]);
 
         let differ1 = selectYear1 - 2005;
         let differ2 = selectYear2 - 2005;
 
-        console.log(this.allYearTimesDataXK[differ1][0])
-        console.log(this.allYearTimesDataXK[differ2][0])
+        //console.log(this.allYearTimesDataXK[differ1][0])
+        //console.log(this.allYearTimesDataXK[differ2][0])
 
         const formatUtil = echarts.format;
         this.LineOptionXK_1 = {
@@ -5478,7 +5488,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          console.log(response.data[0])
+          // console.log(response.data[0])
 
           const formatUtil = echarts.format;
           this.TopLineOptionXK = {
