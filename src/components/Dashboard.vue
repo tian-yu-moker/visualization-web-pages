@@ -9,9 +9,6 @@
       <br>
       <h1 style="font-size: 50px; color: whitesmoke">TRAFFIC ACCIDENTS</h1>
       <br><br>
-
-
-
       <h2 style="font-size: 35px; color: whitesmoke"><a href="https://echarts.apache.org/en/" style="font-size: 35px; color: whitesmoke">Build with Apache ECharts.js v5.2</a></h2>
       <div style="height:100px"></div>
       <el-row :gutter="15">

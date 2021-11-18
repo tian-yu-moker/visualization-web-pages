@@ -17,8 +17,7 @@ import Dashboard from '../components/Dashboard'
 import gaoShiweiFourth from '../components/gaoShiweiFourth'
 import gaoShiweiFifth from '../components/gaoShiweiFifth'
 import LineChart from '../components/LineChart'
-import DashBoardGaoShiwei from '../components/DashBoardGaoShiwei'
-import test from '../components/test'
+
 Vue.use(Router)
 
 export default new Router({

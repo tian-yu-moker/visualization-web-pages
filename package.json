@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "echarts": "^5.2.2",
+    "element-theme-chalk": "^2.15.6",
     "element-ui": "^2.13.2",
     "js-md5": "^0.7.3",
     "vue": "^2.6.11",
