@@ -215,6 +215,15 @@
     <el-divider></el-divider>
     <div style="height:5px;"></div>
     <el-row :gutter="10">
+      <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      <el-col :span="20" align="left">
+        <i class="el-icon-map-location" style="font-size: 20px; font-weight: bolder">
+          <span> Map Visualization</span>
+        </i>
+      </el-col>
+      <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+    </el-row>
+    <el-row :gutter="10">
       <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
       <el-col :span="20">
         <el-card>
@@ -336,15 +345,24 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
-          <el-card style="height: 300px">
+          <el-card style="height: 330px">
             <el-row :gutter="3">
               <el-col :span="8" align="center">
+                <div align="left"><i class="el-icon-moon-night" style="font-size: 15px">
+                  <span style="font-weight: bold"> Light & Accidents Casualties (Per 1000 acc)</span></i>
+                </div>
                 <div id="radarLightCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
               <el-col :span="8">
+                <div align="left"><i class="el-icon-place" style="font-size: 15px">
+                  <span style="font-weight: bold"> Road & Accidents Casualties (per 1000 acc)</span></i>
+                </div>
                 <div id="roadCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
               <el-col :span="8">
+                <div align="left"><i class="el-icon-partly-cloudy" style="font-size: 15px">
+                  <span style="font-weight: bold"> Weather & Accidents Casualties (per 1000 acc)</span></i>
+                </div>
                 <div id="weatherCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
             </el-row>
@@ -504,152 +522,155 @@
         </el-col>
         <el-col :span="2">&nbsp;</el-col>
       </el-row>
+      <div style="height: 5px"></div>
+      <el-divider></el-divider>
+      <div style="height: 5px"></div>
+      <el-row :gutter="10">
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+        <el-col :span="20">
+          <i class="el-icon-price-tag" style="font-size: 20px; font-weight: bolder">
+            <span> About Us</span>
+          </i>
+        </el-col>
+        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
+      </el-row>
 
-      <div align="center" id="bottomPage" style="height: 800px; color: whitesmoke">
-        <div style="height: 10px"></div>
-        <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Project Report & Repository</p>
-        <el-card align="center" shadow="always" style="height: 220px; width: 60%; margin-top: 5px; background-color:rgba(255, 255, 255, 0.8);">
-          <el-row :gutter="10">
-            <el-col :span="8">
-              <h2><i class="el-icon-coin"></i> GitHub</h2>
+      <div>
+        <el-row :gutter="10">
+          <el-col :span="2">&nbsp;</el-col>
+          <el-col :span="8">
+            <el-card align="left">
+              <i class="el-icon-coin" style="font-size: 20px; font-weight: bold">
+                <span> GitHub Repository<br></span>
+              </i>
               <el-divider></el-divider>
-              <h3 align="left"><i class="el-icon-link"></i> Web Client</h3>
-              <div style="height: 3px"></div>
-              <a href="https://github.com/tian-yu-moker/visualization-web-pages">Click here to visit our web client.</a>
-              <h3 align="left"><i class="el-icon-link"></i> API Server</h3>
-              <div style="height: 3px"></div>
-              <a href="https://github.com/shituweian/visualization_back_end">Click here to visit our API server.</a>
-              <el-row>
-                <el-col :span="12">
-                  <el-image style="width: 80px; height: 80px;"
-                    :src="require('../assets/VisualizationImages/spring.png')">
-                  </el-image>
-                </el-col>
-                <el-col :span="12">
-                  <el-col :span="12">
+              <i class="el-icon-link" style="margin-top: 5px"> <span style="font-weight: bold"> Web Client <br></span>
+                <a href="https://github.com/tian-yu-moker/visualization-web-pages"
+                   style="text-align:justify; color: black">
+                  https://github.com/tian-yu-moker/visualization-web-pages
+                </a>
+              </i>
+              <br>
+              <i class="el-icon-link" style="margin-top: 5px"> <span style="font-weight: bold"> API Server <br></span>
+                <a href="https://github.com/shituweian/visualization_back_end"
+                   style="text-align:justify; color: black">
+                  https://github.com/shituweian/
+                  visualization_back_end
+                </a>
+              </i>
+              <br>
+              <i class="el-icon-s-tools" style="margin-top: 5px"> <span style="font-weight: bold"> Developed  by<br></span>
+                <el-row :gutter="2" style="margin-top: 5px">
+                  <el-col :span="5" style="margin-top: 5px">
                     <el-image style="width: 80px; height: 80px;"
-                      :src="require('../assets/VisualizationImages/vue.png')"></el-image>
+                              :src="require('../assets/VisualizationImages/spring.png')">
+                    </el-image>
                   </el-col>
-                </el-col>
-              </el-row>
-            </el-col>
-            <el-col :span="8">
-              <h2><i class="el-icon-document-copy"></i> Demo</h2>
+                  <el-col :span="6">
+                      <el-image style="width: 80px; height: 80px;"
+                                :src="require('../assets/VisualizationImages/vue.png')">
+                      </el-image>
+                  </el-col>
+                  <el-col :span="5">
+                    <el-image style="width: 80px; height: 80px;"
+                              :src="require('../assets/VisualizationImages/echarts.png')">
+                    </el-image>
+                  </el-col>
+                  <el-col :span="5">
+                    <el-image style="width: 80px; height: 80px;"
+                              :src="require('../assets/VisualizationImages/TABLEAU.png')">
+                    </el-image>
+                  </el-col>
+                  <el-col :span="3">
+                    <el-image style="width: 80px; height: 80px;"
+                              :src="require('../assets/VisualizationImages/MYSQL.png')">
+                    </el-image>
+                  </el-col>
+                </el-row>
+              </i>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card>
+              <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
+                <span> Demo & Report<br></span>
+              </i>
               <el-divider></el-divider>
               <div style="height: 5px"></div>
-              <el-button type="primary" round size="small">View Report</el-button>
-            </el-col>
-            <el-col :span="8">
-              <h2><i class="el-icon-message"></i> Contact Us</h2>
-              <h3 align="left"><i class="el-icon-trophy"></i> Tian, Yu</h3>
-              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">tianyu98@connect.hku.hk</a>
-              <div style="height: 7px"></div>
-              <h3 align="left"><i class="el-icon-trophy"></i> Gao, Shiwei</h3>
-              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">gshiwei@connect.hku.hk</a>
-              <div style="height: 7px"></div>
-              <h3 align="left"><i class="el-icon-trophy"></i> Xing, Ke</h3>
-              <a align="left" style="font-size: 17px;  color: black" href="mailto:tianyu98@connect.hku.hk">u3591499connect.hku.hk</a>
-            </el-col>
-          </el-row>
+              <i class="el-icon-question" style="margin-top: 5px"> <span style="font-weight: bold"> Want to learn more?<br></span>
+                <p style="text-align:justify; color: black"> Check the report & demo video online!</p>
+              </i>
+              <el-row :gutter="10">
+                <el-col :span="2" style="margin-top: 5px">&nbsp;</el-col>
+                  <el-col :span="10" style="margin-top: 5px" align="center">
+                    <el-button>View Report</el-button>
+                    <el-image style="width: 80px; height: 80px;"
+                              :src="require('../assets/VisualizationImages/Report.png')">
+                    </el-image>
+                  </el-col>
+                  <el-col :span="10" style="margin-top: 5px" align="center">
+                    <el-button>View Demo</el-button>
+                    <el-image style="width: 80px; height: 80px;"
+                              :src="require('../assets/VisualizationImages/Demo.png')">
+                    </el-image>
+                  </el-col>
+                <el-col :span="2" style="margin-top: 5px">&nbsp;</el-col>
+              </el-row>
+              <i class="el-icon-school" style="margin-top: 5px"> <span style="font-weight: bold"> Monitored by<br></span>
+                <p style="text-align:justify; color: black"> COMP7507 Visualization and visual analytics @HKU</p>
+              </i>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card>
+              <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
+                <span> Presented by Group 7<br></span>
+              </i>
+              <el-divider></el-divider>
+              <div style="height: 5px"></div>
+              <el-row :gutter="3" style="margin-top: 5px">
+                <el-col :span="4">
+                  <el-avatar
+                    :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                </el-col>
+                <el-col :span="20">
+                  <p style="font-weight: bold">Tian, Yu</p>
+                  <a href="mailto:tianyu98@connect.hku.hk" style="font-size: 13px; color: black">Email: tianyu98@connect.hku.hk</a>
+                </el-col>
+              </el-row>
+              <el-divider></el-divider>
+              <el-row :gutter="3" style="margin-top: 5px">
+                <el-col :span="4">
+                  <el-avatar
+                    :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
+                </el-col>
+                <el-col :span="20">
+                  <p style="font-weight: bold">Gao, Shiwei</p>
+                  <a href="mailto:gshiwei@connect.hku.hk" style="font-size: 13px; color: black">Email: gshiwei@connect.hku.hk</a>
+                </el-col>
+              </el-row>
+              <el-divider></el-divider>
+              <el-row :gutter="3" style="margin-top: 5px">
+                <el-col :span="4">
+                  <el-avatar
+                    :src="require('../assets/VisualizationImages/XK.png')"></el-avatar>
+                </el-col>
+                <el-col :span="20">
+                  <p style="font-weight: bold">Xing, Ke</p>
+                  <a href="mailto:u3591499@connect.hku.hk" style="font-size: 13px; color: black">Email: u3591499@connect.hku.hk</a>
+                </el-col>
+              </el-row>
 
+              <i class="el-icon-s-comment" style="margin-top: 5px; font-weight: bold">
+                <span> Contact Us <br></span>
+              </i>
+              <p> Your comments are welcome!</p>
 
-          <p align="center" style="font-size: 35px; font-weight: bolder; color: black">Presented by Group 7</p>
-          <el-row :gutter="10">
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Tian, Yu</p>
-                    <p style="font-weight: bold">UID: 3035905089</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Gao, Shiwei</p>
-                    <p style="font-weight: bold">UID: 3035905986</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/XK.png')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Xing, Ke</p>
-                    <p style="font-weight: bold">UID: 3035914999</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-          </el-row>
-
-        </el-card>
-
-        <div align="center" style="width: 60%">
-          <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Presented by Group 7</p>
-          <el-row :gutter="10">
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Tian, Yu</p>
-                    <p style="font-weight: bold">UID: 3035905089</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Gao, Shiwei</p>
-                    <p style="font-weight: bold">UID: 3035905986</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card align="left">
-                <el-row :gutter="3">
-                  <el-col :span="8">
-                    <el-avatar
-                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
-                  </el-col>
-                  <el-col :span="16">
-                    <p style="font-weight: bold">Xing, Ke</p>
-                    <p style="font-weight: bold">UID: 3035914999</p>
-                  </el-col>
-                </el-row>
-              </el-card>
-            </el-col>
-          </el-row>
-        </div>
+            </el-card>
+          </el-col>
+          <el-col :span="2">&nbsp;</el-col>
+        </el-row>
       </div>
-
     </div>
   </div>
 </template>
@@ -2687,7 +2708,7 @@ export default {
       lightOptionCasualty = {
         color: ['#ff8936', '#c89b40', '#003472'],
         tooltip: {
-          formatter: '{b} : {c}/1000'
+          formatter: '{b} : {c}/1000 acc'
         },
         series: [
           {
@@ -2805,6 +2826,9 @@ export default {
       ];
       roadOptionCasualty = {
         color: ['#eacd76', '#87CEEB', '#21a675', '#2e4e7e', '#9D2933'],
+        tooltip: {
+          formatter: '{b} : {c}/1000 acc'
+        },
         series: [
           {
             type: 'gauge',
@@ -2943,6 +2967,9 @@ export default {
       ];
       weatherOptionCasualty = {
         color: ['#fac858', '#91cc75', '#3eede7', '#2e4e7e', '#8b4bbb', '#9d2933', '#56004f'],
+        tooltip: {
+          formatter: '{b} : {c}/1000 acc'
+        },
         series: [
           {
             type: 'gauge',
