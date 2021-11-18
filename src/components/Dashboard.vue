@@ -94,7 +94,7 @@
                 :src="require('../assets/VisualizationImages/UK Flag.png')"></el-image>
               </el-col>
               <el-col :span="16" align="left">
-                <strong style="font-size: 25px">United Kingdom</strong>
+                <strong style="font-size: 24px">United Kingdom</strong>
                 <div style="height: 7px"></div>
                 <strong style="font-size: 16px">Traffic Accidents (05~15)</strong>
               </el-col>
@@ -111,12 +111,16 @@
               <br>
               <strong style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Death rate: 2420 / 10,0000</strong>
               <div style="height: 10px"></div>
-              <i class="el-icon-warning">
+              <i class="el-icon-monitor">
               <strong style="font-size: 16px;">
                  Over 500/D accidents happens!
               </strong></i>
               <div style="height: 3px"></div>
-              <strong style="font-size: 13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Be careful on the road.</strong>
+              <div>
+                <i class="el-icon-warning" style="font-size: 100px; color: #E6A23C; margin-left: 30%"></i>
+                <p style="margin-left: 15%; margin-top: 10px; font-weight: bold; font-size: 18px">Be careful on the road!</p>
+              </div>
+
               <div style="height: 10px;"></div>
               <i class="el-icon-s-data">
                 <strong style="font-size: 16px;">
