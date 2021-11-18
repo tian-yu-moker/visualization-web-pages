@@ -396,7 +396,7 @@
             <el-row :gutter="3"><el-col :span=8 align="center"><el-image
               style="width: 100px; height: 100px"
               :src="require('../assets/VisualizationImages/logo5.png')"></el-image></el-col>
-              <el-col :span=8 align="center"><div align="center"><i class="el-icon-user" style="font-size: 17px; margin-top: 10px"><span style="font-weight: bold"> AccidentDifference<br><br>between<br><br>male and female</span></i></div>
+              <el-col :span=8 align="center"><div align="center"><i class="el-icon-user" style="font-size: 17px; margin-top: 10px"><span style="font-weight: bold"> Accident Difference<br><br>between<br><br>male and female</span></i></div>
               </el-col>
               <el-col :span=8 align="center"><el-image
                 style="width: 100px; height: 100px"
@@ -1897,6 +1897,29 @@ export default {
     {
       let year = parseInt(this.curMonCalendarTY.split("-")[0])
       let mon = parseInt(this.curMonCalendarTY.split("-")[1])
+      if(year > 2015)
+      {
+        year = 2015;
+        this.curMonCalendarTY = '2015-12'
+        mon = 12;
+        this.$notify({
+          title: 'Warning',
+          message: 'You can only choose date from 2005-01 to 2015-12',
+          type: 'warning'
+        });
+      }
+      if(year < 2005)
+      {
+        year = 2005;
+        mon = 1;
+        this.curMonCalendarTY = '2005-01'
+        this.$notify({
+          title: 'Warning',
+          message: 'You can only choose date from 2005-01 to 2015-12',
+          type: 'warning'
+        });
+      }
+
       let yearDiffer = year - 2005;
       let monDiffer = mon - 1;
       this.curMonthDataCalendarTY = this.allDataCalendarTY[0][yearDiffer][monDiffer];
