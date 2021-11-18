@@ -87,10 +87,10 @@
     <el-row :gutter="10">
       <el-col :span="6">
         <div style="height: 260px;">
-          <el-card shadow="always" style="height: 636px">
+          <el-card shadow="always" style="height: 660px">
             <el-row :gutter="3">
               <el-col :span="8"><el-image
-                style="width: 100px; height: 50px"
+                style="width: 100px; height: 60px"
                 :src="require('../assets/VisualizationImages/UK Flag.png')"></el-image>
               </el-col>
               <el-col :span="16" align="left">
