@@ -16,6 +16,7 @@ import tests from '../components/tests'
 import Dashboard from '../components/Dashboard'
 import gaoShiweiFourth from '../components/gaoShiweiFourth'
 import gaoShiweiFifth from '../components/gaoShiweiFifth'
+import LineChart from '../components/LineChart'
 
 Vue.use(Router)
 
@@ -23,7 +24,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'gaoShiweiTest',
+      name: '',
       component: Dashboard,
       meta:{
         title: 'Homepage',

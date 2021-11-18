@@ -328,7 +328,7 @@
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
           <i class="el-icon-help" style="font-size: 20px; font-weight: bolder">
-            <span> Radar Visualization</span>
+            <span> Light, Road & Weather Visualization</span>
           </i>
         </el-col>
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
@@ -336,7 +336,7 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
-          <el-card style="height: 600px">
+          <el-card style="height: 300px">
             <el-row :gutter="3">
               <el-col :span="8" align="center">
                 <div id="radarLightCasualtyTY" style="width: 100%; height: 300px"></div>
@@ -347,13 +347,6 @@
               <el-col :span="8">
                 <div id="weatherCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
-            </el-row>
-            <el-row :gutter="3">
-              <el-col :span="8" align="center">
-                <div id="" style="width: 100%; height: 240px"></div>
-              </el-col>
-              <el-col :span="8">2</el-col>
-              <el-col :span="8">4</el-col>
             </el-row>
           </el-card>
         </el-col>
@@ -411,7 +404,7 @@
           <el-card shadow="always">
             <el-row :gutter="20">
               <el-col :span="8">
-                <el-select v-model="LineSelectedYearXK" multiple=2 placeholder="Select two years" @change="LineHandleSelectYearXK" @visible-change="$forceUpdate()">
+                <el-select v-model="LineSelectedYearXK" :multiple="true" placeholder="Select two years" @change="LineHandleSelectYearXK" @visible-change="$forceUpdate()">
                   <el-option
                     v-for="item in yearListXK"
                     :key="item.value"
@@ -725,6 +718,7 @@ export default {
       sunCarBrandOptionTY: "",
       barCarBrandOptionTY: "",
       radioCarBrands: 'Treemap',
+
       yearListCarBrandsTY: [
         {
           value: 2005
@@ -798,6 +792,7 @@ export default {
         }
       ],
       LineSelectedYearXK: [],
+      selectLimitedXK: 0,
       selectLimitedLineGroupsXK: 0,
       allYearTimesDataXK: [],
       vehicleTypeSunbrustData: [],
@@ -2680,12 +2675,16 @@ export default {
         }
       ];
       lightOptionCasualty = {
+        color: ['#ff8936', '#c89b40', '#003472'],
+        tooltip: {
+          formatter: '{b} : {c}/1000'
+        },
         series: [
           {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1800,
+            max: 1600,
             endAngle: -270,
             pointer: {
               show: false
@@ -2801,7 +2800,7 @@ export default {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1800,
+            max: 1500,
             endAngle: -270,
             pointer: {
               show: false
@@ -2855,7 +2854,7 @@ export default {
       let weatherOptionCasualty;
       const weatherCasualty = [
         {
-          value: 1329,
+          value: 1341,
           name: 'Fine',
           title: {
             offsetCenter: ['0%', '-55%']
@@ -2866,8 +2865,19 @@ export default {
           }
         },
         {
-          value: 1392,
+          value: 1356,
           name: 'Rain',
+          title: {
+            offsetCenter: ['-30%', '-32%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['-30%', '-20%']
+          }
+        },
+        {
+          value: 1392,
+          name: 'Snow',
           title: {
             offsetCenter: ['30%', '-32%']
           },
@@ -2877,19 +2887,8 @@ export default {
           }
         },
         {
-          value: 1392,
-          name: 'Rain',
-          title: {
-            offsetCenter: ['30%', '-32%']
-          },
-          detail: {
-            valueAnimation: true,
-            offsetCenter: ['30%', '-20%']
-          }
-        },
-        {
-          value: 1401,
-          name: 'Frost',
+          value: 1378,
+          name: 'Winds',
           title: {
             offsetCenter: ['-30%', '-5%']
           },
@@ -2899,8 +2898,8 @@ export default {
           }
         },
         {
-          value: 1358,
-          name: 'Snow',
+          value: 1395,
+          name: 'Rain&winds',
           title: {
             offsetCenter: ['30%', '-5%']
           },
@@ -2910,14 +2909,25 @@ export default {
           }
         },
         {
-          value: 1467,
-          name: 'Flood',
+          value: 1444,
+          name: 'Fog',
           title: {
-            offsetCenter: ['0%', '25%']
+            offsetCenter: ['-20%', '25%']
           },
           detail: {
             valueAnimation: true,
-            offsetCenter: ['0%', '40%']
+            offsetCenter: ['-20%', '40%']
+          }
+        },
+        {
+          value: 1432,
+          name: 'Snow&winds',
+          title: {
+            offsetCenter: ['20%', '25%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['20%', '40%']
           }
         },
       ];
@@ -2928,7 +2938,7 @@ export default {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1800,
+            max: 1500,
             endAngle: -270,
             pointer: {
               show: false
@@ -2965,7 +2975,7 @@ export default {
               fontSize: 8
             },
             detail: {
-              width: 30,
+              width: 20,
               height: 8,
               fontSize: 8,
               color: 'auto',
@@ -2981,7 +2991,6 @@ export default {
       lightOptionCasualty && lightCasualtyChart.setOption(lightOptionCasualty);
       roadOptionCasualty && roadCasualtyChart.setOption(roadOptionCasualty);
       weatherOptionCasualty && weatherCasualtyChart.setOption(weatherOptionCasualty);
-
     },
 
     TotalLineHeaderOptionXK() {
@@ -4477,8 +4486,10 @@ export default {
 
     LineHandleSelectYearXK(val)
     {
-      this.selectLimitedXK++;
-      if(this.selectLimitedXK == 2)
+      this.selectLimitedXK == this.LineSelectedYearXK.length;
+
+      console.log(this.LineSelectedYearXK.length)
+      if(this.LineSelectedYearXK.length == 2)
       {
         console.log(this.LineSelectedYearXK[0])
         let selectYear1 = parseInt(this.LineSelectedYearXK[0]);
