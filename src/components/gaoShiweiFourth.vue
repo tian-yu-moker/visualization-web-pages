@@ -69,6 +69,9 @@ export default {
             name: country,
             /*endLabel: {
               show: true,
+              textStyle:{
+                fontSize:6,
+              },
               formatter: function (params) {
                 return params.value[3] + ': ' + params.value[0];
               }
@@ -76,15 +79,16 @@ export default {
             labelLayout: {
               moveOverlap: 'shiftY'
             },
-            emphasis: {
+            /*emphasis: {
               focus: 'series'
-            },
+            },*/
             encode: {
               x: 'Year',
               y: 'Income',
               label: ['Country', 'Income'],
               itemName: 'Year',
-              tooltip: ['Income']
+              tooltip: ['Income'],
+
             }
           });
         });
@@ -102,11 +106,14 @@ export default {
           },*/
           tooltip: {
             order: 'valueDesc',
-            trigger: 'axis'
+            trigger: 'axis',
+            textStyle:{
+              fontSize:6,
+            }
           },
           xAxis: {
             type: 'category',
-            name:"Year",
+            name:"",
             //nameLocation: 'middle',
             axisLabel: {
               fontFamily:'Microsoft YaHei',
@@ -127,6 +134,19 @@ export default {
             left:"17%"
           },
           series: seriesList
+          /*series:[
+            {
+              name:"Punch card",
+              type:'heatmap',
+              data:datasetWithFilters,
+              label:{
+                show:true,
+                fontSize:12,
+                fontFamily:'Microsoft YaHei',
+                fontWeight:"bold",
+              }
+            }
+          ]*/
         };
         GSWFourthMychart.setOption(GSWFourthOption);
       });

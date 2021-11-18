@@ -1,19 +1,44 @@
 <template>
 
   <div style="overflow-y:hidden;">
+    <!--<div style="width: 100%">
+      <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
+        <el-tab-pane label="UK Traffic Visualization" name="first">
+          <template #label>
+            <span>
+              <el-image
+                style="width: 160px; height: 40px"
+                :src="require('../assets/VisualizationImages/Logo.png')"
+              ></el-image>
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="用户管理" name="first"></el-tab-pane>
+        <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+        <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+      </el-tabs>
+
+    </div>-->
 
     <div id="headerImage" style="height:750px;">
       <br><br>
-
-      <h1 style="font-size: 50px; color: whitesmoke">VISUALIZATION OF UK</h1>
-      <br>
-      <h1 style="font-size: 50px; color: whitesmoke">TRAFFIC ACCIDENTS</h1>
       <br><br>
+      <br><br>
+      <h1 style="font-size: 50px; color: sandybrown">VISUALIZATION OF UK</h1>
+      <br>
+      <h1 style="font-size: 50px; color: sandybrown">TRAFFIC ACCIDENTS</h1>
+      <br>
 
+      <el-row :gutter="20" align="center">
+        <el-col :span="7">&nbsp;</el-col>
+        <el-col :span="5"><el-card type="warning" style="border: #ffc028">Visualization</el-card></el-col>
+        <el-col :span="5"><el-card type="warning" style="border: #ffc028">警告按钮</el-card></el-col>
+        <el-col :span="7">&nbsp;</el-col>
+      </el-row>
 
-
-      <h2 style="font-size: 35px; color: whitesmoke"><a href="https://echarts.apache.org/en/" style="font-size: 35px; color: whitesmoke">Build with Apache ECharts.js v5.2</a></h2>
-      <div style="height:100px"></div>
+      <h2 style="font-size: 35px; color: sandybrown"><a href="https://echarts.apache.org/en/" style="font-size: 35px; color: sandybrown">Build with Apache ECharts.js v5.2</a></h2>
+      <div style="height:30px"></div>
       <el-row :gutter="15">
         <el-col :span="2">
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -62,10 +87,10 @@
     <el-row :gutter="10">
       <el-col :span="6">
         <div style="height: 260px;">
-          <el-card shadow="always" style="height: 660px">
+          <el-card shadow="always" style="height: 636px">
             <el-row :gutter="3">
               <el-col :span="8"><el-image
-                style="width: 100px; height: 60px"
+                style="width: 100px; height: 50px"
                 :src="require('../assets/VisualizationImages/UK Flag.png')"></el-image>
               </el-col>
               <el-col :span="16" align="left">
@@ -190,15 +215,6 @@
     <el-divider></el-divider>
     <div style="height:5px;"></div>
     <el-row :gutter="10">
-      <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
-      <el-col :span="20" align="left">
-        <i class="el-icon-map-location" style="font-size: 20px; font-weight: bolder">
-          <span> Map Visualization</span>
-        </i>
-      </el-col>
-      <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
-    </el-row>
-    <el-row :gutter="10">
       <el-col :span="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-col>
       <el-col :span="20">
         <el-card>
@@ -312,7 +328,7 @@
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
           <i class="el-icon-help" style="font-size: 20px; font-weight: bolder">
-            <span> Light, Road & Weather Visualization</span>
+            <span> Radar Visualization</span>
           </i>
         </el-col>
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
@@ -320,26 +336,24 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="20">
-          <el-card style="height: 330px">
+          <el-card style="height: 600px">
             <el-row :gutter="3">
               <el-col :span="8" align="center">
-                <div align="left"><i class="el-icon-moon-night" style="font-size: 15px">
-                  <span style="font-weight: bold"> Light & Accidents Casualties (Per 1000 acc)</span></i>
-                </div>
                 <div id="radarLightCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
               <el-col :span="8">
-                <div align="left"><i class="el-icon-place" style="font-size: 15px">
-                  <span style="font-weight: bold"> Road & Accidents Casualties (per 1000 acc)</span></i>
-                </div>
                 <div id="roadCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
               <el-col :span="8">
-                <div align="left"><i class="el-icon-partly-cloudy" style="font-size: 15px">
-                  <span style="font-weight: bold"> Weather & Accidents Casualties (per 1000 acc)</span></i>
-                </div>
                 <div id="weatherCasualtyTY" style="width: 100%; height: 300px"></div>
               </el-col>
+            </el-row>
+            <el-row :gutter="3">
+              <el-col :span="8" align="center">
+                <div id="" style="width: 100%; height: 240px"></div>
+              </el-col>
+              <el-col :span="8">2</el-col>
+              <el-col :span="8">4</el-col>
             </el-row>
           </el-card>
         </el-col>
@@ -362,19 +376,15 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
         <el-col :span="6">
-          <el-card shadow="always" style="height: 600px">
-            <div align="left"><i class="el-icon-s-finance" style="font-size: 15px"><span style="font-weight: bold"> GDP (pounds million)</span></i></div>
-
-            <div id="GSWFourthImage" style="height: 260px"></div>
-            <div align="left"><i class="el-icon-user-solid" style="font-size: 15px"><span style="font-weight: bold"> Population</span></i></div>
-
-            <div id="GSWFifthImage" style="height: 270px"></div>
+          <el-card shadow="always" style="height: 560px">
+            <div id="GSWFourthImage" style="height: 280px;wdith:100%"></div>
+            <div style="height: 280px;width:100%">GSWFifthImage</div>
           </el-card>
         </el-col>
         <el-col :span="14">
-          <el-card shadow="always" style="height:600px">
+          <el-card shadow="always">
             <div align="left"><i class="el-icon-s-finance" style="font-size: 20px"><span style="font-weight: bold"> Relationship between GDP, Population & Accidents</span></i></div>
-            <div id="GSWThirdImage" style="width: 800px;height:560px;"></div>
+            <div id="GSWThirdImage" style="width: 800px;height:500px;"></div>
           </el-card>
         </el-col>
         <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
@@ -393,27 +403,15 @@
       <el-row :gutter="10">
         <el-col :span="2">&nbsp;</el-col>
         <el-col :span="10">
-          <el-card shadow="always" style="height:1200px">
-            <div align="left"><i class="el-icon-menu" style="font-size: 17px"><span style="font-weight: bold"> Accident frequency time during weeks</span></i></div>
-            <div id="GSWFirstImage" style="width: 110%; height:700px;"></div>
-            <el-row :gutter="3"><el-col :span=8 align="center"><el-image
-              style="width: 100px; height: 100px"
-              :src="require('../assets/VisualizationImages/logo5.png')"></el-image></el-col>
-              <el-col :span=8 align="center"><div align="center"><i class="el-icon-user" style="font-size: 17px; margin-top: 10px"><span style="font-weight: bold"> AccidentDifference<br><br>between<br><br>male and female</span></i></div>
-              </el-col>
-              <el-col :span=8 align="center"><el-image
-                style="width: 100px; height: 100px"
-                :src="require('../assets/VisualizationImages/logo6.png')"></el-image></el-col>
-            </el-row>
-
-            <div id="GSWSecondImage" style="width:100%;height:520px;"></div>
+          <el-card shadow="always">
+            <div id="GSWFirstImage" style="width: 110%; height:800px;"></div>
           </el-card>
         </el-col>
         <el-col :span="10">
-          <el-card shadow="always" style="height:1200px">
+          <el-card shadow="always">
             <el-row :gutter="20">
               <el-col :span="8">
-                <el-select v-model="LineSelectedYearXK" :multiple="true" placeholder="Select two years" @change="LineHandleSelectYearXK" @visible-change="$forceUpdate()">
+                <el-select v-model="LineSelectedYearXK" multiple=2 placeholder="Select two years" @change="LineHandleSelectYearXK" @visible-change="$forceUpdate()">
                   <el-option
                     v-for="item in yearListXK"
                     :key="item.value"
@@ -427,21 +425,11 @@
                 <span style="font-style: italic; margin-top: 1px">Two years comparision</span>
               </el-col>
             </el-row>
-            <div id="LineOptionXK1" style="width: 120%;height:310px; top:40px;"></div>
-            <div id="LineOptionXK2" style="width: 120%;height:310px; top:40px;"></div>
-            <div id="LineOptionXK3" style="width: 120%;height:310px; top:40px;"></div>
+            <div id="LineOptionXK1" style="width: 120%;height:310px; top:3px;"></div>
+            <div id="LineOptionXK2" style="width: 120%;height:310px; top:3px;"></div>
+            <div id="LineOptionXK3" style="width: 120%;height:310px; top:3px;"></div>
             <div>
-              <el-row>
-                <el-col :span="2">&nbsp;</el-col>
-                <el-col :span="12">
-                  <i class="el-icon-question" style="font-weight: bold; font-size: 17px; margin-top: 70px"><span> How to read these charts?</span></i><br>
-                  <span style="font-style: italic; font-size: 15px; margin-top: 5px; margin-bottom: 70px"> Different directions of cells<br>refer to different meanings</span>
-                </el-col>
-                <el-col :span="8" style="margin-top: 60px">
-                  <el-image style="width: 250px; height: 100px;" :src="require('../assets/VisualizationImages/Number&time.png')"></el-image>
-                </el-col>
-                <el-col :span="2">&nbsp;</el-col>
-              </el-row>
+              图片说明
             </div>
           </el-card>
         </el-col>
@@ -513,155 +501,152 @@
         </el-col>
         <el-col :span="2">&nbsp;</el-col>
       </el-row>
-      <div style="height: 5px"></div>
-      <el-divider></el-divider>
-      <div style="height: 5px"></div>
-      <el-row :gutter="10">
-        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
-        <el-col :span="20">
-          <i class="el-icon-price-tag" style="font-size: 20px; font-weight: bolder">
-            <span> About Us</span>
-          </i>
-        </el-col>
-        <el-col :span="2">&nbsp;&nbsp;&nbsp;</el-col>
-      </el-row>
 
-      <div>
-        <el-row :gutter="10">
-          <el-col :span="2">&nbsp;</el-col>
-          <el-col :span="8">
-            <el-card align="left">
-              <i class="el-icon-coin" style="font-size: 20px; font-weight: bold">
-                <span> GitHub Repository<br></span>
-              </i>
+      <div align="center" id="bottomPage" style="height: 800px; color: whitesmoke">
+        <div style="height: 10px"></div>
+        <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Project Report & Repository</p>
+        <el-card align="center" shadow="always" style="height: 220px; width: 60%; margin-top: 5px; background-color:rgba(255, 255, 255, 0.8);">
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <h2><i class="el-icon-coin"></i> GitHub</h2>
               <el-divider></el-divider>
-              <i class="el-icon-link" style="margin-top: 5px"> <span style="font-weight: bold"> Web Client <br></span>
-                <a href="https://github.com/tian-yu-moker/visualization-web-pages"
-                   style="text-align:justify; color: black">
-                  https://github.com/tian-yu-moker/visualization-web-pages
-                </a>
-              </i>
-              <br>
-              <i class="el-icon-link" style="margin-top: 5px"> <span style="font-weight: bold"> API Server <br></span>
-                <a href="https://github.com/shituweian/visualization_back_end"
-                   style="text-align:justify; color: black">
-                  https://github.com/shituweian/
-                  visualization_back_end
-                </a>
-              </i>
-              <br>
-              <i class="el-icon-s-tools" style="margin-top: 5px"> <span style="font-weight: bold"> Developed  by<br></span>
-                <el-row :gutter="2" style="margin-top: 5px">
-                  <el-col :span="5" style="margin-top: 5px">
+              <h3 align="left"><i class="el-icon-link"></i> Web Client</h3>
+              <div style="height: 3px"></div>
+              <a href="https://github.com/tian-yu-moker/visualization-web-pages">Click here to visit our web client.</a>
+              <h3 align="left"><i class="el-icon-link"></i> API Server</h3>
+              <div style="height: 3px"></div>
+              <a href="https://github.com/shituweian/visualization_back_end">Click here to visit our API server.</a>
+              <el-row>
+                <el-col :span="12">
+                  <el-image style="width: 80px; height: 80px;"
+                            :src="require('../assets/VisualizationImages/spring.png')">
+                  </el-image>
+                </el-col>
+                <el-col :span="12">
+                  <el-col :span="12">
                     <el-image style="width: 80px; height: 80px;"
-                              :src="require('../assets/VisualizationImages/spring.png')">
-                    </el-image>
+                              :src="require('../assets/VisualizationImages/vue.png')"></el-image>
                   </el-col>
-                  <el-col :span="6">
-                    <el-image style="width: 80px; height: 80px;"
-                              :src="require('../assets/VisualizationImages/vue.png')">
-                    </el-image>
+                </el-col>
+              </el-row>
+            </el-col>
+            <el-col :span="8">
+              <h2><i class="el-icon-document-copy"></i> Demo</h2>
+              <el-divider></el-divider>
+              <div style="height: 5px"></div>
+              <el-button type="primary" round size="small">View Report</el-button>
+            </el-col>
+            <el-col :span="8">
+              <h2><i class="el-icon-message"></i> Contact Us</h2>
+              <h3 align="left"><i class="el-icon-trophy"></i> Tian, Yu</h3>
+              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">tianyu98@connect.hku.hk</a>
+              <div style="height: 7px"></div>
+              <h3 align="left"><i class="el-icon-trophy"></i> Gao, Shiwei</h3>
+              <a align="left" style="font-size: 17px; color: black" href="mailto:tianyu98@connect.hku.hk">gshiwei@connect.hku.hk</a>
+              <div style="height: 7px"></div>
+              <h3 align="left"><i class="el-icon-trophy"></i> Xing, Ke</h3>
+              <a align="left" style="font-size: 17px;  color: black" href="mailto:tianyu98@connect.hku.hk">u3591499connect.hku.hk</a>
+            </el-col>
+          </el-row>
+
+
+          <p align="center" style="font-size: 35px; font-weight: bolder; color: black">Presented by Group 7</p>
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
                   </el-col>
-                  <el-col :span="5">
-                    <el-image style="width: 80px; height: 80px;"
-                              :src="require('../assets/VisualizationImages/echarts.png')">
-                    </el-image>
-                  </el-col>
-                  <el-col :span="5">
-                    <el-image style="width: 80px; height: 80px;"
-                              :src="require('../assets/VisualizationImages/TABLEAU.png')">
-                    </el-image>
-                  </el-col>
-                  <el-col :span="3">
-                    <el-image style="width: 80px; height: 80px;"
-                              :src="require('../assets/VisualizationImages/MYSQL.png')">
-                    </el-image>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Tian, Yu</p>
+                    <p style="font-weight: bold">UID: 3035905089</p>
                   </el-col>
                 </el-row>
-              </i>
-            </el-card>
-          </el-col>
-          <el-col :span="6">
-            <el-card>
-              <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
-                <span> Demo & Report<br></span>
-              </i>
-              <el-divider></el-divider>
-              <div style="height: 5px"></div>
-              <i class="el-icon-question" style="margin-top: 5px"> <span style="font-weight: bold"> Want to learn more?<br></span>
-                <p style="text-align:justify; color: black"> Check the report & demo video online!</p>
-              </i>
-              <el-row :gutter="10">
-                <el-col :span="2" style="margin-top: 5px">&nbsp;</el-col>
-                <el-col :span="10" style="margin-top: 5px" align="center">
-                  <el-button>View Report</el-button>
-                  <el-image style="width: 80px; height: 80px;"
-                            :src="require('../assets/VisualizationImages/Report.png')">
-                  </el-image>
-                </el-col>
-                <el-col :span="10" style="margin-top: 5px" align="center">
-                  <el-button>View Demo</el-button>
-                  <el-image style="width: 80px; height: 80px;"
-                            :src="require('../assets/VisualizationImages/Demo.png')">
-                  </el-image>
-                </el-col>
-                <el-col :span="2" style="margin-top: 5px">&nbsp;</el-col>
-              </el-row>
-              <i class="el-icon-school" style="margin-top: 5px"> <span style="font-weight: bold"> Monitored by<br></span>
-                <p style="text-align:justify; color: black"> COMP7507 Visualization and visual analytics @HKU</p>
-              </i>
-            </el-card>
-          </el-col>
-          <el-col :span="6">
-            <el-card>
-              <i class="el-icon-document-copy" style="font-size: 20px; font-weight: bold">
-                <span> Presented by Group 7<br></span>
-              </i>
-              <el-divider></el-divider>
-              <div style="height: 5px"></div>
-              <el-row :gutter="3" style="margin-top: 5px">
-                <el-col :span="4">
-                  <el-avatar
-                    :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
-                </el-col>
-                <el-col :span="20">
-                  <p style="font-weight: bold">Tian, Yu</p>
-                  <a href="mailto:tianyu98@connect.hku.hk" style="font-size: 13px; color: black">Email: tianyu98@connect.hku.hk</a>
-                </el-col>
-              </el-row>
-              <el-divider></el-divider>
-              <el-row :gutter="3" style="margin-top: 5px">
-                <el-col :span="4">
-                  <el-avatar
-                    :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
-                </el-col>
-                <el-col :span="20">
-                  <p style="font-weight: bold">Gao, Shiwei</p>
-                  <a href="mailto:gshiwei@connect.hku.hk" style="font-size: 13px; color: black">Email: gshiwei@connect.hku.hk</a>
-                </el-col>
-              </el-row>
-              <el-divider></el-divider>
-              <el-row :gutter="3" style="margin-top: 5px">
-                <el-col :span="4">
-                  <el-avatar
-                    :src="require('../assets/VisualizationImages/XK.png')"></el-avatar>
-                </el-col>
-                <el-col :span="20">
-                  <p style="font-weight: bold">Xing, Ke</p>
-                  <a href="mailto:u3591499@connect.hku.hk" style="font-size: 13px; color: black">Email: u3591499@connect.hku.hk</a>
-                </el-col>
-              </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Gao, Shiwei</p>
+                    <p style="font-weight: bold">UID: 3035905986</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/XK.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Xing, Ke</p>
+                    <p style="font-weight: bold">UID: 3035914999</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
 
-              <i class="el-icon-s-comment" style="margin-top: 5px; font-weight: bold">
-                <span> Contact Us <br></span>
-              </i>
-              <p> Your comments are welcome!</p>
+        </el-card>
 
-            </el-card>
-          </el-col>
-          <el-col :span="2">&nbsp;</el-col>
-        </el-row>
+        <div align="center" style="width: 60%">
+          <p align="center" style="font-size: 35px; font-weight: bolder; color: whitesmoke">Presented by Group 7</p>
+          <el-row :gutter="10">
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Tian, Yu</p>
+                    <p style="font-weight: bold">UID: 3035905089</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/GSW.png')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Gao, Shiwei</p>
+                    <p style="font-weight: bold">UID: 3035905986</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card align="left">
+                <el-row :gutter="3">
+                  <el-col :span="8">
+                    <el-avatar
+                      :src="require('../assets/VisualizationImages/TY.jpg')"></el-avatar>
+                  </el-col>
+                  <el-col :span="16">
+                    <p style="font-weight: bold">Xing, Ke</p>
+                    <p style="font-weight: bold">UID: 3035914999</p>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -740,7 +725,6 @@ export default {
       sunCarBrandOptionTY: "",
       barCarBrandOptionTY: "",
       radioCarBrands: 'Treemap',
-
       yearListCarBrandsTY: [
         {
           value: 2005
@@ -814,7 +798,6 @@ export default {
         }
       ],
       LineSelectedYearXK: [],
-      selectLimitedXK: 0,
       selectLimitedLineGroupsXK: 0,
       allYearTimesDataXK: [],
       vehicleTypeSunbrustData: [],
@@ -2292,32 +2275,32 @@ export default {
         light.push(weakLight);
         light.push(noLight);
         let pieOption = {
-            title: {
-              text: 'Light condition statistic',
-              subtext: 'Current month',
-            },
-            tooltip: {
-              trigger: 'item'
-            },
-            legend: {
-              bottom: '10%'
-            },
-            series: [
-              {
-                name: 'Access From',
-                type: 'pie',
-                radius: '50%',
-                data: light,
-                emphasis: {
-                  itemStyle: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                  }
+          title: {
+            text: 'Light condition statistic',
+            subtext: 'Current month',
+          },
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            bottom: '10%'
+          },
+          series: [
+            {
+              name: 'Access From',
+              type: 'pie',
+              radius: '50%',
+              data: light,
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
               }
-            ]
-          };
+            }
+          ]
+        };
         this.calendarRightBarTY.hideLoading();
         this.calendarRightBarTY.setOption(pieOption)
       }
@@ -2565,7 +2548,7 @@ export default {
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Daylight: in daytime</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Weaklight: darkness time</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Nolight: without light</span></i>' +
-          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Normally, people trends to go out in daytime, </span><span style="color: darkred"> so the number of daylight is larger.' +
+          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Show the visualization of different light conditions, normally, people trends to go out in daytime, </span><span style="color: darkred"> so the number of daylight is larger.' +
           '</span></i>'
 
         ;
@@ -2697,16 +2680,12 @@ export default {
         }
       ];
       lightOptionCasualty = {
-        color: ['#ff8936', '#c89b40', '#003472'],
-        tooltip: {
-          formatter: '{b} : {c}/1000 acc'
-        },
         series: [
           {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1600,
+            max: 1800,
             endAngle: -270,
             pointer: {
               show: false
@@ -2817,15 +2796,12 @@ export default {
       ];
       roadOptionCasualty = {
         color: ['#eacd76', '#87CEEB', '#21a675', '#2e4e7e', '#9D2933'],
-        tooltip: {
-          formatter: '{b} : {c}/1000 acc'
-        },
         series: [
           {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1500,
+            max: 1800,
             endAngle: -270,
             pointer: {
               show: false
@@ -2879,7 +2855,7 @@ export default {
       let weatherOptionCasualty;
       const weatherCasualty = [
         {
-          value: 1341,
+          value: 1329,
           name: 'Fine',
           title: {
             offsetCenter: ['0%', '-55%']
@@ -2890,19 +2866,8 @@ export default {
           }
         },
         {
-          value: 1356,
-          name: 'Rain',
-          title: {
-            offsetCenter: ['-30%', '-32%']
-          },
-          detail: {
-            valueAnimation: true,
-            offsetCenter: ['-30%', '-20%']
-          }
-        },
-        {
           value: 1392,
-          name: 'Snow',
+          name: 'Rain',
           title: {
             offsetCenter: ['30%', '-32%']
           },
@@ -2912,8 +2877,19 @@ export default {
           }
         },
         {
-          value: 1378,
-          name: 'Winds',
+          value: 1392,
+          name: 'Rain',
+          title: {
+            offsetCenter: ['30%', '-32%']
+          },
+          detail: {
+            valueAnimation: true,
+            offsetCenter: ['30%', '-20%']
+          }
+        },
+        {
+          value: 1401,
+          name: 'Frost',
           title: {
             offsetCenter: ['-30%', '-5%']
           },
@@ -2923,8 +2899,8 @@ export default {
           }
         },
         {
-          value: 1395,
-          name: 'Rain&winds',
+          value: 1358,
+          name: 'Snow',
           title: {
             offsetCenter: ['30%', '-5%']
           },
@@ -2934,39 +2910,25 @@ export default {
           }
         },
         {
-          value: 1444,
-          name: 'Fog',
+          value: 1467,
+          name: 'Flood',
           title: {
-            offsetCenter: ['-20%', '25%']
+            offsetCenter: ['0%', '25%']
           },
           detail: {
             valueAnimation: true,
-            offsetCenter: ['-20%', '40%']
-          }
-        },
-        {
-          value: 1432,
-          name: 'Snow&winds',
-          title: {
-            offsetCenter: ['20%', '25%']
-          },
-          detail: {
-            valueAnimation: true,
-            offsetCenter: ['20%', '40%']
+            offsetCenter: ['0%', '40%']
           }
         },
       ];
       weatherOptionCasualty = {
         color: ['#fac858', '#91cc75', '#3eede7', '#2e4e7e', '#8b4bbb', '#9d2933', '#56004f'],
-        tooltip: {
-          formatter: '{b} : {c}/1000 acc'
-        },
         series: [
           {
             type: 'gauge',
             startAngle: 90,
             min: 1100,
-            max: 1500,
+            max: 1800,
             endAngle: -270,
             pointer: {
               show: false
@@ -3003,7 +2965,7 @@ export default {
               fontSize: 8
             },
             detail: {
-              width: 20,
+              width: 30,
               height: 8,
               fontSize: 8,
               color: 'auto',
@@ -3019,6 +2981,7 @@ export default {
       lightOptionCasualty && lightCasualtyChart.setOption(lightOptionCasualty);
       roadOptionCasualty && roadCasualtyChart.setOption(roadOptionCasualty);
       weatherOptionCasualty && weatherCasualtyChart.setOption(weatherOptionCasualty);
+
     },
 
     TotalLineHeaderOptionXK() {
@@ -3033,7 +2996,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
 
           const formatUtil = echarts.format;
           this.TotalLineOptionXK = {
@@ -3330,7 +3293,7 @@ export default {
         // If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
           this.carsBrandOverviewTY = response.data[0];
           this.defaultAllYearDataCarsTY = response.data[0];
           this.carsYearlyDataTY = response.data[1];
@@ -3584,7 +3547,7 @@ export default {
       this.overviewCarsBrandsTY.clear();
       this.curCarBrandOptionTY = this.barCarBrandOptionTY;
       this.overviewCarsBrandsTY.setOption(this.curCarBrandOptionTY);
-      //console.log(values);
+      console.log(values);
     },
     GSWDrawCalendar(){
 
@@ -3632,8 +3595,9 @@ export default {
             position: 'top'
           },
           grid: {
-            height: '80%',
-            top: '3.5%',
+            height: '60%',
+            top: '1.5%',
+
             left:"12%",
           },
           xAxis: {
@@ -3667,7 +3631,7 @@ export default {
             calculable: true,
             orient: 'horizontal',
             left: 'center',
-            bottom: '4%',
+            bottom: '27%',
             textStyle:{
               fontSize:12,
               fontFamily:'Microsoft YaHei',
@@ -3713,7 +3677,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
           this.accident_daily_XK = response.data[0];
           const formatUtil = echarts.format;
@@ -3982,7 +3946,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
           this.accident_daily_XK=response.data[0];
 
@@ -4252,7 +4216,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
           this.allYearTimesDataXK = response.data;
 
           this.accident_daily_XK=response.data[0];
@@ -4513,20 +4477,18 @@ export default {
 
     LineHandleSelectYearXK(val)
     {
-      this.selectLimitedXK == this.LineSelectedYearXK.length;
-
-      // console.log(this.LineSelectedYearXK.length)
-      if(this.LineSelectedYearXK.length == 2)
+      this.selectLimitedXK++;
+      if(this.selectLimitedXK == 2)
       {
-        //console.log(this.LineSelectedYearXK[0])
+        console.log(this.LineSelectedYearXK[0])
         let selectYear1 = parseInt(this.LineSelectedYearXK[0]);
         let selectYear2 = parseInt(this.LineSelectedYearXK[1]);
 
         let differ1 = selectYear1 - 2005;
         let differ2 = selectYear2 - 2005;
 
-        //console.log(this.allYearTimesDataXK[differ1][0])
-        //console.log(this.allYearTimesDataXK[differ2][0])
+        console.log(this.allYearTimesDataXK[differ1][0])
+        console.log(this.allYearTimesDataXK[differ2][0])
 
         const formatUtil = echarts.format;
         this.LineOptionXK_1 = {
@@ -5505,7 +5467,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          // console.log(response.data[0])
+          console.log(response.data[0])
 
           const formatUtil = echarts.format;
           this.TopLineOptionXK = {
@@ -5631,9 +5593,6 @@ export default {
             name: country,
             /*endLabel: {
               show: true,
-              textStyle:{
-                fontSize:6,
-              },
               formatter: function (params) {
                 return params.value[3] + ': ' + params.value[0];
               }
@@ -5641,16 +5600,15 @@ export default {
             labelLayout: {
               moveOverlap: 'shiftY'
             },
-            /*emphasis: {
+            emphasis: {
               focus: 'series'
-            },*/
+            },
             encode: {
               x: 'Year',
               y: 'Income',
               label: ['Country', 'Income'],
               itemName: 'Year',
-              tooltip: ['Income'],
-
+              tooltip: ['Income']
             }
           });
         });
@@ -5668,10 +5626,7 @@ export default {
           },*/
           tooltip: {
             order: 'valueDesc',
-            trigger: 'axis',
-            textStyle:{
-              fontSize:6,
-            }
+            trigger: 'axis'
           },
           xAxis: {
             type: 'category',
@@ -5683,7 +5638,7 @@ export default {
             }
           },
           yAxis: {
-            name: '',
+            name: 'GDP (pounds million)',
             axisLabel: {
               formatter: '{value} £',
               fontFamily:'Microsoft YaHei',
@@ -5691,25 +5646,11 @@ export default {
             }
           },
           grid: {
-            right:"5%",
-            top:"7%",
-            height:"80%",
-            left:"18%"
+            right: "0%",
+            height:"60%",
+            left:"17%"
           },
           series: seriesList
-          /*series:[
-            {
-              name:"Punch card",
-              type:'heatmap',
-              data:datasetWithFilters,
-              label:{
-                show:true,
-                fontSize:12,
-                fontFamily:'Microsoft YaHei',
-                fontWeight:"bold",
-              }
-            }
-          ]*/
         };
         GSWFourthMychart.setOption(GSWFourthOption);
       });
@@ -5717,152 +5658,9 @@ export default {
       GSWFourthOption && GSWFourthMychart.setOption(GSWFourthOption);
 
     },
-    GSWDrawPopulation(){
-      let GSWFifthChart = document.getElementById('GSWFifthImage');
-      let GSWFifthMychart = echarts.init(GSWFifthChart);
-      let GSWFifthOption;
-
-      let GSWFifthdata = [
-        [569250, 606340, 585856.36],
-        [525721, 569177, 545650.81],
-        [497218, 519347, 509380],
-        [491361, 529879, 514270.54],
-        [455745, 529809, 492684.81],
-        [452278, 480873, 463217],
-        [449470, 498810, 471698.18],
-        [405407, 450640, 425138.72],
-        [400724, 432855, 417899.54],
-        [327541, 378778, 351981.54],
-        [312774, 344285, 331261],
-        [298386, 344288, 315576.81],
-        [292174, 305496, 300111.36],
-        [277620, 320736, 298895.81],
-        [270939, 323443, 301092.18],
-        [222618, 239855, 230825.72],
-        [222391, 242387, 231100.54],
-        [219288, 230197, 224073.18],
-        [171274, 184287, 175820.63],
-        [111340, 116900, 114950.90],
-      ];
-// prettier-ignore
-      let cities = ['Glasgow', 'Sheffield', 'County Durham', 'Bradford', 'Manchester', 'Liverpool', 'City of Edinburgh', 'Bristol, City of', 'Kirklees', 'Barnet', 'Ealing', 'Coventry', 'Doncaster', 'Lambeth', 'Brent', 'Barnsley', 'Bexley', 'Oldham', 'Bath and North East Somerset','Angus'];
-      let barHeight = 500;
-      GSWFifthOption = {
-        color:["#00BFFF", "#191970"],
-        /*title: {
-          text: 'How expensive is it to rent an apartment in China?',
-          subtext: 'Data from https://www.numbeo.com'
-        },*/
-        legend: {
-          show: true,
-          bottom:"0%",
-          data: ['Range', 'Average'],
-          textStyle: {
-            fontSize:10,
-            fontFamily: 'Microsoft YaHei',
-            fontWeight: 'bold'
-          }
-        },
-        grid: {
-          top: "10%",
-          left:"0%",
-        },
-        angleAxis: {
-          type: 'category',
-          data: cities,
-          show:false,
-          axisLabel:{
-            fontSize:8,
-            fontFamily:'Microsoft YaHei',
-            fontWeight:'bold'
-          }
-        },
-        tooltip: {
-          show: true,
-          formatter: function (params) {
-            const id = params.dataIndex;
-            return (
-              cities[id] +
-              '<br>2005 population：' +
-              GSWFifthdata[id][0] +
-              '<br>2015 population：' +
-              GSWFifthdata[id][1] +
-              '<br>Average：' +
-              GSWFifthdata[id][2]
-            );
-          }
-        },
-        radiusAxis: {
-          min:"100000",
-          axisLabel:{
-            fontSize:8,
-            fontFamily:'Microsoft YaHei',
-            fontWeight:'bold'
-          }
-
-        },
-        polar: {},
-        series: [
-          {
-            type: 'bar',
-            itemStyle: {
-              color: 'transparent'
-            },
-            data: GSWFifthdata.map(function (d) {
-              return d[0];
-            }),
-            coordinateSystem: 'polar',
-            stack: 'Min Max',
-            silent: true
-          },
-          {
-            type: 'bar',
-            data: GSWFifthdata.map(function (d) {
-              return d[1] - d[0];
-            }),
-            coordinateSystem: 'polar',
-            name: 'Range',
-            stack: 'Min Max'
-          },
-          {
-            type: 'bar',
-            itemStyle: {
-              color: 'transparent'
-            },
-            data: GSWFifthdata.map(function (d) {
-              return d[2] - barHeight;
-            }),
-            coordinateSystem: 'polar',
-            stack: 'Average',
-            silent: true,
-            z: 10
-          },
-          {
-            type: 'bar',
-            data: GSWFifthdata.map(function (d) {
-              return barHeight * 2;
-            }),
-            coordinateSystem: 'polar',
-            name: 'Average',
-            stack: 'Average',
-            barGap: '-100%',
-            z: 10
-          }
-        ]
-      };
-
-      GSWFifthOption && GSWFifthMychart.setOption(GSWFifthOption);
-    },
-
-    GSWinitTableau() {
-      let containerDiv = document.getElementById("GSWSecondImage"),
-        url = "https://public.tableau.com/views/MaleandFemale_16368776788840/1_1?:language=zh-CN&publish=yes&:display_count=n&:origin=viz_share_link";
-
-
-      let viz = new tableau.Viz(containerDiv, url);
-    }
-
   },
+
+
   created()
   {
     // let urlAll = "http://localhost:8090/calendarData";
@@ -5883,8 +5681,6 @@ export default {
     this.drawVehicleTypeSunbrustGraphTY();
     this.TopLineOptionXK();
     this.GSWDrawGDP();
-    this.GSWDrawPopulation();
-    this.GSWinitTableau();
   },
   beforeRouteEnter(to, from, next) {
     document.querySelector('body').setAttribute('style','margin:0;padding:0')
@@ -5910,7 +5706,7 @@ export default {
   border:0px;
 }
 #headerImage{
-  background: url("../assets/VisualizationImages/background.jpg") no-repeat;
+  background: url("../assets/VisualizationImages/HeaderBackground.png") no-repeat;
   height: 100%;
   width: 100%;
   background-size: 100% 100%;
