@@ -3042,8 +3042,8 @@ export default {
     },
 
     TotalLineHeaderOptionXK() {
-      this.overview = this.$echarts.init(document.getElementById("totalLineChartOverviewHeaderDIVXK"));
-      this.overview.hideLoading();
+      this.overviewXK = this.$echarts.init(document.getElementById("totalLineChartOverviewHeaderDIVXK"));
+      this.overviewXK.hideLoading();
       const formatUtil = echarts.format;
 
       // this.overview.setOption(this.curBrandOption);
@@ -3053,7 +3053,7 @@ export default {
         //If query is success
         if (response.status == 200)
         {
-          //console.log(response.data[0])
+          console.log(response.data[0])
 
           const formatUtil = echarts.format;
           this.TotalLineOptionXK = {
@@ -3071,6 +3071,7 @@ export default {
                 axis: 'auto', // 指示器的坐标轴。
                 snap: true, // 坐标轴指示器是否自动吸附到点上
               },
+
               trigger: 'axis',
               formatter(params){
                 return  '<span style="display:inline-block; border-radius:20px;width:12px;height:12px;background-color:#3699F1 ">'+'</span>'+'   '+ '<span style="color:#1d5dc9; fontSize: 26;">'+ params[0].axisValue+'</span>'+'<br>'+
@@ -3079,11 +3080,13 @@ export default {
                   "Total Num of Casualties: "+'<span style="color:darkred;">'+params[0].data.num+'</span>'+'<br>'+
                   "Three Accident Injury Level-- "+'<br>'+
                   "Fatal: "+'<span style="color:darkred;">'+params[0].data.fatal+'</span>'+'<br>'+
-                  "Serious: "+'<span style="color:darkred;">'+params[0].data.serious+'</span><br>' +
-                  "Slight: "+'<span style="color:darkred;">'+params[0].data.slight+'</span>'+'<br>';
-
+                  "Slight: "+'<span style="color:darkred;">'+params[0].data.slight+'</span>'+'<br>'+
+                  "Serious: "+'<span style="color:darkred;">'+params[0].data.serious+'</span>';
 
               }
+            },
+            legend: {
+              data: ['Total Num of Accident', 'Total Num of Casualties', ]
             },
             xAxis: [{
               type: 'category',
@@ -3113,7 +3116,7 @@ export default {
 
             yAxis: [{
               type: 'value',
-              min:120000,
+              min:90000,
               axisLabel: {
                 textStyle: {
                   fontSize:15,
@@ -3127,10 +3130,9 @@ export default {
             }],
             series: [
               {
-                name:'蒸发量',
+                name:'Total Num of Accident',
                 type: 'line',
                 smooth: true,
-
                 lineStyle:{
                   width:3,
                 },
@@ -3148,11 +3150,22 @@ export default {
 
                 ]
               },
+              {
+                name:'Total Num of Casualties',
+                type: 'line',
+                smooth: true,
+                lineStyle:{
+                  width:2,
+                  type:'dashed',
+                },
+                data: [271017,	258404,	247780,	230905,	222146,	208648,	203950,	195723,	183670,	194477,	186189]
+              },
+
             ]
           };
 
-          this.overview.clear();
-          this.overview.setOption(this.TotalLineOptionXK);
+          this.overviewXK.clear();
+          this.overviewXK.setOption(this.TotalLineOptionXK);
           // console.log(values);
 
         }
