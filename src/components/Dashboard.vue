@@ -4160,7 +4160,7 @@ export default {
                 yAxisIndex: 0,
                 data: this.accident_daily_XK[0],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#A8CD74'
 
@@ -4173,7 +4173,7 @@ export default {
                 yAxisIndex: 1,
                 data: this.accident_daily_XK[1],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#A8CD74'
 
@@ -4185,7 +4185,7 @@ export default {
                 yAxisIndex: 2,
                 data: this.accident_daily_XK[2],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#A8CD74'
               },
@@ -4196,7 +4196,7 @@ export default {
                 yAxisIndex: 3,
                 data: this.accident_daily_XK[3],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#A8CD74'
               },
@@ -4431,7 +4431,7 @@ export default {
                 yAxisIndex: 0,
                 data: this.accident_daily_XK[4],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#FFD047'
               },
@@ -4443,7 +4443,7 @@ export default {
                 yAxisIndex: 1,
                 data: this.accident_daily_XK[5],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#FFD047'
               },
@@ -4454,7 +4454,7 @@ export default {
                 yAxisIndex: 2,
                 data: this.accident_daily_XK[6],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#FFD047'
               },
@@ -4465,7 +4465,7 @@ export default {
                 yAxisIndex: 3,
                 data: this.accident_daily_XK[7],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#FFD047'
               },
@@ -4701,7 +4701,7 @@ export default {
                 yAxisIndex: 0,
                 data: this.accident_daily_XK[8],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#65CBFF'
               },
@@ -4713,7 +4713,7 @@ export default {
                 yAxisIndex: 1,
                 data: this.accident_daily_XK[9],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#65CBFF'
               },
@@ -4724,7 +4724,7 @@ export default {
                 yAxisIndex: 2,
                 data: this.accident_daily_XK[10],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#65CBFF'
               },
@@ -4735,7 +4735,7 @@ export default {
                 yAxisIndex: 3,
                 data: this.accident_daily_XK[11],
                 smooth: true,
-                stack: 'Total',
+
                 symbol: 'circle',
                 color : '#65CBFF'
               },
@@ -4974,7 +4974,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ1][0],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#A8CD74'
 
@@ -4986,7 +4986,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ2][0],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#42680F'
             },
@@ -4999,7 +4999,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ1][1],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#A8CD74'
 
@@ -5012,7 +5012,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ2][1],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#42680F'
 
@@ -5024,7 +5024,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ1][2],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#A8CD74'
             },
@@ -5035,7 +5035,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ2][2],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#42680F'
 
@@ -5047,7 +5047,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ1][3],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#A8CD74'
             },
@@ -5058,7 +5058,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ2][3],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#42680F'
             },
@@ -5269,7 +5269,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ1][4],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FFD047'
 
@@ -5281,7 +5281,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ2][4],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FF7E00'
             },
@@ -5294,7 +5294,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ1][5],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FFD047'
 
@@ -5307,7 +5307,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ2][5],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FF7E00'
 
@@ -5319,7 +5319,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ1][6],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FFD047'
             },
@@ -5330,7 +5330,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ2][6],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FF7E00'
 
@@ -5342,7 +5342,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ1][7],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FFD047'
             },
@@ -5353,7 +5353,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ2][7],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#FF7E00'
             },
@@ -5563,7 +5563,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ1][8],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#65CBFF'
 
@@ -5575,7 +5575,7 @@ export default {
               yAxisIndex: 0,
               data: this.allYearTimesDataXK[differ2][8],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#0056E6'
             },
@@ -5588,7 +5588,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ1][9],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#65CBFF'
 
@@ -5601,7 +5601,7 @@ export default {
               yAxisIndex: 1,
               data: this.allYearTimesDataXK[differ2][9],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#0056E6'
 
@@ -5613,7 +5613,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ1][10],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#65CBFF'
             },
@@ -5624,7 +5624,7 @@ export default {
               yAxisIndex: 2,
               data: this.allYearTimesDataXK[differ2][10],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#0056E6'
 
@@ -5636,7 +5636,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ1][11],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#65CBFF'
             },
@@ -5647,7 +5647,7 @@ export default {
               yAxisIndex: 3,
               data: this.allYearTimesDataXK[differ2][11],
               smooth: true,
-              stack: 'Total',
+
               symbol: 'circle',
               color : '#0056E6'
             },
