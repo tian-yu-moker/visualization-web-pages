@@ -1,30 +1,66 @@
-# my-project
+# Visualization of UK Traffic Accidents
 
-> A Vue.js project
+> COMP7507 Project, presented by group 7: Tian Yu, Gao Shiwei, Xing Ke
 
-## Build Setup
-
+## Web page introduction
+### Header page
+Introduction of basic feature of the project
+### Prject overview
+Dataset introduction, visualization methods and element usgae introdtion. Overview trend of accidents over 11 years.
+### Map visualization
+A UK map to show the accidents distributionn over geographic location across from the UK.
+#### Interactions provided:
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+Zoom in / out
+Download, edit data
+Hover the map elements
+Heatmap (left bar) dragging
+Silder: time period selection
+Bar chart switch: check the rank of selected period
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Calendar visualization
+#### A calendar system including daily accidents, light conditions, road surface condtions and weather conditions
+#### Interactions provided:
+``` bash
+Date selection: left box
+Mode selection: right box
+Hover events: all charts
+Pie chart element selection: using the tag below the calendar
+```
+### Score rings visualization
+A score ring of minium value 1000, maximun value 1600. To show how the factors (light conditions, road surface condtions and weather conditions) affect accidents
+#### Interactions provided:
+``` bash
+Hover events: all charts
+```
+### Dynamic relations between GDP, population & accidents
+A dynamic chart based on accidents, GDP and population in typical cities.
+#### Interactions provided:
+``` bash
+Hover events: all charts
+Pause / Start: scatter
+Select year: scatter
+```
+### Explorative information visualization
+Some interesting and explorative information
+#### Interactions provided:
+``` bash
+Hover events: all charts
+Cartisian heatmap: dragging heatmap bar
+Line matrix: select two years
+```
+### Vehicle information visualization
+Vehicle information & type in accidents
+#### Interactions provided:
+``` bash
+Hover events: all charts
+Trreemap: click to show ten years line chart
+Button: swith chart mode
+Select box: select a year, show top 10 accident brands
+Click white space: back to treemap
+Sun burst: click on paeeent type, so the inheritant relationship
+```
+### About us
+#### Project summarize
+#### Demo & report line
+#### Group members
