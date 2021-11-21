@@ -276,8 +276,8 @@
                                 @change="monChangeCalendarTY" value-format="yyyy-MM">
                 </el-date-picker>
               </el-col>
-              <el-col :span="4">&nbsp;&nbsp;&nbsp;</el-col>
-              <el-col :span="10" align="right">
+              <el-col :span="5"><div id="cal_title"></div></el-col>
+              <el-col :span="9" align="right">
                 <el-select v-model="selectModeInCalendarsTY" placeholder="Select a mode" size="medium" @change="modeChangeCalendarTY">
                   <el-option
                     v-for="item in allModesInCalendarTY"
@@ -302,7 +302,7 @@
                           calendarRightDescriptionLogoUrl + '.png')">
                   </el-image>
                 </el-col>
-                <el-col :span="4">&nbsp;&nbsp;&nbsp;</el-col>
+                <el-col :span="4">&nbsp;</el-col>
                 <el-col :span="12">
                   <div id="calendarRightPanelDescriptionTY" align="left"></div>
                 </el-col>
@@ -2774,9 +2774,11 @@ export default {
     loadCalendarRightDescriptionTY()
     {
       let div = document.getElementById("calendarRightPanelDescriptionTY");
+      let title = document.getElementById("cal_title");
       if(this.selectModeInCalendarsTY == "Daily Accident")
       {
         this.calendarRightDescriptionLogoUrl = 'statis logo';
+        title.innerHTML = '<span style="font-weight: bolder; font-size: 13px;">Daily Accidents <br></span>'
         div.innerHTML = '<span style="font-weight: bolder; font-size: 17px;">Daily accidents statistics<br></span>' +
           '<i class="el-icon-aim" style="font-size: 15px;margin-top: 15px"><span style="font-style: italic"> Daily visualization<br></span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Group: monthly & weeks</span></i>' +
@@ -2789,19 +2791,20 @@ export default {
       if(this.selectModeInCalendarsTY == "Light Condition")
       {
         this.calendarRightDescriptionLogoUrl = 'light logo';
+        title.innerHTML = '<span style="font-weight: bolder; font-size: 12px;">Light Conditions <br></span>'
         div.innerHTML = '<span style="font-weight: bolder; font-size: 17px;">Light conditions statistics<br></span>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Group: three conditions</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Daylight: in daytime</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Weaklight: darkness time</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Nolight: without light</span></i>' +
-          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Normally, people trends to go out in daytime, </span><span style="color: darkred"> so the number of daylight is larger.' +
-          '</span></i>'
+          '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> In winter months, the weak light and no light conditions take up larger rate than summer.</span></i>'
 
         ;
       }
       if(this.selectModeInCalendarsTY == "Road Surface")
       {
         this.calendarRightDescriptionLogoUrl = 'road logo';
+        title.innerHTML = '<span style="font-weight: bolder; font-size: 13px;">Road Surface <br></span>'
         div.innerHTML = '<span style="font-weight: bolder; font-size: 17px;">Road conditions statistics<br></span>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Colors: related to road condition level</span></i>' +
           '<i class="el-icon-circle-check" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Dry: normal condition</span></i>' +
@@ -2816,6 +2819,7 @@ export default {
       if(this.selectModeInCalendarsTY == "Weather Condition")
       {
         this.calendarRightDescriptionLogoUrl = 'weather logo';
+        title.innerHTML = '<span style="font-weight: bolder; font-size: 13px;">Weather Condition<br></span>'
         div.innerHTML = '<span style="font-weight: bolder; font-size: 17px;">Weather conditions<br></span>' +
           '<i class="el-icon-sunny" style="font-size: 15px;margin-top: 5px"><span style="font-style: italic"> Fine: good weather</span></i>' +
           '<i class="el-icon-heavy-rain" style="font-size: 15px;margin-top: 2px"><span style="font-style: italic"> Rain: noraml rain</span></i>' +
