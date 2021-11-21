@@ -153,10 +153,11 @@ export default {
                 inRange: {
                   color: (function () {
                     // prettier-ignore
-                    let colors = ['#51689b', '#ce5c5c', '#fbc357', '#8fbf8f', '#659d84',
-                      '#fb8e6a', '#c77288', '#786090', '#91c4c5',
-                      '#6890ba','#DB7093','#00BFFF','#F4A460',
-                    '#2E8B57','#90EE90','#F0E68C','#FF6347'];
+                    let colors = ['#87CEEB', '#FFEFD5', '#FF8C00', '#FF0000',
+                      '#659d84', '#D2691E', '#A0522D', '#FFC0CB',
+                      '#9932CC', '#FFA500','#9400D3','#90EE90',
+                      '#8B008B', '#800080','#A9A9A9','#00FA9A',
+                      '#00BFFF','#BA55D3','#FFB6C1','#FFFF00'];
                     return colors.concat(colors);
                   })()
                 }

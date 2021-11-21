@@ -22,7 +22,12 @@ export default {
       axios.get("http://localhost:8090/GDP").then(response=>
       {
         let _rawData=response.data;
-
+        let color=['#87CEEB', '#FFEFD5', '#FF8C00', '#FF0000',
+          '#659d84', '#D2691E', '#A0522D', '#FFC0CB',
+          '#9932CC', '#FFA500', '#9400D3', '#90EE90',
+          '#8B008B', '#800080', '#A9A9A9', '#00FA9A',
+          '#00BFFF', '#BA55D3', '#FFB6C1', '#FFFF00'];
+        let j=0;
         let countries = [
           'Manchester',
           'Glasgow City',
@@ -89,6 +94,18 @@ export default {
               itemName: 'Year',
               tooltip: ['Income'],
 
+            },
+            itemStyle: {
+              normal: {
+                lineStyle: {
+                  color: function(params){
+                    if(j==20)
+                    j--;
+                    console.log(color[j]);
+                    return color[j++];
+                  }
+                }
+              }
             }
           });
         });

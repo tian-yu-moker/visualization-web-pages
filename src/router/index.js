@@ -10,6 +10,7 @@ import Dashboard from '../components/Dashboard'
 import gaoShiweiFourth from '../components/gaoShiweiFourth'
 import gaoShiweiFifth from '../components/gaoShiweiFifth'
 import LineChart from '../components/LineChart'
+import gaoShiweiSIXTH from '../components/gaoShiweiSIXTH'
 
 Vue.use(Router)
 
@@ -18,7 +19,7 @@ export default new Router({
     {
       path: '/',
       name: 'Homepage',
-      component: Dashboard,
+      component:Dashboard,
       meta:{
         title: 'Homepage',
         keepAlive: false
